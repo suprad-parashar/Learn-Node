@@ -2,7 +2,6 @@
 const express = require("express");
 const firebase = require("firebase");
 const firebaseApp = require("firebase/app");
-const firebaseAuth = require("firebase/auth");
 const app = express();
 
 //Firebase Config
@@ -28,8 +27,10 @@ app.use(express.urlencoded({extended: true}));
 
 //Routes
 app.get("/", (request, response) => {
-    // response.send("<h1>hELLO</h1>");
-    response.sendFile("./views/html/home.html", {root: __dirname});
+    if (firebase.auth().currentUser == null)
+        response.sendFile("./views/html/home.html", {root: __dirname});
+    else
+        response.redirect("/home");
 });
 
 app.get("/about", (request, response) => {
@@ -48,10 +49,31 @@ app.post("/login", (request, response) => {
     let email = request.body.email;
     let password = request.body.password;
     firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(user => {
-            response.send("<h1>" + user.displayName + "</h1>");
+        .then(r => {
+            let user = firebase.auth().currentUser;
+            if (user == null)
+                response.send("<h1>NULL</h1>");
+            else
+                response.redirect("/home");
         })
         .catch(error => {
             response.send("<h1>Invalid</h1>");
         })
+})
+
+app.get("/login/google", (request, response) => {
+    let provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+        let user = result.user;
+        if (user == null)
+            response.send("<h1>NULL</h1>");
+        else
+            response.redirect("/home");
+    }).catch(function(error) {
+        response.send("<h1>"+ error.message +"</h1>");
+    });
+})
+
+app.get("/home", (request, response) => {
+    response.send("<h1>HOME</h1>");
 })
