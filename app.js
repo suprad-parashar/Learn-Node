@@ -20,6 +20,10 @@ app.get("/about", (request, response) => {
     response.send("<h1>Sandeep</h1>");
 });
 
-app.get("/about-me", (request, response) => {
-    response.redirect("/about");
+app.get("/login", (request, response) => {
+    response.sendFile("./views/html/login.html", {root: __dirname})
+})
+
+app.get("/signup", (request, response) => {
+    response.sendFile("./views/html/signup.html", {root: __dirname})
 })
