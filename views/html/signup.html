@@ -7,10 +7,10 @@
     <title>Sign Up</title>
 
     <!-- Font Icon -->
-    <link rel="stylesheet" href="views/fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="views/auth/fonts/material-icon/css/material-design-iconic-font.min.css">
 
     <!-- Main css -->
-    <link rel="stylesheet" href="views/css/style-auth.css">
+    <link rel="stylesheet" href="views/auth/css/style.css">
 </head>
 <body>
 
@@ -49,7 +49,7 @@
                     </form>
                 </div>
                 <div class="signup-image">
-                    <figure><img src="assets/img/signup-image.jpg" alt="sing up image"></figure>
+                    <figure><img src="views/auth/images/signup-image.jpg" alt="sing up image"></figure>
                     <a href="/login" class="signup-image-link">I am already member</a>
                 </div>
             </div>
@@ -57,8 +57,6 @@
     </section>
 </div>
 <script>
-    import * as $ from "express";
-
     function validatePassword() {
         let password = document.getElementById("pass").value;
         let re_pass = document.getElementById("re_pass").value;
@@ -108,7 +106,7 @@
     }
 </script>
 <!-- JS -->
-<script src="views/vendor/jquery/jquery.min.js"></script>
-<script src="views/js/main-auth.js"></script>
+<script src="views/auth/vendor/jquery/jquery.min.js"></script>
+<script src="views/auth/js/main.js"></script>
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>
