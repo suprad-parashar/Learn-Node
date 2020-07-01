@@ -38,11 +38,6 @@
                             <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"
                                    required/>
                         </div>
-                        <!--                        <div class="form-group">-->
-                        <!--                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"/>-->
-                        <!--                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all-->
-                        <!--                                statements in <a href="#" class="term-service">Terms of service</a></label>-->
-                        <!--                        </div>-->
                         <div class="form-group form-button">
                             <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                         </div>
@@ -58,19 +53,15 @@
 </div>
 <script>
     function validatePassword() {
+        let form = document.getElementById("register-form");
         let password = document.getElementById("pass").value;
         let re_pass = document.getElementById("re_pass").value;
         if (password === re_pass) {
             if (password.length < 8) {
                 alert('Password must contain 8 character');
             } else {
-                let islengthy = false;
-                if (password.length >= 8) {
-                    islengthy = true;
-                }
                 let upperCase = false;
                 let lowerCase = false;
-                let special = false;
                 let number = /\d/.test(password);
                 let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
                 let hasSpecialCharacter = format.test(password);
@@ -81,6 +72,10 @@
                         upperCase = true;
                     }
                 }
+                console.log(number);
+                console.log(lowerCase);
+                console.log(upperCase);
+                console.log(hasSpecialCharacter);
                 if (!lowerCase) {
                     alert('Password must contain at least 1 Lowercase character');
                 } else if (!upperCase) {
@@ -90,14 +85,9 @@
                 } else if (!hasSpecialCharacter) {
                     alert('Password must contain at least 1 Special character');
                 } else {
-                    //Redirect to Post Method for creation of account.
-
-                    // ('/signup',{
-                    //     name: "ajsd",
-                    //     email: "nandavarmukund1999@gmail.com",
-                    //     pass :'1234'
-                    // })
-                    // // window.location.href('/signup');
+                    form.method = "POST";
+                    form.action = "/signup";
+                    form.submit();
                 }
             }
         } else {
