@@ -17,7 +17,7 @@ app.get("/", (request, response) => {
 });
 
 app.get("/about", (request, response) => {
-    response.send("<h1>Sandeep</h1>");
+    response.sendFile("./views/html/about.html", {root: __dirname});
 });
 
 app.get("/login", (request, response) => {
