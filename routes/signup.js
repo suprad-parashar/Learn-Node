@@ -55,29 +55,5 @@ router.post("/", (request, response) => {
     });
 })
 
-//
-//     firebase.auth().createUserWithEmailAndPassword(email, pass).then(() => {
-//         let user = firebase.auth().currentUser;
-//         database.ref().child("users").child(user.uid).child("data").set({
-//             points: 100,
-//             moderator: false,
-//             type: "Student"
-//         });
-//         user.updateProfile({
-//             displayName: name
-//         });
-//         user.sendEmailVerification().then(() => {
-//             console.log('Verification Mail Has been sent Please Verify Before you login.');
-//             window.location.replace('/login');
-//         }).catch(error => {
-//             console.log("Error Sending Verification Email");
-//             console.log(error.message);
-//         });
-//         firebase.auth().signOut();
-//     }).catch(error => {
-//         response.send("<h1>Email Already Exists!</h1>");
-//     });
-// });
-
 //Export Router.
 module.exports = router;

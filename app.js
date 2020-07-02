@@ -7,11 +7,12 @@ const app = express();
 //Import Routes
 const loginRoutes = require("./routes/login");
 const signUpRoutes = require("./routes/signup");
+const dashboardRoutes = require("./routes/dashboard");
 
 //App Related Stuff
 app.listen(3000);
 app.use(express.urlencoded({extended: true}))
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 //Static data and Assets
 app.use("/assets", express.static("assets"))
@@ -35,6 +36,9 @@ app.use("/login", loginRoutes);
 
 //Signup Page
 app.use("/signup", signUpRoutes);
+
+//Dashboard
+app.use('/dashboard', dashboardRoutes);
 
 //Home Page (Dashboard)
 app.get("/home", (request, response) => {

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="views/auth/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="views/auth/css/style.css">
+</head>
+<body>
+<div class="main">
+    <section class="signup">
+        <div class="container">
+            <div class="signup-content">
+                <div class="signup-form">
+                    <h2 class="form-title">Dashboard</h2>
+                    <form class="register-form" id="register-form" action="">
+                        <div class="form-group">
+                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                            <input type="text" name="name" id="name" placeholder="Your Name" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><i class="zmdi zmdi-email"></i></label>
+                            <input type="email" name="email" id="email" placeholder="Your Email" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                            <input type="password" name="pass" id="pass" placeholder="Password" required/>
+                        </div>
+                        <div class="form-group">
+                            <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"
+                                   required/>
+                        </div>
+                        <div class="form-group form-button">
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-image">
+                    <figure><img src="views/auth/images/signup-image.jpg" alt="sing up image"></figure>
+                    <a href="/login" class="signup-image-link">I am already member</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    function validatePassword() {
+        let form = document.getElementById("register-form");
+        let password = document.getElementById("pass").value;
+        let re_pass = document.getElementById("re_pass").value;
+        if (password === re_pass) {
+            if (password.length < 8) {
+                alert('Password must contain 8 character');
+            } else {
+                let upperCase = false;
+                let lowerCase = false;
+                let number = /\d/.test(password);
+                let format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+                let hasSpecialCharacter = format.test(password);
+                for (let i = 0; i < password.length; i++) {
+                    if (password[i] === password[i].toLowerCase()) {
+                        lowerCase = true;
+                    } else if (password[i] === password[i].toUpperCase()) {
+                        upperCase = true;
+                    }
+                }
+                console.log(number);
+                console.log(lowerCase);
+                console.log(upperCase);
+                console.log(hasSpecialCharacter);
+                if (!lowerCase) {
+                    alert('Password must contain at least 1 Lowercase character');
+                } else if (!upperCase) {
+                    alert('Password must contain at least 1 Uppercase character');
+                } else if (!number) {
+                    alert('Password must contain at least 1 Number');
+                } else if (!hasSpecialCharacter) {
+                    alert('Password must contain at least 1 Special character');
+                } else {
+                    form.method = "POST";
+                    form.action = "/signup";
+                    form.submit();
+                }
+            }
+        } else {
+            alert("Password Mismatch");
+        }
+    }
+</script>
+<!-- JS -->
+<script src="views/auth/vendor/jquery/jquery.min.js"></script>
+<script src="views/auth/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
