@@ -1,13 +1,11 @@
 //Import Modules.
-const firebaseVariables = require("../firebase");
-const firebase = firebaseVariables.firebase;
-const database = firebaseVariables.database;
+const firebase = require("../firebase");
 const express = require("express");
 const path = require("path");
 //Create Router Object.
 const router = express.Router();
 
-//Main Signup Page (GET)
+//Dashboard
 router.get("/", (request, response) => {
     response.render(path.resolve('./views/html/dashboard'));
 });

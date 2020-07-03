@@ -24,6 +24,7 @@ router.post("/", (request, response) => {
     try {
         firebase.auth().createUserWithEmailAndPassword(email, pass).then(() => {
             let user = firebase.auth().currentUser;
+            let database = firebase.database();
             database.ref().child("users").child(user.uid).child("data").set({
                 points: 100,
                 moderator: false,

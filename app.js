@@ -1,7 +1,6 @@
 //Import Modules and Set References.
 const express = require("express");
-const firebaseVariables = require("./firebase");
-const firebase = firebaseVariables.firebase;
+const firebase = require("./firebase");
 const app = express();
 
 //Import Routes
@@ -40,7 +39,31 @@ app.use("/signup", signUpRoutes);
 //Dashboard
 app.use('/dashboard', dashboardRoutes);
 
+//Profile Page.
+app.get("/profile", (request, response) => {
+    checkAuth(response);
+    const user = firebase.auth().currentUser;
+    // imageURL.getDownloadURL().then(url => {
+    response.render("html/profile", {
+        name: user.displayName,
+        email: user.email
+        // profileImage: url
+    });
+    // }).catch(error => {
+    //     response.render("html/profile", {
+    //         name: user.displayName,
+    //         email: user.email,
+    //         profileImage: "#"
+    //     });
+    // });
+})
+
 //Home Page (Dashboard)
 app.get("/home", (request, response) => {
     response.send("<h1>HOME</h1>");
 })
+
+function checkAuth(response) {
+    if (firebase.auth().currentUser == null)
+        response.redirect("/login");
+}
