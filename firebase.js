@@ -1,6 +1,8 @@
 //Import Firebase Modules
 const firebase = require("firebase");
 const firebaseApp = require("firebase/app");
+require("firebase/database");
+require("firebase/storage");
 
 //Configure Firebase.
 const firebaseConfig = {
@@ -19,3 +21,5 @@ const storage = firebase.storage;
 
 //Export Firebase
 module.exports = {firebase, database, storage};
+
+

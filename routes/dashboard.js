@@ -8,7 +8,7 @@ const path = require("path");
 //Create Router Object.
 const router = express.Router();
 
-//Main Signup Page (GET)
+//Dashboard
 router.get("/", (request, response) => {
     let name = firebase.auth().currentUser.displayName;
     let imageUrl =
