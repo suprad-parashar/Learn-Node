@@ -23,7 +23,6 @@ router.post("/", (request, response) => {
 
     try {
         firebase.auth().createUserWithEmailAndPassword(email, pass).then(() => {
-            let database = firebase.database();
             let user = firebase.auth().currentUser;
             database.ref().child("users").child(user.uid).child("data").set({
                 points: 100,
@@ -49,11 +48,11 @@ router.post("/", (request, response) => {
         console.log(error.message);
     }
     firebase.auth().signOut().then(function () {
-        response.send("<h1>Success</h1>");
+        response.sendFile(path.resolve("./views/html/login.html"));
     }).catch(error => {
         response.send("<h1>Logout failed</h1>");
     });
-})
+});
 
 //Export Router.
 module.exports = router;
