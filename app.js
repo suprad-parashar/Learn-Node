@@ -43,19 +43,14 @@ app.use('/dashboard', dashboardRoutes);
 app.get("/profile", (request, response) => {
     checkAuth(response);
     const user = firebase.auth().currentUser;
-    // imageURL.getDownloadURL().then(url => {
-    response.render("html/profile", {
-        name: user.displayName,
-        email: user.email
-        // profileImage: url
+    const database = firebase.database();
+    database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
+        response.render("html/profile", {
+            name: user.displayName,
+            email: user.email,
+            institution: snapshot.child("institution").val()
+        });
     });
-    // }).catch(error => {
-    //     response.render("html/profile", {
-    //         name: user.displayName,
-    //         email: user.email,
-    //         profileImage: "#"
-    //     });
-    // });
 })
 
 //Home Page (Dashboard)
