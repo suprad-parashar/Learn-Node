@@ -20,6 +20,6 @@ const database = firebase.database;
 const storage = firebase.storage;
 
 //Export Firebase
-module.exports = {firebase, database, storage};
+module.exports = firebase;
 
 

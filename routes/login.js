@@ -20,7 +20,7 @@ router.post("/", (request, response) => {
         .then(r => {
             let user = firebase.auth().currentUser;
             if (user.emailVerified)
-                response.send("<h1>" + user.displayName + "</h1>");
+                response.redirect('/dashboard');
             else
                 response.send("<h1>Please Verify your email address.</h1>");
         })
@@ -37,7 +37,7 @@ router.get("/google", (request, response) => {
         if (user == null)
             response.send("<h1>NULL</h1>");
         else
-            response.redirect("/home");
+            response.redirect("/dashboard");
     }).catch(function (error) {
         response.send("<h1>" + error.message + "</h1>");
     });
