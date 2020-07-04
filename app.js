@@ -48,6 +48,8 @@ app.get("/profile", (request, response) => {
         response.render("html/profile", {
             name: user.displayName,
             email: user.email,
+            profilePic: "views/home/img/playstore.png",
+            activeName: "Profile",
             institution: snapshot.child("institution").val()
         });
     });

@@ -25,6 +25,7 @@ router.post("/", (request, response) => {
                 response.send("<h1>Please Verify your email address.</h1>");
         })
         .catch(error => {
+            console.log(error);
             response.send("<h1>Invalid Credentials</h1>");
         })
 });

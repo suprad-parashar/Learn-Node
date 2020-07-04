@@ -14,32 +14,38 @@ const storage = firebase.storage();
 //Dashboard
 router.get("/", (request, response) => {
     let user = firebase.auth().currentUser;
-    console.log(user.displayName);
+    // console.log(user.displayName);
     let userName = user.displayName;
-    let path = storage.ref().child('Profile Pictures').child('CvDqQf12tGP0Pgs6iZeMyqX3nNA3.jpg');
-    path.getDownloadURL().then(function (url) {
-        axios.get(url,{
-            responseType : 'blob',
-            method : 'GET',
-        }).then(function (res) {
-            response.render(path.resolve('./views/html/dashboard'), {
-                name: userName,
-                profilePic: res.data
-            });
-        }).catch(function (error) {
-            response.render(path.resolve('./views/html/dashboard'), {
-                name: userName,
-                profilePic: url
-            });
-            console.log(error.message);
-        })
-    }).catch(function (error) {
-        response.render(path.resolve('./views/html/dashboard'), {
-            name: userName,
-            profilePic: "views/home/img/playstore.png"
-        });
-        console.log(error.message);
-    })
+    // let path = storage.ref().child('Profile Pictures').child('CvDqQf12tGP0Pgs6iZeMyqX3nNA3.jpg');
+    response.render(path.resolve('./views/html/dashboard'), {
+        name: userName,
+        email: user.email,
+        activeName: "Dashboard",
+        profilePic: "views/home/img/playstore.png"
+    });
+    // path.getDownloadURL().then(function (url) {
+    //     axios.get(url,{
+    //         responseType : 'blob',
+    //         method : 'GET',
+    //     }).then(function (res) {
+    //         response.render(path.resolve('./views/html/dashboard'), {
+    //             name: userName,
+    //             profilePic: res.data
+    //         });
+    //     }).catch(function (error) {
+    //         response.render(path.resolve('./views/html/dashboard'), {
+    //             name: userName,
+    //             profilePic: url
+    //         });
+    //         console.log(error.message);
+    //     })
+    // }).catch(function (error) {
+    //     response.render(path.resolve('./views/html/dashboard'), {
+    //         name: userName,
+    //         profilePic: "views/home/img/playstore.png"
+    //     });
+    //     console.log(error.message);
+    // })
 });
 
 //Export Router.
