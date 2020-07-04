@@ -8,7 +8,6 @@ const router = express.Router();
 
 //Main Login Page (GET)
 router.get("/", (request, response) => {
-    console.log(__dirname);
     response.sendFile(path.resolve("./views/html/login.html"));
 });
 
@@ -16,6 +15,7 @@ router.get("/", (request, response) => {
 router.post("/", (request, response) => {
     let email = request.body.email;
     let password = request.body.password;
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.NONE);
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(r => {
             let user = firebase.auth().currentUser;

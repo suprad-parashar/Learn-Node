@@ -1,8 +1,7 @@
 //Import Firebase Modules
 const firebase = require("firebase");
-const firebaseApp = require("firebase/app");
-require("firebase/database");
-require("firebase/storage");
+require("firebase/database")
+require("firebase/storage")
 
 //Configure Firebase.
 const firebaseConfig = {
@@ -15,12 +14,7 @@ const firebaseConfig = {
     appId: "1:172846432484:web:d0ae995eeef4323f0fecf1",
     measurementId: "G-0W9LD4N2GM"
 };
-firebaseApp.initializeApp(firebaseConfig);
-// .then(() => {
-//     return firebase.auth().signInWithEmailAndPassword(email, password);
-// });
+firebase.initializeApp(firebaseConfig);
 
 //Export Firebase
 module.exports = firebase;
-
-

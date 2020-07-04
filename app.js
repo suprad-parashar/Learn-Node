@@ -44,11 +44,13 @@ app.get("/profile", (request, response) => {
     checkAuth(response);
     const user = firebase.auth().currentUser;
     const database = firebase.database();
+    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    const defaultPicURL = "views/home/img/playstore.png";
     database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
         response.render("html/profile", {
             name: user.displayName,
             email: user.email,
-            profilePic: "views/home/img/playstore.png",
+            profilePic: picURL,
             activeName: "Profile",
             institution: snapshot.child("institution").val()
         });
