@@ -7,6 +7,7 @@ const app = express();
 const loginRoutes = require("./routes/login");
 const signUpRoutes = require("./routes/signup");
 const dashboardRoutes = require("./routes/dashboard");
+const learnRoutes = require("./routes/learn");
 
 //App Related Stuff
 app.listen(3000);
@@ -38,6 +39,9 @@ app.use("/signup", signUpRoutes);
 
 //Dashboard
 app.use('/dashboard', dashboardRoutes);
+
+//Learn
+app.use('/learn', learnRoutes);
 
 //Profile Page.
 app.get("/profile", (request, response) => {

@@ -1,9 +1,6 @@
 //Import Modules.
 const firebase = require("../firebase");
 const express = require("express");
-const axios = require('axios').default;
-let Blob = require('blob');
-const XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 const path = require("path");
 
 //Create Router Object.
