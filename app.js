@@ -7,6 +7,7 @@ const app = express();
 const loginRoutes = require("./routes/login");
 const signUpRoutes = require("./routes/signup");
 const dashboardRoutes = require("./routes/dashboard");
+const profileRoutes = require("./routes/profile");
 const learnRoutes = require("./routes/learn");
 
 //App Related Stuff
@@ -40,26 +41,11 @@ app.use("/signup", signUpRoutes);
 //Dashboard
 app.use('/dashboard', dashboardRoutes);
 
+//Profile.
+app.use("/profile", profileRoutes);
+
 //Learn
 app.use('/learn', learnRoutes);
-
-//Profile Page.
-app.get("/profile", (request, response) => {
-    checkAuth(response);
-    const user = firebase.auth().currentUser;
-    const database = firebase.database();
-    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    const defaultPicURL = "views/home/img/playstore.png";
-    database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
-        response.render("html/profile", {
-            name: user.displayName,
-            email: user.email,
-            profilePic: picURL,
-            activeName: "Profile",
-            institution: snapshot.child("institution").val()
-        });
-    });
-})
 
 //Home Page (Dashboard)
 app.get("/home", (request, response) => {
