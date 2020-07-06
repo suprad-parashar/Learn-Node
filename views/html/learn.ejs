@@ -31,6 +31,10 @@
     <link href="views/dashboard/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
+    <!-- Filter CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link href="views/learn/css/filter.css" rel="stylesheet">
+
     <!-- CSS here -->
     <link rel="stylesheet" href="views/learn/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/learn/css/owl.carousel.min.css">
@@ -66,11 +70,76 @@
                         <div class="col-md-12">
                             <div class="overview-wrap">
                                 <h2 class="title-1">Learn</h2>
-                                <!--                                <button class="au-btn au-btn-icon au-btn&#45;&#45;blue">-->
-                                <!--                                    <i class="zmdi zmdi-plus"></i>add item-->
-                                <!--                                </button>-->
                             </div>
                         </div>
+                    </div>
+                    <div class="s007">
+                        <form method="get" action="/learn">
+                            <div class="inner-form">
+                                <div class="advance-search">
+                                    <span class="desc">Search</span>
+                                    <div class="row">
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">DOMAIN</option>
+                                                    <option>PLAY</option>
+                                                    <option>ENGINEERING</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">BRANCH</option>
+                                                    <option>ECE</option>
+                                                    <option>CSE</option>
+                                                    <option>ISE</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">COURSES</option>
+                                                    <option>SIZE</option>
+                                                    <option>SUBJECT B</option>
+                                                    <option>SUBJECT C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row second">
+                                        <div class="input-field" style="float: left">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">TECHNOLOGIES</option>
+                                                    <option>SALE</option>
+                                                    <option>SUBJECT B</option>
+                                                    <option>SUBJECT C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="input-field" style="float: left">
+                                            <div class="input-select">
+                                                <select data-trigger="" name="choices-single-defaul">
+                                                    <option placeholder="" value="">LANGUAGES</option>
+                                                    <option>THIS WEEK</option>
+                                                    <option>SUBJECT B</option>
+                                                    <option>SUBJECT C</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row third">
+                                        <div class="input-field">
+                                            <button class="btn-search">Search</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                     <!-- all-course Start -->
                     <section class="all-course section-padding30">

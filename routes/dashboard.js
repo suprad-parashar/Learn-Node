@@ -12,7 +12,6 @@ const storage = firebase.storage();
 //Dashboard
 router.get("/", (request, response) => {
     let user = firebase.auth().currentUser;
-    // console.log(user.displayName);
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
     const defaultPicURL = "views/home/img/playstore.png";

@@ -6,8 +6,8 @@ const path = require("path");
 //Create Router Object.
 const router = express.Router();
 
-// const database = firebase.database();
-// const storage = firebase.storage();
+const database = firebase.database();
+const storage = firebase.storage();
 
 router.get('/', (request, response) =>{
     let user = firebase.auth().currentUser;
