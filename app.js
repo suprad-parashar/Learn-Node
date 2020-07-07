@@ -47,12 +47,8 @@ app.use("/profile", profileRoutes);
 //Learn
 app.use('/learn', learnRoutes);
 
-//Home Page (Dashboard)
-app.get("/home", (request, response) => {
-    response.send("<h1>HOME</h1>");
-})
-
-function checkAuth(response) {
-    if (firebase.auth().currentUser == null)
-        response.redirect("/login");
-}
+//Logout
+app.get("/logout", (request, response) => {
+    firebase.auth().signOut();
+    response.redirect("/");
+});
