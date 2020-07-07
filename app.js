@@ -9,6 +9,7 @@ const signUpRoutes = require("./routes/signup");
 const dashboardRoutes = require("./routes/dashboard");
 const profileRoutes = require("./routes/profile");
 const learnRoutes = require("./routes/learn");
+const forgotPasswordRoutes = require("./routes/forgotPassword");
 
 //App Related Stuff
 app.listen(3000);
@@ -46,6 +47,9 @@ app.use("/profile", profileRoutes);
 
 //Learn
 app.use('/learn', learnRoutes);
+
+//Forgot Password
+app.use("/forgot", forgotPasswordRoutes);
 
 //Logout
 app.get("/logout", (request, response) => {
