@@ -1,6 +1,7 @@
 //Import Modules.
 const firebase = require("../firebase");
 const express = require("express");
+const helper = require("../helper");
 const path = require("path");
 
 //Create Router Object.
@@ -8,6 +9,11 @@ const router = express.Router();
 
 const database = firebase.database();
 const storage = firebase.storage();
+
+router.use((request, response, next) => {
+    helper.checkAuth(response);
+    next();
+});
 
 //Dashboard
 router.get("/", (request, response) => {

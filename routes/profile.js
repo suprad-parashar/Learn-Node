@@ -7,6 +7,11 @@ const helper = require("../helper");
 //Create Router Object.
 const router = express.Router();
 
+
+//Static data and Assets
+router.use("/assets", express.static("assets"));
+router.use("/views", express.static("views"));
+
 router.use((request, response, next) => {
     helper.checkAuth(response);
     next();
@@ -42,6 +47,60 @@ router.get("/edit", (request, response) => {
             activeName: "Profile",
             institution: snapshot.child("institution").val()
         });
+    });
+});
+
+router.post("/edit", (request, response) => {
+    let user = firebase.auth().currentUser;
+    let database = firebase.database();
+    let updatedName = request.body.name;
+    let updatedInstitution = request.body.institution;
+    user.updateProfile({
+        displayName: updatedName
+    }).catch(error => {
+        response.send("<h1>Firebase User Profile Cannot be updated</h1>");
+    });
+    database.ref().child("users").child(user.uid).child("data").update({
+        institution: updatedInstitution
+    }, a => {
+        if (a != null)
+            console.log(a);
+    });
+    response.redirect("/profile");
+});
+
+router.get("/password", (request, response) => {
+    const user = firebase.auth().currentUser;
+    const database = firebase.database();
+    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    const defaultPicURL = "views/home/img/playstore.png";
+    database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
+        response.render("html/changePassword", {
+            name: user.displayName,
+            email: user.email,
+            profilePic: picURL,
+            activeName: "Profile",
+            institution: snapshot.child("institution").val()
+        });
+    });
+});
+
+router.post("/password", (request, response) => {
+    const user = firebase.auth().currentUser;
+    let currentPassword = request.body.current;
+    let newPassword = request.body.new;
+    const credential = firebase.auth.EmailAuthProvider.credential(
+        user.email,
+        currentPassword
+    );
+    user.reauthenticateWithCredential(credential).then(function () {
+        user.updatePassword(newPassword).then(() => {
+            response.redirect("/profile");
+        }).catch((error) => {
+            response.send(error);
+        });
+    }).catch(function (error) {
+        response.send(error);
     });
 })
 

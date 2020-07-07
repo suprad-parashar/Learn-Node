@@ -2,12 +2,18 @@
 const firebase = require("../firebase");
 const express = require("express");
 const path = require("path");
+const helper = require("../helper");
 
 //Create Router Object.
 const router = express.Router();
 
 const database = firebase.database();
 const storage = firebase.storage();
+
+router.use((request, response, next) => {
+    helper.checkAuth(response);
+    next();
+});
 
 router.get('/', (request, response) =>{
     let user = firebase.auth().currentUser;
