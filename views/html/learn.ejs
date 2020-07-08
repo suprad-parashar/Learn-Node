@@ -92,9 +92,9 @@
                                                 <select data-trigger="" name="choices-single-defaul">
                                                     <script>
                                                         let domainSelected = document.getElementById("Domain").val;
-                                                        //Check Here...
-                                                        let x = "<%=filter%>";
-                                                        console.log(x);
+                                                        let x = JSON.parse(JSON.stringify(<%-JSON.stringify(filter)%>));
+                                                        let branch = x.domainSelected;
+
                                                     </script>
                                                 </select>
                                             </div>

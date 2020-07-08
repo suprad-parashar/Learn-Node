@@ -3,7 +3,6 @@ const firebase = require("../firebase");
 const express = require("express");
 const path = require("path");
 const helper = require("../helper");
-let List = require("collections/list");
 
 //Create Router Object.
 const router = express.Router();
