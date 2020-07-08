@@ -61,7 +61,6 @@
     <div class="page-container">
         <!-- Include Dashboard Header -->
         <%- include("../partials/dashboard_header.ejs") %>
-
         <!-- MAIN CONTENT-->
         <div class="main-content">
             <div class="section__content section__content--p30">
@@ -77,24 +76,26 @@
                         <form method="get" action="/learn">
                             <div class="inner-form">
                                 <div class="advance-search">
-                                    <span class="desc">Search</span>
+                                    <span class="desc">Learn Filter</span>
                                     <div class="row">
                                         <div class="input-field">
                                             <div class="input-select">
-                                                <select data-trigger="" name="choices-single-defaul">
-                                                    <option placeholder="" value="">DOMAIN</option>
-                                                    <option>PLAY</option>
-                                                    <option>ENGINEERING</option>
+                                                <select data-trigger="" name="choices-single-defaul" id="Domain">
+                                                    <% for(let i = 0;i < domain.length;i++){ %>
+                                                        <option value="<%= domain[i] %>"><%= domain[i] %></option>
+                                                    <% } %>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="input-field">
                                             <div class="input-select">
                                                 <select data-trigger="" name="choices-single-defaul">
-                                                    <option placeholder="" value="">BRANCH</option>
-                                                    <option>ECE</option>
-                                                    <option>CSE</option>
-                                                    <option>ISE</option>
+                                                    <script>
+                                                        let domainSelected = document.getElementById("Domain").val;
+                                                        //Check Here...
+                                                        let x = "<%=filter%>";
+                                                        console.log(x);
+                                                    </script>
                                                 </select>
                                             </div>
                                         </div>
@@ -123,10 +124,10 @@
                                         <div class="input-field" style="float: left">
                                             <div class="input-select">
                                                 <select data-trigger="" name="choices-single-defaul">
-                                                    <option placeholder="" value="">LANGUAGES</option>
-                                                    <option>THIS WEEK</option>
-                                                    <option>SUBJECT B</option>
-                                                    <option>SUBJECT C</option>
+                                                    <!--                                                    <option placeholder="" value="">LANGUAGES</option>-->
+                                                    <!--                                                    <option>THIS WEEK</option>-->
+                                                    <!--                                                    <option>SUBJECT B</option>-->
+                                                    <!--                                                    <option>SUBJECT C</option>-->
                                                 </select>
                                             </div>
                                         </div>
