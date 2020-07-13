@@ -17,7 +17,6 @@
     <link href="views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-    =
     <link href="views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
           media="all">
@@ -43,13 +42,13 @@
                 <div class="container-fluid">
                     <div class="col-lg-12">
                         <div class="au-card">
-                            <div class="account2">
-                                <div class="image img-cir img-200">
-                                    <img src="<%= profilePic %>" alt="<%= name %>"/>
-                                </div>
-                            </div>
                             <div class="card-body card-block">
                                 <form method="post" action="/profile/edit">
+                                    <div class="account2">
+                                        <div class="image img-cir img-200" id="profile-image">
+                                            <img src="<%= profilePic %>" alt="<%= name %>"/>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="name" class=" form-control-label">Name</label>
                                         <input type="text" id="name" placeholder="Full Name" value="<%= name %>"
@@ -72,6 +71,12 @@
     </div>
 </div>
 
+<script>
+    $('#profile-image').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+</script>
+
 <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -86,5 +91,3 @@
 <script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="views/dashboard/vendor/select2/select2.min.js"></script>
 <script src="views/dashboard/js/main.js"></script>
-
-<
