@@ -15,6 +15,10 @@ router.use((request, response, next) => {
     next();
 });
 
+//Static data and Assets
+router.use("/assets", express.static("assets"));
+router.use("/views", express.static("views"));
+
 router.get('/', (request, response) =>{
     let user = firebase.auth().currentUser;
     let userName = user.displayName;
