@@ -44,6 +44,36 @@ router.get('/', (request, response) =>{
     });
 });
 
+router.get("/:domain/:branch", (request, response) => {
+    const domainName = request.params.domain;
+    const branchName = request.params.branch;
+    console.log("Course" + domainName);
+    let user = firebase.auth().currentUser;
+    let userName = user.displayName;
+    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    const defaultPicURL = "views/home/img/playstore.png";
+    let domains = [];
+    let dict = {};
+    database.ref().child("domain").child(domainName).child(branchName).once('value').then(function (snapshot) {
+        snapshot.forEach( function (domainSnapshot) {
+            domains.push(domainSnapshot.key);
+            dict[domainSnapshot.key] = domainSnapshot.val();
+        })
+        response.render(path.resolve('./views/html/coursesList'), {
+            name: userName,
+            email: user.email,
+            activeName: "Learn",
+            domainName: domainName,
+            branchName: branchName,
+            profilePic: picURL,
+            filter : snapshot,
+            domain : domains,
+        });
+    }).catch(function (error) {
+        console.log(error.message);
+    });
+});
+
 router.get("/:domain", (request, response) => {
     const domainName = request.params.domain;
     let user = firebase.auth().currentUser;
@@ -70,6 +100,9 @@ router.get("/:domain", (request, response) => {
         console.log(error.message);
     });
 });
+//Static data and Assets
+router.use("/assets", express.static("assets"));
+router.use("/views", express.static("views"));
 
 //Export Router.
 module.exports = router;

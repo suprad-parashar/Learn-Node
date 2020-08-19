@@ -94,73 +94,6 @@
                             <% i += 1 %>
                         <% } %>
                     <% }); %>
-                    <!--                    <div class="s007">-->
-                    <!--                        <form method="get" action="/learn">-->
-                    <!--                            <div class="inner-form">-->
-                    <!--                                <div class="advance-search">-->
-                    <!--                                    <span class="desc">Learn Filter</span>-->
-                    <!--                                    <div class="row">-->
-                    <!--                                        <div class="input-field">-->
-                    <!--                                            <div class="input-select">-->
-                    <!--                                                <select data-trigger="" name="domain" id="Domain">-->
-                    <!--                                                    <% filter.forEach(childSnapshot => { %>-->
-                    <!--                                                        <option value="<%= childSnapshot.key %>"><%= childSnapshot.key %></option>-->
-                    <!--                                                    <% }) %>-->
-                    <!--                                                </select>-->
-                    <!--                                            </div>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="input-field">-->
-                    <!--                                            <div class="input-select">-->
-                    <!--                                                <select data-trigger="" name="branch" id="Branch">-->
-                    <!--                                                    <% filter.child("Engineering").forEach(childSnapshot => { %>-->
-                    <!--                                                        <option value="<%= childSnapshot.key %>"><%= childSnapshot.key %></option>-->
-                    <!--                                                    <% }) %>-->
-                    <!--                                                </select>-->
-                    <!--                                            </div>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="input-field">-->
-                    <!--                                            <div class="input-select">-->
-                    <!--                                                <select data-trigger="" name="choices-single-defaul">-->
-                    <!--                                                    <option placeholder="" value="">COURSES</option>-->
-                    <!--                                                    <option>SIZE</option>-->
-                    <!--                                                    <option>SUBJECT B</option>-->
-                    <!--                                                    <option>SUBJECT C</option>-->
-                    <!--                                                </select>-->
-                    <!--                                            </div>-->
-                    <!--                                        </div>-->
-                    <!--                                    </div>-->
-                    <!--                                    <div class="row second">-->
-                    <!--                                        <div class="input-field" style="float: left">-->
-                    <!--                                            <div class="input-select">-->
-                    <!--                                                <select data-trigger="" name="choices-single-defaul">-->
-                    <!--                                                    <option placeholder="" value="">TECHNOLOGIES</option>-->
-                    <!--                                                    <option>SALE</option>-->
-                    <!--                                                    <option>SUBJECT B</option>-->
-                    <!--                                                    <option>SUBJECT C</option>-->
-                    <!--                                                </select>-->
-                    <!--                                            </div>-->
-                    <!--                                        </div>-->
-                    <!--                                        <div class="input-field" style="float: left">-->
-                    <!--                                            <div class="input-select">-->
-                    <!--                                                <select data-trigger="" name="choices-single-defaul">-->
-                    <!--                                                    &lt;!&ndash;                                                    <option placeholder="" value="">LANGUAGES</option>&ndash;&gt;-->
-                    <!--                                                    &lt;!&ndash;                                                    <option>THIS WEEK</option>&ndash;&gt;-->
-                    <!--                                                    &lt;!&ndash;                                                    <option>SUBJECT B</option>&ndash;&gt;-->
-                    <!--                                                    &lt;!&ndash;                                                    <option>SUBJECT C</option>&ndash;&gt;-->
-                    <!--                                                </select>-->
-                    <!--                                            </div>-->
-                    <!--                                        </div>-->
-                    <!--                                    </div>-->
-
-                    <!--                                    <div class="row third">-->
-                    <!--                                        <div class="input-field">-->
-                    <!--                                            <button class="btn-search">Search</button>-->
-                    <!--                                        </div>-->
-                    <!--                                    </div>-->
-                    <!--                                </div>-->
-                    <!--                            </div>-->
-                    <!--                        </form>-->
-                    <!--                    </div>-->
                     <!-- all-course Start -->
                     <section class="all-course section-padding30">
                         <div class="container">
@@ -189,6 +122,25 @@
                                                         <a class="nav-item nav-link" id="nav-Sports" data-toggle="tab"
                                                            href="#nav-nav-Sport" role="tab" aria-controls="nav-contact"
                                                            aria-selected="false">Project</a>
+                                                    </div>
+                                                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                        <a class="nav-item nav-link" id="nav-home-tab"
+                                                           data-toggle="tab" href="#nav-home" role="tab"
+                                                           aria-controls="nav-home" aria-selected="true">ihvufshiuh</a>
+                                                        <a class="nav-item nav-link" id="nav-last-tab"
+                                                           data-toggle="tab" href="#nav-home" role="tab"
+                                                           aria-controls="nav-home" aria-selected="true">vfdiuh</a>
+                                                        <a class="nav-item nav-link active" id="nav-contact-tab"
+                                                           data-toggle="tab" href="#nav-home" role="tab"
+                                                           aria-controls="nav-home" aria-selected="true">wertyui</a>
+                                                        <% filter.child("Computer Science and Engineering").forEach(child => { %>
+                                                            <% console.log("KEY " + child.key) %>
+                                                            <% if (child.key !== "image") { %>
+                                                                <a class="nav-item nav-link active" id="nav-home-tab"
+                                                                   data-toggle="tab" href="#nav-home" role="tab"
+                                                                   aria-controls="nav-home" aria-selected="true"><% child.key %></a>
+                                                            <% } %>
+                                                        <% }); %>
                                                     </div>
                                                 </nav>
                                                 <!--End Nav Button  -->
