@@ -110,27 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <% let x = true; %>
-                    <% filter.forEach(child => { %>
-                        <% if (child.key !== "image") { %>
-                            <% if (x) { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')" id="defaultOpen"><%= child.key %></button>
-                                <% x = false; %>
-                            <% } else { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')"><%= child.key %></button>
-                            <% } %>
-                            <div id="<%= child.key %>" class="tabcontent">
-                                <% child.forEach(resource => { %>
-                                    <% if (child.key !== "Videos") { %>
-                                        <a href="<%= resource.child("link").val() %>" target="_blank"><h3><%= resource.child("name").val() %></h3></a>
-                                    <% } else { %>
-                                        <a href="<%= course %>/video/<%= resource.key %>"><h3><%= resource.child("name").val() %></h3></a>
-                                    <% } %>
-                                    <br>
-                                <% }) %>
-                            </div>
-                        <% } %>
-                    <% }) %>
+                    <iframe width="560" height="315" src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -221,6 +201,11 @@
 
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
+</script>
+<script>
+    function changeToEmbed(link) {
+        return link.replace("watch?v=", "embed/");
+    }
 </script>
 </body>
 
