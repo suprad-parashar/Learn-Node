@@ -27,7 +27,7 @@ router.post("/", (request, response) => {
         .catch(error => {
             console.log(error);
             response.send("<h1>Invalid Credentials</h1>");
-        })
+        });
 });
 
 //Google Sign In Auth Function Route.

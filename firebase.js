@@ -1,7 +1,7 @@
 //Import Firebase Modules
 const firebase = require("firebase");
-require("firebase/database")
-require("firebase/storage")
+require("firebase/database");
+require("firebase/storage");
 
 //Configure Firebase.
 const firebaseConfig = {

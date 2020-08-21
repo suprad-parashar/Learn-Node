@@ -20,7 +20,6 @@ router.post("/", (request, response) => {
     let pass = request.body.pass;
     console.log(name);
     console.log(email);
-
     try {
         firebase.auth().createUserWithEmailAndPassword(email, pass).then(() => {
             let user = firebase.auth().currentUser;

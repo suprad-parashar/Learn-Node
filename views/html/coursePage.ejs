@@ -8,72 +8,27 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
-    <style>
-        * {
-            box-sizing: border-box
-        }
+    <link rel="stylesheet" href="/views/learn/css/tabView.css">
 
-        /* Set height of body and the document to 100% */
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, serif;
-        }
-
-        /* Style tab links */
-        .tablink {
-            background-color: #555;
-            color: white;
-            float: left;
-            border: none;
-            outline: none;
-            cursor: pointer;
-            padding: 14px 16px;
-            font-size: 17px;
-            width: 25%;
-        }
-
-        .tablink:hover {
-            background-color: #777;
-        }
-
-        /* Style the tab content (and add height:100% for full page content) */
-        .tabcontent {
-            color: black;
-            display: none;
-            padding: 100px 20px;
-            height: 100%;
-        }
-    </style>
-
-    <!-- Title Page-->
+    <!-- Title -->
     <title>Learn</title>
 
-    <!-- Fontfaces CSS-->
+    <!-- CSS -->
     <link href="views/dashboard/css/font-face.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
     <link href="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-
-    <!-- Vendor CSS-->
     <link href="views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
-          media="all">
+    <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/slick/slick.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Filter CSS -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
     <link href="views/learn/css/filter.css" rel="stylesheet">
-
-    <!-- CSS here -->
     <link rel="stylesheet" href="views/learn/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/learn/css/owl.carousel.min.css">
     <link rel="stylesheet" href="views/learn/css/slicknav.css">
@@ -86,9 +41,7 @@
     <link rel="stylesheet" href="views/learn/css/slick.css">
     <link rel="stylesheet" href="views/learn/css/nice-select.css">
     <link rel="stylesheet" href="views/learn/css/style.css">
-    <!-- Main CSS-->
     <link href="views/dashboard/css/theme.css" rel="stylesheet" media="all">
-
 </head>
 
 <body class="animsition">
@@ -99,7 +52,6 @@
     <div class="page-container">
         <!-- Include Dashboard Header -->
         <%- include("../partials/dashboard_header.ejs") %>
-        <!-- MAIN CONTENT-->
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
@@ -137,6 +89,7 @@
     </div>
 </div>
 
+<!-- Scripts -->
 <script>
     let domains = document.getElementById("Domain");
     let branches = document.getElementById("Branch");
@@ -145,60 +98,35 @@
         console.log("<%= activeName %>");
     });
 </script>
-
-<!-- Jquery JS-->
 <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
-<!-- Bootstrap JS-->
 <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<!-- Vendor JS       -->
-<script src="views/dashboard/vendor/slick/slick.min.js">
-</script>
+<script src="views/dashboard/vendor/slick/slick.min.js"></script>
 <script src="views/dashboard/vendor/wow/wow.min.js"></script>
 <script src="views/dashboard/vendor/animsition/animsition.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-</script>
+<script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 <script src="views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js">
-</script>
+<script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
 <script src="views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
 <script src="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
 <script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="views/dashboard/vendor/select2/select2.min.js">
-</script>
-
-<!-- Main JS-->
+<script src="views/dashboard/vendor/select2/select2.min.js"></script>
 <script src="views/dashboard/js/main.js"></script>
-
-<!-- JS here -->
-
 <script src="views/learn/js/vendor/modernizr-3.5.0.min.js"></script>
-<!-- Jquery, Popper, Bootstrap -->
 <script src="views/learn/js/vendor/jquery-1.12.4.min.js"></script>
 <script src="views/learn/js/popper.min.js"></script>
 <script src="views/learn/js/bootstrap.min.js"></script>
-<!-- Jquery Mobile Menu -->
 <script src="views/learn/js/jquery.slicknav.min.js"></script>
-
-<!-- Jquery Slick , Owl-Carousel Plugins -->
 <script src="views/learn/js/owl.carousel.min.js"></script>
 <script src="views/learn/js/slick.min.js"></script>
-<!-- One Page, Animated-HeadLin -->
 <script src="views/learn/js/wow.min.js"></script>
 <script src="views/learn/js/animated.headline.js"></script>
 <script src="views/learn/js/jquery.magnific-popup.js"></script>
-
-<!-- Date Picker -->
 <script src="views/learn/js/gijgo.min.js"></script>
-<!-- Nice-select, sticky -->
 <script src="views/learn/js/jquery.nice-select.min.js"></script>
 <script src="views/learn/js/jquery.sticky.js"></script>
-
-<!-- counter , waypoint -->
 <script src="views/learn/js/jquery.counterup.min.js"></script>
 <script src="views/learn/js/waypoints.min.js"></script>
-
-<!-- contact js -->
 <script src="views/learn/js/contact.js"></script>
 <script src="views/learn/js/jquery.form.js"></script>
 <script src="views/learn/js/jquery.validate.min.js"></script>
@@ -222,7 +150,6 @@
     // Get the element with id="defaultOpen" and click on it
     document.getElementById("defaultOpen").click();
 </script>
-</body>
 
+</body>
 </html>
-<!-- end document-->

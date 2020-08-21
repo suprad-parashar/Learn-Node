@@ -1,7 +1,6 @@
 //Import Modules.
 const firebase = require("../firebase");
 const express = require("express");
-const path = require("path");
 const helper = require("../helper");
 
 //Create Router Object.
@@ -12,6 +11,7 @@ const router = express.Router();
 router.use("/assets", express.static("assets"));
 router.use("/views", express.static("views"));
 
+//Check Auth.
 router.use((request, response, next) => {
     helper.checkAuth(response);
     next();
@@ -22,7 +22,6 @@ router.get("/", (request, response) => {
     const user = firebase.auth().currentUser;
     const database = firebase.database();
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    const defaultPicURL = "views/home/img/playstore.png";
     database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
         response.render("html/profile", {
             name: user.displayName,
@@ -34,6 +33,7 @@ router.get("/", (request, response) => {
     });
 });
 
+//Edit Profile
 router.get("/edit", (request, response) => {
     const user = firebase.auth().currentUser;
     const database = firebase.database();
@@ -50,6 +50,7 @@ router.get("/edit", (request, response) => {
     });
 });
 
+//Save Edits
 router.post("/edit", (request, response) => {
     let user = firebase.auth().currentUser;
     let database = firebase.database();
@@ -69,6 +70,7 @@ router.post("/edit", (request, response) => {
     response.redirect("/profile");
 });
 
+//Change Password
 router.get("/password", (request, response) => {
     const user = firebase.auth().currentUser;
     const database = firebase.database();
@@ -85,6 +87,7 @@ router.get("/password", (request, response) => {
     });
 });
 
+//Save Changes
 router.post("/password", (request, response) => {
     const user = firebase.auth().currentUser;
     let currentPassword = request.body.current;
@@ -102,7 +105,7 @@ router.post("/password", (request, response) => {
     }).catch(function (error) {
         response.send(error);
     });
-})
+});
 
 //Export Router.
 module.exports = router;

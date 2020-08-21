@@ -7,9 +7,7 @@ const path = require("path");
 //Create Router Object.
 const router = express.Router();
 
-const database = firebase.database();
-const storage = firebase.storage();
-
+//Check Authentication.
 router.use((request, response, next) => {
     helper.checkAuth(response);
     next();
@@ -20,7 +18,6 @@ router.get("/", (request, response) => {
     let user = firebase.auth().currentUser;
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    const defaultPicURL = "views/home/img/playstore.png";
     response.render(path.resolve('./views/html/dashboard'), {
         name: userName,
         email: user.email,
