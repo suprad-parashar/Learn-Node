@@ -6,6 +6,7 @@ const path = require("path");
 
 //Create Router Object.
 const router = express.Router();
+const database = firebase.database();
 
 //Check Authentication.
 router.use((request, response, next) => {
@@ -18,11 +19,16 @@ router.get("/", (request, response) => {
     let user = firebase.auth().currentUser;
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    response.render(path.resolve('./views/html/dashboard'), {
-        name: userName,
-        email: user.email,
-        activeName: "Dashboard",
-        profilePic: picURL
+    database.ref().child("users").child(user.uid).child("activity").once('value').then(function (snapshot) {
+        response.render(path.resolve('./views/html/dashboard'), {
+            name: userName,
+            email: user.email,
+            activeName: "Dashboard",
+            profilePic: picURL,
+            filter: snapshot,
+        });
+    }).catch(function (error) {
+        console.log(error.message);
     });
     // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').getDownloadURL().then(function (url) {
     //     console.log("PIC:" + url);
