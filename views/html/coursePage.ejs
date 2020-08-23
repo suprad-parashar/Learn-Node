@@ -79,6 +79,14 @@
                                         <a href="<%= course %>/video/<%= resource.key %>"><h3><%= resource.child("name").val() %></h3></a>
                                     <% } %>
                                     <br>
+                                    <h5><%= resource.child("from").val() %></h5>
+                                    <% if (resource.child("prerequisites").val()[0] === "None") { %>
+                                        <h6>No Prerequisites</h6>
+                                    <% } else { %>
+                                        <% resource.child("prerequisites").val().forEach(requisite => { %>
+                                            <h6><%= requisite %></h6>
+                                        <% }); %>
+                                    <% }%>
                                 <% }) %>
                             </div>
                         <% } %>
