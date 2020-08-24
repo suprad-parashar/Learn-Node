@@ -46,8 +46,15 @@
                         </div>
                     </div>
                     <% filter.forEach(activity => { %>
-                        <h4><%= activity.child("name").val() %></h4>
-                        <h6></h6>
+                        <% if (activity.child("type").val() === "VIDEO") { %>
+                            <% if (activity.child("done").val()) { %>
+                                <h4>Completed watching <%= activity.child("name").val() %> by <%= activity.child("from").val() %></h4>
+                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button>Watch Again</button></a>
+                            <% } else { %>
+                                <h4>Started watching <%= activity.child("name").val() %> by <%= activity.child("from").val() %></h4>
+                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button>Resume</button></a>
+                            <% } %>
+                        <% } %>
                     <% }) %>
                     <div class="row">
                         <div class="col-md-12">
@@ -78,5 +85,13 @@
 <script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
 <script src="views/dashboard/vendor/select2/select2.min.js"></script>
 <script src="views/dashboard/js/main.js"></script>
+<script>
+    function getLink(ref) {
+        let parts = ref.split("/");
+        let n = parts.length;
+        console.log(parts);
+        window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
+    }
+</script>
 </body>
 </html>
