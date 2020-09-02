@@ -46,13 +46,13 @@
                         </div>
                     </div>
                     <% filter.forEach(activity => { %>
-                        <% if (activity.child("type").val() === "VIDEO") { %>
-                            <% if (activity.child("done").val()) { %>
-                                <h4>Completed watching <%= activity.child("name").val() %> by <%= activity.child("from").val() %></h4>
-                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button>Watch Again</button></a>
+                        <% if (activity["type"] === "VIDEO") { %>
+                            <% if (activity["done"]) { %>
+                                <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
+                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button>Watch Again</button></a>
                             <% } else { %>
-                                <h4>Started watching <%= activity.child("name").val() %> by <%= activity.child("from").val() %></h4>
-                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button>Resume</button></a>
+                                <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
+                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button>Resume</button></a>
                             <% } %>
                         <% } %>
                     <% }) %>
