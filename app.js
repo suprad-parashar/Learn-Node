@@ -28,7 +28,7 @@ app.get("/", (request, response) => {
     if (firebase.auth().currentUser == null)
         response.sendFile("./views/html/home.html", {root: __dirname});
     else
-        response.redirect("/home");
+        response.redirect("/dashboard");
 });
 
 //About Page
