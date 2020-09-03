@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Data -->
     <meta charset="UTF-8">
@@ -18,7 +19,8 @@
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
+        media="all">
     <link href="views/dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/slick/slick.css" rel="stylesheet" media="all">
@@ -28,72 +30,75 @@
 </head>
 
 <body class="animsition">
-<div class="page-wrapper">
-    <!-- Include Dashboard Side Navigation Bar -->
-    <%- include("../partials/dashboard_side_nav.ejs") %>
-    <div class="page-container">
-        <!-- Include Dashboard Header -->
-        <%- include("../partials/dashboard_header.ejs") %>
+    <div class="page-wrapper">
+        <!-- Include Dashboard Side Navigation Bar -->
+        <%- include("../partials/dashboard_side_nav.ejs") %>
+        <div class="page-container">
+            <!-- Include Dashboard Header -->
+            <%- include("../partials/dashboard_header.ejs") %>
 
-        <!-- TODO: Card Layout -->
+            <!-- TODO: Card Layout -->
 
-        <div class="main-content">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="overview-wrap">
-                                <h2 class="title-1">Recent Activities</h2>
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Recent Activities</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <% filter.forEach(activity => { %>
-                        <% if (activity["type"] === "VIDEO") { %>
-                            <% if (activity["done"]) { %>
+                        <div class="container">
+                            <% if (filter) { %>
+                            <% filter.forEach(activity => { %>
+                            <div class='card' style="padding: 10px;background-color: aquamarine;">
+                                <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
+                                <% if (activity["done"]) { %>
                                 <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button>Watch Again</button></a>
-                            <% } else { %>
+                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn btn-warning">Watch
+                                        Again</button></a>
+                                <p>Visited On: <%= activity["date"] %></p>
+                                <% } else { %>
                                 <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button>Resume</button></a>
-                            <% } %>
-                        <% } %>
-                    <% }) %>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="copyright">
-                                <p>Copyright © 2020 Colorlib. All rights reserved. Template by <a
-                                            href="https://colorlib.com">Colorlib</a>.</p>
+                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button
+                                        class="btn btn-primary">Resume</button></a>
+                                <p>Visited On: <%= activity["date"] %></p>
+                                <% } %>
+                                <% } %>
                             </div>
+                            <% }) %>
+                            <% } %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- JS -->
-<script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<script src="views/dashboard/vendor/slick/slick.min.js"></script>
-<script src="views/dashboard/vendor/wow/wow.min.js"></script>
-<script src="views/dashboard/vendor/animsition/animsition.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
-<script src="views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="views/dashboard/vendor/select2/select2.min.js"></script>
-<script src="views/dashboard/js/main.js"></script>
-<script>
-    function getLink(ref) {
-        let parts = ref.split("/");
-        let n = parts.length;
-        console.log(parts);
-        window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
-    }
-</script>
+    <!-- JS -->
+    <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="views/dashboard/vendor/slick/slick.min.js"></script>
+    <script src="views/dashboard/vendor/wow/wow.min.js"></script>
+    <script src="views/dashboard/vendor/animsition/animsition.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="views/dashboard/vendor/select2/select2.min.js"></script>
+    <script src="views/dashboard/js/main.js"></script>
+    <script>
+        function getLink(ref) {
+            let parts = ref.split("/");
+            let n = parts.length;
+            console.log(parts);
+            window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
+        }
+    </script>
 </body>
+
 </html>
