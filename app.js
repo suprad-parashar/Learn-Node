@@ -75,6 +75,25 @@ app.get("/activity", (request, response) => {
     });
 });
 
+app.get("/faq", (request, response) => {
+    helper.checkAuth(response);
+    let user = firebase.auth().currentUser;
+    let userName = user.displayName;
+    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    const database = firebase.database();
+    database.ref().child("faq").once('value').then(function (snapshot) {
+        response.render(path.resolve('./views/html/faq'), {
+            name: userName,
+            email: user.email,
+            activeName: "",
+            profilePic: picURL,
+            filter: snapshot,
+        });
+    }).catch(function (error) {
+        console.log(error.message);
+    });
+});
+
 //Logout
 app.get("/logout", (request, response) => {
     firebase.auth().signOut();
