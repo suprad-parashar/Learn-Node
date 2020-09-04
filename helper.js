@@ -7,4 +7,14 @@ function checkAuth(response) {
         response.redirect("/login");
 }
 
-module.exports = {checkAuth};
+function getRating(ratings) {
+    let sum = 0;
+    let count = 0
+    ratings.forEach(rating => {
+        sum += rating;
+        count += 1;
+    });
+    return sum / count;
+}
+
+module.exports = {checkAuth, getRating};

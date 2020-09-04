@@ -13,10 +13,55 @@
     <title>Learn</title>
 
     <!-- CSS -->
+    <style>
+        @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+        fieldset, label { margin: 0; padding: 0; }
+        body{ margin: 20px; }
+        h1 { font-size: 1.5em; margin: 10px; }
+
+        /****** Style Star Rating Widget *****/
+
+        .rating {
+            border: none;
+            float: left;
+        }
+
+        .rating > input { display: none; }
+        .rating > label:before {
+            margin: 5px;
+            font-size: 1.25em;
+            font-family: FontAwesome;
+            display: inline-block;
+            content: "\f005";
+        }
+
+        .rating > .half:before {
+            content: "\f089";
+            position: absolute;
+        }
+
+        .rating > label {
+            color: #ddd;
+            float: right;
+        }
+
+        /***** CSS Magic to Highlight Stars on Hover *****/
+
+        .rating > input:checked ~ label, /* show gold star when clicked */
+        .rating:not(:checked) > label:hover, /* hover current star */
+        .rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+        .rating > input:checked + label:hover, /* hover current star when changing rating */
+        .rating > input:checked ~ label:hover,
+        .rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+        .rating > input:checked ~ label:hover ~ label { color: #FFED85;  }
+    </style>
     <link rel="stylesheet" href="/views/learn/css/tabView.css">
     <link href="views/dashboard/css/font-face.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -64,7 +109,40 @@
                             </div>
                         </div>
                     </div>
-                    <iframe width="560" height="315" src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <% if (filter.child("playlist").val()) { %>
+                        <iframe width="560" height="315"
+                                id="player"
+                                src="<%= filter.child("list").child("0").child("link").val().replace("watch?v=", "embed/") %>"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    <% } else { %>
+                        <iframe width="560" height="315"
+                                id="player"
+                                src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                    <% } %>
+                    <h2><%= filter.child("name").val() %></h2>
+                    <h3><%= filter.child("from").val() %></h3>
+                    <h4><%= rating %></h4>
+                    <h1>Pure CSS Star Rating Widget</h1>
+<!--                    <fieldset class="rating">-->
+<!--                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>-->
+<!--                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>-->
+<!--                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>-->
+<!--                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>-->
+<!--                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>-->
+<!--                    </fieldset>-->
+                    <% if (filter.child("playlist").val()) { %>
+                        <div class="list-group">
+                            <% filter.child("list").forEach(link => { %>
+                                <a href="#" onclick="change('<%= link.child('link').val() %>')" class="list-group-item"><%= link.child("name").val() %></a>
+                            <% }) %>
+        <!--                        <a href="#" class="list-group-item">First item</a>-->
+        <!--                        <a href="#" class="list-group-item">Second item</a>-->
+        <!--                        <a href="#" class="list-group-item">Third item</a>-->
+                        </div>
+                    <% } %>
                 </div>
             </div>
         </div>
@@ -72,6 +150,12 @@
 </div>
 
 <!-- JS -->
+<script>
+    function change(link) {
+        document.getElementById("player").src = link.replace("watch?v=", "embed/");
+        return false;
+    }
+</script>
 <script>
     let domains = document.getElementById("Domain");
     let branches = document.getElementById("Branch");
@@ -113,6 +197,8 @@
 <script src="views/learn/js/jquery.form.js"></script>
 <script src="views/learn/js/jquery.validate.min.js"></script>
 <script src="views/learn/js/mail-script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <script src="views/learn/js/jquery.ajaxchimp.min.js"></script>
 <script>
     function openPage(pageName, element, color) {
