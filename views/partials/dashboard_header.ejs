@@ -59,7 +59,7 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="<%= profilePic %>" alt="<%= name %>"/>
+                                <img src="<%= profilePic %>" alt="<%= name %>" id="pimg1" onerror="dummy()"/>
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><%= name %></a>
@@ -68,7 +68,7 @@
                                 <div class="info clearfix">
                                     <div class="image">
                                         <a href="#">
-                                            <img src="<%= profilePic %>" alt="<%= name %>"/>
+                                            <img src="<%= profilePic %>" alt="<%= name %>" id="pimg2"/>
                                         </a>
                                     </div>
                                     <div class="content">
@@ -100,3 +100,9 @@
         </div>
     </div>
 </header>
+<script>
+    function dummy() {
+        document.getElementById("pimg1").src = "../views/home/img/dummy_profile_picture.jpeg";
+        document.getElementById("pimg2").src = "../views/home/img/dummy_profile_picture.jpeg";
+    }
+</script>

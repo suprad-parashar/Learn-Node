@@ -45,11 +45,7 @@
                         <div class="au-card m-b-30">
                             <div class="profileImage">
                                 <div class="image img-cir img-150">
-                                    <% if (profilePic) { %>
-                                        <img src="<%= profilePic %>" alt="<%= name %>"/>
-                                    <% } else { %>
-                                        <img src="/views/home/img/dummy_profile_picture.jpeg" alt="dummy"/>
-                                    <% } %>
+                                    <img src="<%= profilePic %>" alt="<%= name %>" onerror="this.src = '../views/home/img/dummy_profile_picture.jpeg'"/>
                                 </div>
                             </div>
                             <div class="au-card-inner">

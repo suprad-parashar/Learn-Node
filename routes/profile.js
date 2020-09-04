@@ -2,6 +2,7 @@
 const firebase = require("../firebase");
 const express = require("express");
 const helper = require("../helper");
+const path = require("path");
 const { fileLoader } = require("ejs");
 
 //Create Router Object.
@@ -59,8 +60,9 @@ router.post("/edit", (request, response) => {
     let updatedName = request.body.name;
     let updatedInstitution = request.body.institution;
     let profileImage = request.body.profileImage;
+    let imageInput = request.body.imageInput;
 
-    console.log(profileImage);
+    console.log("IMAGE: " + imageInput);
 
     user.updateProfile({
         displayName: updatedName
@@ -68,10 +70,11 @@ router.post("/edit", (request, response) => {
         response.send("<h1>Firebase User Profile Cannot be updated</h1>");
     });
 
-    storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(profileImage).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
-        console.log(url);
-        console.log('success');
-    })
+
+    // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
+    //     console.log(url);
+    //     console.log('success');
+    // })
 
     database.ref().child("users").child(user.uid).child("data").update({
         institution: updatedInstitution
