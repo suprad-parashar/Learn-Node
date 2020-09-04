@@ -30,7 +30,8 @@ router.get("/", (request, response) => {
             email: user.email,
             profilePic: picURL,
             activeName: "Profile",
-            institution: snapshot.child("institution").val()
+            institution: snapshot.child("institution").val(),
+            brains: snapshot.child("points").val(),
         });
     });
 });
