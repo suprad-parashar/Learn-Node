@@ -19,6 +19,7 @@ router.get("/", (request, response) => {
     let user = firebase.auth().currentUser;
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    let random= "";
     database.ref().child("users").child(user.uid).child("activity").once('value').then(function (snapshot) {
         let n = snapshot.numChildren();
         const data = [];

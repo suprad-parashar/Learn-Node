@@ -13,6 +13,7 @@ const profileRoutes = require("./routes/profile");
 const learnRoutes = require("./routes/learn");
 const forgotPasswordRoutes = require("./routes/forgotPassword");
 const coursesRoutes = require("./routes/courses");
+const randomRoutes = require("./routes/random");
 
 //App Related Stuff
 app.listen(3000);
@@ -51,7 +52,7 @@ app.use("/profile", profileRoutes);
 //Learn
 app.use('/learn', learnRoutes);
 app.use("/course", coursesRoutes);
-
+app.use("/random/video",randomRoutes);
 //Forgot Password
 app.use("/forgot", forgotPasswordRoutes);
 

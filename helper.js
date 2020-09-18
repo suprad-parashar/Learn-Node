@@ -10,10 +10,15 @@ function checkAuth(response) {
 function getRating(ratings) {
     let sum = 0;
     let count = 0
-    ratings.forEach(rating => {
-        sum += rating;
-        count += 1;
-    });
+    console.log(ratings);
+    for(let key in ratings){
+        sum+=ratings[key];
+        count+=1;
+    }
+    // ratings.forEach(rating => {
+    //     sum += rating;
+    //     count += 1;
+    // });
     return sum / count;
 }
 

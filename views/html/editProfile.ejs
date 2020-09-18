@@ -47,8 +47,10 @@
                                     <form method="post" action="/profile/edit">
                                         <div class="account2">
                                             <div class="image img-cir img-200" id="profile-image-div">
-                                                <input type="hidden" id="imageInput" name="imageInput" value="<%=profilePic %>">
-                                                <img src="<%= profilePic %>" alt="<%= name %>" id="profileImage" name="profileImageName"/>
+                                                <input type="file" id="imageInput" name="imageInput"
+                                                    value="<%=profilePic %>" style="display: none;">
+                                                <img src="<%= profilePic %>" alt="<%= name %>" id="profileImage"
+                                                    name="profileImageName" />
                                                 <input id="profile_image_upload" type="file" name="profile_image_upload"
                                                     placeholder="Photo" style="display: none;" capture>
                                             </div>
@@ -76,9 +78,9 @@
     </div>
 
     <!-- JS -->
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyBasifU1_o2rfiptyJEA7GRoXszwySbHek",
@@ -91,38 +93,29 @@
             measurementId: "G-0W9LD4N2GM"
         };
         firebase.initializeApp(firebaseConfig);
+        console.log(firebase);
     </script>
+
     <script>
-        const profile_image = document.getElementById('profileImage');
-        const profile_image_upload = document.getElementById('profile_image_upload');
-        const getImage = document.getElementById('imageInput');
-        // profile_image.addEventListener('click', function (Evnent) {
-        //     console.log("asdads");
-        //     $("#profile_image_upload").click();
-        // });
+
+        var profile_image = document.getElementById('profileImage');
+        var profile_image_upload = document.getElementById('profile_image_upload');
+        var getImage = document.getElementById('imageInput');
+        profile_image.addEventListener('click', function (Evnent) {
+            console.log("asdads");
+            $("#profile_image_upload").click();
+        });
 
         profile_image_upload.addEventListener('change', function () {
             fasterPreview(this);
         });
 
         function fasterPreview(uploader) {
-            if (uploader.files && uploader.files[0]) { 
-                console.log("processing")
-                let file = document.querySelector("#profile_image_upload").files[0];
+            if (uploader.files && uploader.files[0]) {
+                console.log(document.querySelector('#profile_image_upload').files[0]);
                 profile_image.src = window.URL.createObjectURL(uploader.files[0]);
-                let ref = firebase.storage().ref();
-                ref.child("Profile Pictures").child(firebase.auth().currentUser.uid + ".jpg").put(file, {
-                    contentType: file.type
-                }).then(snapshot => {
-                    snapshot.ref.getDownloadURL();
-                }).then(url => {
-                    console.log(url);
-                    alert("YESSSSSSSSS");
-                });
             }
         }
-
-
     </script>
     <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>

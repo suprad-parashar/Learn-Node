@@ -48,7 +48,7 @@ router.get("/:course", (request, response) => {
     let user = firebase.auth().currentUser;
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    database.ref().child("links").child(fcourse).once('value').then(function (snapshot) {
+    database.ref().child("links").child(fcourse).once('value').then(function (snapshot) { 
         response.render(path.resolve('./views/html/coursePage'), {
             name: userName,
             email: user.email,
