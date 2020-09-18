@@ -21,7 +21,7 @@
     <link href="views/dashboard/css/faq_dropdown.css" rel="stylesheet">
     <link href="views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
-          media="all">
+        media="all">
     <link href="views/dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/slick/slick.css" rel="stylesheet" media="all">
@@ -31,77 +31,87 @@
 </head>
 
 <body class="animsition">
-<div class="page-wrapper">
-    <!-- Include Dashboard Side Navigation Bar -->
-    <%- include("../partials/dashboard_side_nav.ejs") %>
-    <div class="page-container">
-        <!-- Include Dashboard Header -->
-        <%- include("../partials/dashboard_header.ejs") %>
+    <div class="page-wrapper">
+        <!-- Include Dashboard Side Navigation Bar -->
+        <%- include("../partials/dashboard_side_nav.ejs") %>
+        <div class="page-container">
+            <!-- Include Dashboard Header -->
+            <%- include("../partials/dashboard_header.ejs") %>
 
-        <div class="main-content">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="overview-wrap">
-                                <h2 class="title-1">Frequently Asked Questions</h2>
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1" style="align-content: center;">Frequently Asked Question</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <br>
-                    <% filter.forEach(child => { %>
-                        <button class="accordion"><%= child.child("question").val() %></button>
-                        <div class="panel">
-                            <p><%= child.child("answer").val() %></p>
+                        <br>
+                        <% filter.forEach(child => { %>
+                        <div class="accordion" style="background-color: #FFFFFF;border-radius: 0px;">
+                            <button><%= child.child("question").val() %></button>
+                            <image class="dropdown" src="views\dashboard\images\icon\chevron-up-outline.svg"
+                                style="width: 25px;height: 25px;float: right;"></image>
                         </div>
-                    <% }) %>
+                        <div class="panel" style="padding: 20px;background-color: #D2E3FC;">
+                            <p><%= child.child("answer").val() %></p>
+
+                        </div>
+                        <% }) %>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- JS -->
-<script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<script src="views/dashboard/vendor/slick/slick.min.js"></script>
-<script src="views/dashboard/vendor/wow/wow.min.js"></script>
-<script src="views/dashboard/vendor/animsition/animsition.min.js"></script>
-<script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
-<script src="views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-<script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="views/dashboard/vendor/select2/select2.min.js"></script>
-<script src="views/dashboard/js/main.js"></script>
-<script>
-    function getLink(ref) {
-        let parts = ref.split("/");
-        let n = parts.length;
-        console.log(parts);
-        window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
-    }
-</script>
-<script>
-    let acc = document.getElementsByClassName("accordion");
-    let i;
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            /* Toggle between adding and removing the "active" class,
-            to highlight the button that controls the panel */
-            this.classList.toggle("active");
-            /* Toggle between hiding and showing the active panel */
-            const panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-</script>
+    <!-- JS -->
+    <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="views/dashboard/vendor/slick/slick.min.js"></script>
+    <script src="views/dashboard/vendor/wow/wow.min.js"></script>
+    <script src="views/dashboard/vendor/animsition/animsition.min.js"></script>
+    <script src="views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="views/dashboard/vendor/select2/select2.min.js"></script>
+    <script src="views/dashboard/js/main.js"></script>
+    <script>
+        function getLink(ref) {
+            let parts = ref.split("/");
+            let n = parts.length;
+            console.log(parts);
+            window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
+        }
+    </script>
+    <script>
+        let acc = document.getElementsByClassName("accordion");
+        let i;
+        let prev = -1;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                /* Toggle between adding and removing the "active" class,
+                to highlight the button that controls the panel */
+                this.classList.toggle("active");
+                /* Toggle between hiding and showing the active panel */
+                const panel = this.nextElementSibling;
+                /* Changing the Chevron Image (UP - DOWN ARROW IMAGE)*/
+                const img = this.children[1];
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                    img.src = "views/dashboard/images/icon/chevron-up-outline.svg";
+                } else {
+                    panel.style.display = "block";
+                    img.src = "views/dashboard/images/icon/chevron-down-outline.svg";
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
