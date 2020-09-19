@@ -55,21 +55,20 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="overview-wrap">
-                                <h2 class="title-1"><%= course %></h2>
-                            </div>
+                    <img src="views/dashboard/images/bg-title-01.jpg" style="width: 100%; height: 150px;">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1"><%= course %></h2>
                         </div>
                     </div>
                     <% let x = true; %>
                     <% filter.forEach(child => { %>
                         <% if (child.key !== "image") { %>
                             <% if (x) { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')" id="defaultOpen"><%= child.key %></button>
+                                <button class="tablink" onclick="openPage('<%= child.key %>', this, '#8C54A1')" id="defaultOpen"><%= child.key %></button>
                                 <% x = false; %>
                             <% } else { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')"><%= child.key %></button>
+                                <button class="tablink" onclick="openPage('<%= child.key %>', this, '#8C54A1')"><%= child.key %></button>
                             <% } %>
                             <div id="<%= child.key %>" class="tabcontent">
                                 <% child.forEach(resource => { %>
