@@ -74,10 +74,15 @@
                                 <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')"><%= child.key %></button>
                             <% } %>
                             <div id="<%= child.key %>" class="tabcontent">
+                                <% let courses = [];%>
                                 <% child.forEach(course => { %>
-                                    <a href="/course/<%= course.val() %>"><h3><%= course.val() %></h3></a>
-                                    <br>
+                                    <% courses.push(course.val())%>
                                 <% }) %>
+                                <% courses.sort(); %>
+                                <% courses.forEach(course => { %>
+                                    <a href="/course/<%= course %>"><h3><%= course %></h3></a>
+                                    <br>
+                                <% })%>
                             </div>
                         <% } %>
                     <% }) %>
