@@ -15,8 +15,8 @@ router.use((request, response, next) => {
 });
 
 //Static data and Assets
-router.use("/assets", express.static("assets"));
 router.use("/views", express.static("views"));
+router.use("/assets", express.static("assets"));
 
 //Get Resource ID and Course.
 router.get("/:course/video/:resource", (request, response) => {

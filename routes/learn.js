@@ -15,8 +15,9 @@ router.use((request, response, next) => {
 });
 
 //Static data and Assets
-router.use("/assets", express.static("assets"));
-router.use("/views", express.static("views"));
+// router.use("/assets", express.static("assets"));
+// router.use("/views", express.static("views"));
+router.use(express.static(path.join(__dirname, 'views')));
 
 //Learn Main Page
 router.get('/', (request, response) => {

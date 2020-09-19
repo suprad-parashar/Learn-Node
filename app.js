@@ -48,11 +48,11 @@ app.use('/dashboard', dashboardRoutes);
 
 //Profile.
 app.use("/profile", profileRoutes);
-
 //Learn
 app.use('/learn', learnRoutes);
 app.use("/course", coursesRoutes);
 app.use("/random/video",randomRoutes);
+
 //Forgot Password
 app.use("/forgot", forgotPasswordRoutes);
 
