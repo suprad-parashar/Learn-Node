@@ -463,15 +463,15 @@ section {
 
 .au-btn:hover {
     color: #fff;
-    background: #3868cd;
+    background: #8C54A1;
 }
 
 .au-btn--blue2 {
-    background: #00aced;
+    background: #8C54A1;
 }
 
 .au-btn--blue2:hover {
-    background: #00a2e3;
+    background: #8C54A1;
 }
 
 .au-btn--block {
@@ -485,7 +485,7 @@ section {
 }
 
 .au-btn--blue {
-    background: #4272d7;
+    background: #8C54A1;
 }
 
 .au-btn--green {
@@ -1538,7 +1538,7 @@ section {
 }
 
 .account-dropdown__item a:hover {
-    background: #4272d7;
+    background: #8C54A1;
     color: #fff;
 }
 
@@ -1565,7 +1565,7 @@ section {
 }
 
 .account-dropdown__footer a:hover {
-    background: #4272d7;
+    background: #8C54A1;
     color: #fff;
 }
 
@@ -1641,11 +1641,11 @@ section {
 }
 
 .navbar-sidebar .navbar__list li a:hover {
-    color: #4272d7;
+    color: #8C54A1;
 }
 
 .navbar-sidebar .navbar__list li.active > a {
-    color: #4272d7;
+    color: #8C54A1;
 }
 
 .has-sub {
@@ -1758,7 +1758,7 @@ section {
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a:hover {
-    color: #4272d7;
+    color: #8C54A1;
 }
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a > i {

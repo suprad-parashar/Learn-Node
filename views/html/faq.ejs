@@ -52,11 +52,11 @@
                         <% filter.forEach(child => { %>
                         <div class="accordion" style="background-color: #FFFFFF;border-radius: 0px;">
                             <button><%= child.child("question").val() %></button>
-                            <image class="dropdown" src="views\dashboard\images\icon\chevron-up-outline.svg"
+                            <image class="dropdown" src="views\dashboard\images\icon\chevron-down-outline.svg"
                                 style="width: 25px;height: 25px;float: right;"></image>
                         </div>
-                        <div class="panel" style="padding: 20px;background-color: #D2E3FC;">
-                            <p><%= child.child("answer").val() %></p>
+                        <div class="panel" style="padding: 20px;background-color: #AF87D4;">
+                            <p style="color: white"><%= child.child("answer").val() %></p>
 
                         </div>
                         <% }) %>
@@ -104,10 +104,10 @@
                 const img = this.children[1];
                 if (panel.style.display === "block") {
                     panel.style.display = "none";
-                    img.src = "views/dashboard/images/icon/chevron-up-outline.svg";
+                    img.src = "views/dashboard/images/icon/chevron-down-outline.svg";
                 } else {
                     panel.style.display = "block";
-                    img.src = "views/dashboard/images/icon/chevron-down-outline.svg";
+                    img.src = "views/dashboard/images/icon/chevron-up-outline.svg";
                 }
             });
         }

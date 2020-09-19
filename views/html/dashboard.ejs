@@ -43,7 +43,7 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <h3>Welcome back, <%= name.split(" ")[0] %></h3>
+                        <h3>Welcome back, <span style="color: #8C54A1"><%= name.split(" ")[0] %></span></h3>
                         <br>
                         <div class="row">
                             <div class="col-md-12">
@@ -55,28 +55,28 @@
                         <div class="container">
                             <% if (filter) { %>
                             <% filter.forEach(activity => { %>
-                            <div class='card' style="padding: 10px;background-color: aquamarine;">
-                                <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
-                                <% if (activity["done"]) { %>
-                                <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                        class="btn btn-warning">Watch
-                                        Again</button></a>
-                                <p>Visited On: <%= activity["date"] %></p>
-                                <% } else { %>
-                                <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                        class="btn btn-primary">Resume</button></a>
-                                <p>Visited On: <%= activity["date"] %></p>
-                                <% } %>
-                                <% } %>
-                            </div>
+                                <div class='card' style="padding: 10px; border: #8C54A1 solid">
+                                    <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
+                                    <% if (activity["done"]) { %>
+                                    <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
+                                    <a href="javascript:getLink('<%= activity["reference"] %>')"><button
+                                            class="btn btn-warning">Watch
+                                            Again</button></a>
+                                    <p>Visited On: <%= activity["date"] %></p>
+                                    <% } else { %>
+                                    <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
+                                    <a href="javascript:getLink('<%= activity["reference"] %>')"><button
+                                            class="btn btn-primary" style="background-color: #8C54A1; border: none">Resume</button></a>
+                                    <p>Visited On: <%= activity["date"] %></p>
+                                    <% } %>
+                                    <% } %>
+                                </div>
                             <% }) %>
                             <% } %>
                         </div>
                     </div>
                 </div>
-                <div class="fab fab-right-bottom" style="width: 50px;height: 50px;border-radius: 25px;background-color: #A3AFD6;margin-right: 20px;position: fixed;bottom: 20px;right: 20px;">
+                <div class="fab fab-right-bottom" style="width: 50px;height: 50px;border-radius: 25px;background-color: #8C54A1;margin-right: 20px;position: fixed;bottom: 20px;right: 20px;">
                     <a href="/random/video">
                         <image src="views\dashboard\images\icon\shuffle-outline.svg" style="padding:10px;"></image>
                     </a>
