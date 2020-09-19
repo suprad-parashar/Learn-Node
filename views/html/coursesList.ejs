@@ -18,11 +18,13 @@
     <link href="../../views/dashboard/css/font-face.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="../../views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../../views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
+          media="all">
     <link href="../../views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="../../views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="../../views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../../views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
+          media="all">
     <link href="../../views/dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/slick/slick.css" rel="stylesheet" media="all">
@@ -68,21 +70,23 @@
                     <% filter.forEach(child => { %>
                         <% if (child.key !== "image") { %>
                             <% if (x) { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')" id="defaultOpen"><%= child.key %></button>
+                                <button class="tablink" onclick="openPage('<%= child.key %>', this, '#8C54A1')"
+                                        id="defaultOpen"><%= child.key %></button>
                                 <% x = false; %>
                             <% } else { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, 'red')"><%= child.key %></button>
+                                <button class="tablink"
+                                        onclick="openPage('<%= child.key %>', this, '#8C54A1')"><%= child.key %></button>
                             <% } %>
                             <div id="<%= child.key %>" class="tabcontent">
-                                <% let courses = [];%>
+                                <% let courses = []; %>
                                 <% child.forEach(course => { %>
-                                    <% courses.push(course.val())%>
+                                    <% courses.push(course.val()) %>
                                 <% }) %>
                                 <% courses.sort(); %>
                                 <% courses.forEach(course => { %>
                                     <a href="/course/<%= course %>"><h3><%= course %></h3></a>
                                     <br>
-                                <% })%>
+                                <% }) %>
                             </div>
                         <% } %>
                     <% }) %>
