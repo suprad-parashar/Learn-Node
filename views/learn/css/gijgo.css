@@ -714,7 +714,6 @@ ul.gj-list-md li.disabled>[data-role="wrapper"]>[data-role="display"] {
 }
 
 .gj-dialog-md-close {
-    -webkit-appearance: none;
     padding: 0;
     cursor: pointer;
     background: 0 0;

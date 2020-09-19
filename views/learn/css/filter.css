@@ -367,7 +367,6 @@ textarea {
  */
 [type="search"]::-webkit-search-cancel-button,
 [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
 }
 
 /**
@@ -766,7 +765,6 @@ legend {
 
 .choices__button {
     text-indent: -9999px;
-    -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     border: 0;
