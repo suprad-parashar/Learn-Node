@@ -1,0 +1,79 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/views/dashboard/vendor/animsition/animsition.min.js" />
+        <item url="file://$PROJECT_DIR$/views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/ajax-form.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/bootstrap.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/contact.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/gijgo.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/imagesloaded.pkgd.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/isotope.pkgd.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.ajaxchimp.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.counterup.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.form.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.magnific-popup.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.scrollUp.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.slicknav.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/jquery.validate.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/mail-script.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/main.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/nice-select.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/owl.carousel.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/plugins.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/popper.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/scrollIt.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/slick.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/vendor/jquery-1.12.4.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/vendor/modernizr-3.5.0.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/waypoints.min.js" />
+        <item url="file://$PROJECT_DIR$/views/home/js/wow.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/animated.headline.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/contact.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/jquery.ajaxchimp.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/jquery.ajaxchimp.min.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/jquery.form.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/jquery.sticky.min.js" />
+        <item url="file://$PROJECT_DIR$/views/learn/js/mail-script.min.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/views/dashboard/vendor/animsition/animsition.min.js" />
+      <root url="file://$PROJECT_DIR$/views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/ajax-form.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/bootstrap.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/contact.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/gijgo.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/imagesloaded.pkgd.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/isotope.pkgd.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.ajaxchimp.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.counterup.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.form.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.magnific-popup.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.scrollUp.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.slicknav.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/jquery.validate.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/mail-script.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/main.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/nice-select.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/owl.carousel.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/plugins.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/popper.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/scrollIt.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/slick.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/vendor/jquery-1.12.4.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/vendor/modernizr-3.5.0.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/waypoints.min.js" />
+      <root url="file://$PROJECT_DIR$/views/home/js/wow.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/animated.headline.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/contact.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/jquery.ajaxchimp.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/jquery.ajaxchimp.min.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/jquery.form.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/jquery.sticky.min.js" />
+      <root url="file://$PROJECT_DIR$/views/learn/js/mail-script.min.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>

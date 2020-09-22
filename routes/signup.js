@@ -1,7 +1,6 @@
 //Import Modules.
-const firebaseVariables = require("../firebase");
-const firebase = firebaseVariables.firebase;
-const database = firebaseVariables.database;
+const firebase = require("../firebase");
+
 const express = require("express");
 const path = require("path");
 

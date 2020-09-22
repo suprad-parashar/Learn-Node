@@ -7,6 +7,7 @@
     cursor: pointer;
 }
 
+
 .gj-unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;

@@ -7,11 +7,6 @@ html {
     /* 2 */
 }
 
-/* Sections
-   ========================================================================== */
-/**
- * Remove the margin in all browsers (opinionated).
- */
 body {
     margin: 0;
 }
