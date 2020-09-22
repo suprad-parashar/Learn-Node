@@ -11,7 +11,6 @@
 
     var pluginName = 'ScrollIt',
         pluginVersion = '1.0.3';
-
     /*
      * OPTIONS
      */

@@ -1,4 +1,4 @@
-/* @extend display-flex; */
+
 display-flex, .display-flex, .display-flex-center, .signup-content, .signin-content, .social-login, .socials {
     display: flex;
     display: -webkit-flex;
@@ -10,7 +10,6 @@ list-type-ulli, .socials {
     margin: 0;
     padding: 0;
 }
-
 /* poppins-300 - latin */
 @font-face {
     font-family: 'Poppins';
