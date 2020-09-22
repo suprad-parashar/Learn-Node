@@ -305,7 +305,7 @@ body {
 }
 
 .signup-image {
-    margin: 0 55px;
+    margin: 0 25px;
 }
 
 .form-title {
@@ -327,13 +327,13 @@ figure {
     color: #fff;
     border-bottom: none;
     width: auto;
-    padding: 15px 39px;
+    padding: 15px 15px;
     border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
     -ms-border-radius: 5px;
-    margin-top: 25px;
+    margin-top: 15px;
     cursor: pointer;
 }
 
@@ -342,7 +342,7 @@ figure {
 }
 
 #signin {
-    margin-top: 16px;
+    margin-top: 12px;
 }
 
 .signup-image-link {
@@ -544,10 +544,12 @@ label.valid:after {
 }
 
 .signin-content {
-    padding-top: 67px;
-    padding-bottom: 87px;
+    padding-top: 37px;
+    padding-bottom: 37px;
 }
-
+.logo-img{
+    margin-top: 30px;
+}
 .social-login {
     align-items: center;
     -moz-align-items: center;
@@ -620,7 +622,7 @@ label.valid:after {
 }
 
 .signin-image {
-    margin-left: 110px;
+    margin-left: 80px;
     margin-right: 20px;
     margin-top: 10px;
 }
@@ -638,7 +640,7 @@ label.valid:after {
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 758px) {
     .signup-content, .signin-content {
         flex-direction: column;
         -moz-flex-direction: column;
@@ -663,7 +665,7 @@ label.valid:after {
     .signin-image {
         margin-left: 0px;
         margin-right: 0px;
-        margin-top: 50px;
+        margin-top: 20px;
         order: 2;
         -moz-order: 2;
         -webkit-order: 2;
@@ -703,7 +705,7 @@ label.valid:after {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 300px) {
     .social-login {
         flex-direction: column;
         -moz-flex-direction: column;
