@@ -71,28 +71,20 @@
                         </div>
                     </div>
                     <% let x = true; %>
+                    <% let courses = []; %>
                     <% filter.forEach(child => { %>
                         <% if (child.key !== "image") { %>
-                            <% if (x) { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, '#8C54A1')"
-                                        id="defaultOpen"><%= child.key %></button>
-                                <% x = false; %>
-                            <% } else { %>
-                                <button class="tablink"
-                                        onclick="openPage('<%= child.key %>', this, '#8C54A1')"><%= child.key %></button>
-                            <% } %>
-                            <div id="<%= child.key %>" class="tabcontent">
-                                <% let courses = []; %>
                                 <% child.forEach(course => { %>
                                     <% courses.push(course.val()) %>
                                 <% }) %>
-                                <% courses.sort(); %>
-                                <% courses.forEach(course => { %>
-                                    <a href="/course/<%= course %>"><h3><%= course %></h3></a>
-                                    <br>
-                                <% }) %>
-                            </div>
                         <% } %>
+                    <% }) %>
+                    <% courses.sort(); %>
+                    <% let i = 0 %>
+                    <% courses.forEach(course => { %>
+                        <div style="border: 2px solid #8C54A1; border-radius: 10px; padding: 5px; margin: 5px">
+                            <a href="/course/<%= course %>"><h5><%= course %></h5></a>
+                        </div>
                     <% }) %>
                 </div>
             </div>
