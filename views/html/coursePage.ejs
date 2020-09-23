@@ -59,45 +59,53 @@
         <div class="main-content">
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
-                    <img src="views/dashboard/images/bg-title-01.jpg" style="height: 150px;">
-                    <div class="col-md-12">
-                        <div class="overview-wrap">
+                    <div class="col-md-12" style="display: flex;">
+                        <div style="width: 30%; border: 2px solid #8C54A1; border-bottom-left-radius: 15px; border-top-left-radius: 15px; display: flex; justify-content: center";>
                             <h2 class="title-1"><%= course %></h2>
                         </div>
+                        <div style="width: 70%; display: flex; justify-content: center; background-color: #8C54A1;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
+                            <img src="<%= filter.child("image").val() %>" style="height: 150px;">
+                        </div>
                     </div>
-                    <% let x = true; %>
-                    <% filter.forEach(child => { %>
-                        <% if (child.key !== "image") { %>
-                            <% if (x) { %>
-                                <button class="tablink" onclick="openPage('<%= child.key %>', this, '#8C54A1')"
-                                        id="defaultOpen"><%= child.key %></button>
-                                <% x = false; %>
-                            <% } else { %>
-                                <button class="tablink"
-                                        onclick="openPage('<%= child.key %>', this, '#8C54A1')"><%= child.key %></button>
-                            <% } %>
-                            <div id="<%= child.key %>" class="tabcontent">
+                    <br>
+                    <div class="col-md-12">
+                        <% filter.forEach(child => { %>
+                            <% if (child.key !== "image") { %>
                                 <% child.forEach(resource => { %>
-                                    <% if (child.key !== "Videos") { %>
-                                        <a href="<%= resource.child("link").val() %>" target="_blank">
-                                            <h3><%= resource.child("name").val() %></h3></a>
-                                    <% } else { %>
-                                        <a href="<%= course %>/video/<%= resource.key %>">
-                                            <h3><%= resource.child("name").val() %></h3></a>
-                                    <% } %>
-                                    <br>
-                                    <h5><%= resource.child("from").val() %></h5>
-                                    <% if (resource.child("prerequisites").val()[0] === "None") { %>
-                                        <h6>No Prerequisites</h6>
-                                    <% } else { %>
-                                        <% resource.child("prerequisites").val().forEach(requisite => { %>
-                                            <h6><%= requisite %></h6>
-                                        <% }); %>
-                                    <% } %>
+                                    <div style="border: 2px solid #8C54A1; background-color: white;border-radius: 10px;margin-bottom: 10px; padding:10px;display: flex">
+                                        <div style="width: 50px">
+                                            <img style="margin: 5px; border-radius: 50px;" src="<%= resource.child("icon").val() %>" alt="Icon" height="30px" width="30px">
+                                        </div>
+                                        <div>
+                                            <% if (child.key !== "Videos") { %>
+                                                <a href="<%= resource.child("link").val() %>" target="_blank">
+                                                    <h3><%= resource.child("name").val() %></h3></a>
+                                            <% } else { %>
+                                                <a href="<%= course %>/video/<%= resource.key %>">
+                                                    <h3><%= resource.child("name").val() %></h3></a>
+                                            <% } %>
+                                            <h5><%= resource.child("from").val() %></h5>
+                                            <br>
+                                            <% if (resource.child("prerequisites").val()[0] === "None") { %>
+                                                <h6 style="color: #8C54A1">No Prerequisites</h6>
+                                            <% } else { %>
+                                                <div style="display: flex">
+                                                    <h6>Prerequisites:&nbsp;</h6>
+                                                    <% resource.child("prerequisites").val().forEach(requisite => { %>
+                                                        <a href="/course/<%= requisite %>"><u><h6 style="color: #8C54A1"><%= requisite %></h6></u></a>
+                                                        <h6>,&nbsp;</h6>
+                                                    <% }); %>
+                                                </div>
+                                            <% } %>
+                                        </div>
+                                        <div style="background-color: #8C54A1; margin-top: auto; margin-bottom: auto; padding: 5px;">
+                                            <h5><%= child.key.slice(0, -1) %></h5>
+                                        </div>
+                                    </div>
                                 <% }) %>
-                            </div>
-                        <% } %>
-                    <% }) %>
+                            <% } %>
+                        <% }) %>
+                    </div>
                 </div>
             </div>
         </div>
