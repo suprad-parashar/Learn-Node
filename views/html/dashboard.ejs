@@ -64,16 +64,16 @@
                                                 <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
                                                     <% if (activity["done"]) { %>
                                                         <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                                        <p><%= activity["date"] %></p>
+                                                        <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
                                                         <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                            class="btn btn-warning">Watch
+                                                            class="btn" style="background-color: white;border: #8c54a1 2px solid;bottom: 15px;position: absolute;">Watch
                                                                 Again</button></a>
                                                     <% } else { %>
                                                         <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                                        <div style="">
-                                                            <p><%= activity["date"] %></p>
+                                                        <div style="bottom:0px;position: absolute;">
+                                                            <p style="margin-bottom: 30px;"><%= activity["date"] %></p>
                                                             <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                                    class="btn btn-primary" style="background-color: #8C54A1; border: none;">Resume</button></a>
+                                                                    class="btn btn-primary" style="background-color: #8C54A1; border: none;bottom: 15px;position: absolute;">Resume</button></a>
                                                         </div>
                                                     <% } %>
                                                 <% } %>

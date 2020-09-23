@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Meta Data -->
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="views/auth/fonts/material-icon/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-          integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="views/auth/css/style.min.css">
 
@@ -28,8 +29,9 @@
     <link rel="stylesheet" href="/views/home/css/slicknav.min.css">
     <link rel="stylesheet" href="/views/home/css/style.min.css">
 </head>
+
 <body>
-<!-- <header>
+    <!-- <header>
     <div class="header-area ">
         <div id="sticky-header" class="main-header-area">
             <div class="container-fluid p-0">
@@ -37,10 +39,10 @@
                     <div class="col-xl-2 col-lg-2">
                         <div class="logo-img">
                             <a href="/" style="color: black;font-size: 30px"> -->
-                                <!-- must add learn logo with name -->
-                                <!-- <img src="/views/home/img/playstore.png" alt="Learn" style="height: 52px;width: 52px;">Learn -->
-                                <!-- <h3 style="color: white">Learn</h3> -->
-                            <!-- </a>
+    <!-- must add learn logo with name -->
+    <!-- <img src="/views/home/img/playstore.png" alt="Learn" style="height: 52px;width: 52px;">Learn -->
+    <!-- <h3 style="color: white">Learn</h3> -->
+    <!-- </a>
                         </div>
                     </div>
                 </div>
@@ -48,86 +50,104 @@
         </div>
     </div>
 </header> -->
-<!-- TODO: Do CSS. Make it Beautiful. -->
-<div class="main slider_area">
-    <section class="sign-in">
-        <div class="container">
-            
-            <div class="signin-content">
-                <a href="/">
-                <div style="display: flex;justify-content: center;margin-top: -40px;margin-left: 25px;">
-                    <img src="/views/home/img/playstore.png" alt="Learn" style="height: 32px;width: 32px;">
-                    <h3 style="margin-top:4px" >Learn</h3>
-                </div>
-                </a>
-                <div class="signin-image">
-                    <figure><img src="views/auth/images/learn_illustration.png" alt="sign-in image"></figure>
-                    <div style="display: flex; margin-left: 5em;">
-                        <h4 style="margin-right: 10px;margin-top: 6px;">New user?</h4>
-                        <a href="/signup" class="signup-image-link">Create an account</a>
-                    </div>
-                    
-                </div>
+    <!-- TODO: Do CSS. Make it Beautiful. -->
+    <div class="main slider_area">
+        <section class="sign-in">
+            <div class="container">
 
-                <div class="signin-form">
-                    <h2 class="form-title">Login to LEARN</h2>
-                    <form method="POST" class="register-form" id="login-form" action="/login">
-                        <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Email" required>
+                <div class="signin-content">
+                    <a href="/">
+                        <div style="display: flex;justify-content: center;margin-top: -40px;margin-left: 25px;">
+                            <img src="/views/home/img/playstore.png" alt="Learn" style="height: 32px;width: 32px;">
+                            <h3 style="margin-top:4px">Learn</h3>
                         </div>
-                        <div class="form-group">
-                            <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="password" id="password" placeholder="Password" required>
+                    </a>
+                    <div class="signin-image">
+                        <figure><img src="views/auth/images/learn_illustration.png" alt="sign-in image"></figure>
+                        <div style="display: flex; margin-left: 5em;align-content: center;">
+                            <h4 style="margin-right: 10px;margin-top: 6px;">New user?</h4>
+                            <a href="/signup" class="signup-image-link">Create an account</a>
                         </div>
-                        <a href="/forgot" style="float: right;">Forgot Password?</a>
-                        <div class="form-group form-button">
-                            <input type="submit" id="signin" class="form-submit" value="Log in" style="background-color:#8C54A1;"/>
-                            
+
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Login to LEARN</h2>
+                        <form method="POST" class="register-form" id="login-form" action="/login">
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="password"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="password" id="password" placeholder="Password" required>
+                            </div>
+                            <a href="/forgot" style="float: right;">Forgot Password?</a>
+                            <div class="form-group form-button">
+                                <input type="submit" id="signin" class="form-submit" value="Log in"
+                                    style="background-color:#8C54A1;" />
+
+                            </div>
+                        </form>
+                        <p></p>
+                        <div class="social-login">
+                            <!-- <h4><span class="social-label">Or login with</span></h4>-->
+                            <ul class="socials">
+                                <!-- <li><a href="/login/google"><i class="display-flex-center zmdi zmdi-google"></i></a>
+                                </li>
+                                <li><a href="#"><i class="display-flex-center zmdi zmdi-apple"></i></a></li> -->
+                                <!-- <li> -->
+                                <li>
+                                    <div class="col s1 m1 offset-m2 center-align"
+                                        style="border: black 1px solid;border-radius: 5px;align-content: center;;margin-right: 15px;">
+                                        <a class="oauth-container btn darken-4 white black-text"
+                                            href="/login/google/" style="text-transform:none">
+                                            <div class="left">
+                                                <img width="20px" alt="Google sign-in"
+                                                    style="float: left;margin-right:10px;margin-top: 2px;"
+                                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                                            </div>
+                                            Login with Google
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
-                    
-                    <div class="social-login">
-                        <h4><span class="social-label">Or login with</span></h4>
-                        <ul class="socials">
-                            <li><a href="/login/google"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                            <li><a href="#"><i class="display-flex-center zmdi zmdi-apple"></i></a></li>
-                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-</div>
+        </section>
+    </div>
 
-<!-- JS -->
-<script src="views/auth/vendor/jquery/jquery.min.js"></script>
+    <!-- JS -->
+    <script src="views/auth/vendor/jquery/jquery.min.js"></script>
 
-<script src="views/auth/js/main.js"></script>
+    <script src="views/auth/js/main.js"></script>
 
-<script src="/views/home/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="/views/home/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="/views/home/js/popper.min.js"></script>
-<script src="/views/home/js/bootstrap.min.js"></script>
-<script src="/views/home/js/owl.carousel.min.js"></script>
-<script src="/views/home/js/isotope.pkgd.min.js"></script>
-<script src="/views/home/js/ajax-form.min.js"></script>
-<script src="/views/home/js/waypoints.min.js"></script>
-<script src="/views/home/js/jquery.counterup.min.js"></script>
-<script src="/views/home/js/imagesloaded.pkgd.min.js"></script>
-<script src="/views/home/js/scrollIt.min.js"></script>
-<script src="/views/home/js/jquery.scrollUp.min.js"></script>
-<script src="/views/home/js/wow.min.js"></script>
-<script src="/views/home/js/nice-select.min.js"></script>
-<script src="/views/home/js/jquery.slicknav.min.js"></script>
-<script src="/views/home/js/jquery.magnific-popup.min.js"></script>
-<script src="/views/home/js/plugins.min.js"></script>
-<script src="/views/home/js/gijgo.min.js"></script>
-<script src="/views/home/js/contact.min.js"></script>
-<script src="/views/home/js/jquery.ajaxchimp.min.js"></script>
-<script src="/views/home/js/jquery.form.min.js"></script>
-<script src="/views/home/js/jquery.validate.min.js"></script>
-<script src="/views/home/js/mail-script.min.js"></script>
-<script src="/views/home/js/main.js"></script>
+    <script src="/views/home/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="/views/home/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="/views/home/js/popper.min.js"></script>
+    <script src="/views/home/js/bootstrap.min.js"></script>
+    <script src="/views/home/js/owl.carousel.min.js"></script>
+    <script src="/views/home/js/isotope.pkgd.min.js"></script>
+    <script src="/views/home/js/ajax-form.min.js"></script>
+    <script src="/views/home/js/waypoints.min.js"></script>
+    <script src="/views/home/js/jquery.counterup.min.js"></script>
+    <script src="/views/home/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/views/home/js/scrollIt.min.js"></script>
+    <script src="/views/home/js/jquery.scrollUp.min.js"></script>
+    <script src="/views/home/js/wow.min.js"></script>
+    <script src="/views/home/js/nice-select.min.js"></script>
+    <script src="/views/home/js/jquery.slicknav.min.js"></script>
+    <script src="/views/home/js/jquery.magnific-popup.min.js"></script>
+    <script src="/views/home/js/plugins.min.js"></script>
+    <script src="/views/home/js/gijgo.min.js"></script>
+    <script src="/views/home/js/contact.min.js"></script>
+    <script src="/views/home/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/views/home/js/jquery.form.min.js"></script>
+    <script src="/views/home/js/jquery.validate.min.js"></script>
+    <script src="/views/home/js/mail-script.min.js"></script>
+    <script src="/views/home/js/main.js"></script>
 </body>
+
 </html>
