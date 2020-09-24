@@ -27,6 +27,26 @@ router.get("/:course/video/:resource", (request, response) => {
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
     database.ref().child("links").child(fcourse).child("Videos").child(resource).once('value').then(function (snapshot) {
+        let reference = database.ref().child("users").child(user.uid).child("activity");
+        reference.once("value").then(activity => {
+            let reference = database.ref().child("users").child(user.uid).child("activity");
+            let date = new Date().toDateString().split(" ");
+            let dateString = date[2] + " " + date[1] + ", " + date[3];
+            reference.child(activity.numChildren().toString()).update({
+                date: dateString,
+                done: false,
+                from: snapshot.child("from").val(),
+                index: 0,
+                link: snapshot.child("link").val(),
+                name: snapshot.child("name").val(),
+                playlist: snapshot.child("playlist").val(),
+                reference: snapshot.ref.toString(),
+                time: 0,
+                type: "VIDEO"
+            });
+        }).catch(error => {
+            console.log(error.message)
+        });
         response.render(path.resolve('./views/html/videoPage'), {
             name: userName,
             email: user.email,
