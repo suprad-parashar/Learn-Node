@@ -4,6 +4,11 @@ const express = require("express");
 const helper = require("../helper");
 const path = require("path");
 const { fileLoader } = require("ejs");
+const { profile } = require("console");
+const formidable = require('formidable');
+var FileReader = require('filereader');
+const { request } = require("express");
+const Blob = require('cross-blob');
 
 //Create Router Object.
 const router = express.Router();
@@ -23,7 +28,7 @@ router.use((request, response, next) => {
 router.get("/", (request, response) => {
     const user = firebase.auth().currentUser;
     const database = firebase.database();
-    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    let picURL = "https://firerbasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
     database.ref().child("users").child(user.uid).child("data").once("value").then(snapshot => {
         response.render("html/profile", {
             name: user.displayName,
@@ -58,30 +63,43 @@ router.post("/edit", (request, response) => {
     let user = firebase.auth().currentUser;
     let database = firebase.database();
     let storage = firebase.storage();
-    let updatedName = request.body.name;
-    let updatedInstitution = request.body.institution;
-    let profileImage = request.body.profileImage;
-    let imageInput = request.body.imageInput;
 
-    console.log("IMAGE: " + imageInput);
-
-    user.updateProfile({
-        displayName: updatedName
-    }).catch(error => {
-        response.send("<h1>Firebase User Profile Cannot be updated</h1>");
-    });
-
-
-    // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
-    //     console.log(url);
-    //     console.log('success');
-    // })
-
-    database.ref().child("users").child(user.uid).child("data").update({
-        institution: updatedInstitution
-    }, a => {
-        if (a != null)
-            console.log(a);
+    const form = formidable({ multiples: true });
+    form.parse(request, function (err, fields, files) {
+        //Uploading IMAGE (Currently not working)..
+        // let image_file = files['profile_image_upload'];
+        // var reader = new FileReader();
+        // console.log(reader.readAsDataURL(files['profile_image_upload']));
+        // console.log(new Blob([image_file]));
+        // const task = storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(new Blob([image_file]));
+        // task
+        //     .then(snapshot => snapshot.ref.getDownloadURL())
+        //     .then(url => console.log(url))
+        let updatedInstitution;
+        let updatedName;
+        for (let key in fields) {
+            if (fields.hasOwnProperty(key) && key == 'institution') {
+                updatedInstitution = fields[key];
+            }
+            else if (fields.hasOwnProperty(key) && key == 'name') {
+                updatedName = fields[key];
+            }
+        }
+        if (typeof updatedName !== 'undefined') {
+            user.updateProfile({
+                displayName: updatedName
+            }).catch(error => {
+                response.send("<h1>Firebase User Profile Cannot be updated</h1>");
+            });
+        }
+        if (typeof updatedInstitution !== 'undefined') {
+            database.ref().child("users").child(user.uid).child("data").update({
+                institution: updatedInstitution
+            }, a => {
+                if (a != null)
+                    console.log(a);
+            });
+        }
     });
     response.redirect("/profile");
 });
