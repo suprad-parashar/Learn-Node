@@ -7,6 +7,8 @@ const path = require("path");
 
 //Create Router Object.
 const router = express.Router();
+router.use(express.urlencoded({extended: true}));
+
 
 //Static data and Assets
 router.use("/assets", express.static("assets"));
@@ -59,12 +61,24 @@ router.post("/edit", (request, response) => {
     let storage = firebase.storage();
     let updatedName = request.body.name;
     let updatedInstitution = request.body.institution;
+    let profileImage = request.body.profileImage;
+    let imageInput = request.body.imageInput;
+
+    // console.log("IMAGE: " + imageInput);
+    console.log(updatedInstitution);
+    console.log(updatedName);
 
     user.updateProfile({
         displayName: updatedName
     }).catch(error => {
         response.send("<h1>Firebase User Profile Cannot be updated</h1>");
     });
+
+
+    // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
+    //     console.log(url);
+    //     console.log('success');
+    // })
 
     database.ref().child("users").child(user.uid).child("data").update({
         institution: updatedInstitution
@@ -74,6 +88,40 @@ router.post("/edit", (request, response) => {
     });
     response.redirect("/profile");
 });
+
+
+// //Save Edits
+// router.post("/edit", (request, response) => {
+//     let user = firebase.auth().currentUser;
+//     let database = firebase.database();
+//     let storage = firebase.storage();
+//     let updatedName = request.body.name;
+//     let updatedInstitution = request.body.institution;
+//     let profileImage = request.body.profileImage;
+//     // let imageInput = request.body.imageInput;
+//
+//     // console.log("IMAGE: " + imageInput);
+//
+//     // user.updateProfile({
+//     //     displayName: updatedName
+//     // }).catch(error => {
+//     //     console.log(error.message);
+//     //     response.send("<h1>Firebase User Profile Cannot be updated</h1>");
+//     // });
+//
+//
+//     // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
+//     //     console.log(url);
+//     //     console.log('success');
+//     // })
+//
+//     database.ref().child("users").child(user.uid).child("data").update({
+//         institution: updatedInstitution
+//     }).catch(function (error) {
+//         console.log(error.message);
+//     });
+//     response.redirect("/profile");
+// });
 
 //Change Password
 router.get("/password", (request, response) => {
