@@ -44,7 +44,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Recent Activities</h2>
+                                    <h4>My Recent Activities</h4>
                                 </div>
                             </div>
                         </div>
@@ -57,21 +57,21 @@
                         <% x = 0 %>
                         <% } %>
                         <% for (let i = n - 1; i >= x; i--) { %>
-                            <div class='card' style="padding: 10px; border: 2px solid #8C54A1; border-radius: 10px">
+                            <div class='card' style="padding: 10px; border: 1px solid #8C54A1; border-radius: 10px">
                                 <% let activity = filter.child(i.toString()); %>
                                 <% if (activity.child("type").val() === "VIDEO") { %>
                                 <% if (activity.child("done").val()) { %>
                                 <h4>Completed watching <%= activity.child("name").val() %> by
                                     <%= activity.child("from").val() %></h4>
                                 <p><%= activity.child("date").val() %></p>
-                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="border: #8C54A1 solid 2px; float: right;">Watch
+                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="border: #8C54A1 solid 1px; float: right;color:white;">Watch
                                         Again</button></a>
                                 <% } else { %>
                                 <h4>Started watching <%= activity.child("name").val() %> by
                                     <%= activity.child("from").val() %></h4>
                                 <p><%= activity.child("date").val() %></p>
                                 <a
-                                    href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="background-color: #8C54A1; float: right">Resume</button></a>
+                                    href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="background-color: #8C54A1; float: right; color:white;">Resume</button></a>
                                 <% } %>
                                 <% } %>
                             </div>
