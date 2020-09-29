@@ -59,18 +59,17 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div class="col-md-12" style="display: flex;">
-                            <div style="width: 30%; border: 2px solid #8C54A1; border-bottom-left-radius: 15px; 
+                        <div style="display: flex;justify-content: center;  border-radius: 25px;">
+                            <!-- <div style="width: 30%; border: 2px solid #8C54A1; border-bottom-left-radius: 15px; 
                             border-top-left-radius: 15px; display: flex; justify-content: center;align-content: center;
                             text-align: center;">
                             <div style="margin: auto;">
                                 <h2 class="title-1"><%= course %></h2>
                             </div>
-                            </div>
-                            <div
-                                style="width: 70%; display: flex; justify-content: center; background-color: #8C54A1;border-top-right-radius: 15px;border-bottom-right-radius: 15px">
-                                <img src="<%= filter.child("image").val() %>" style="height: 150px;">
-                            </div>
+                            </div> -->
+                            
+                            <img src="<%= filter.child("image").val() %>" style="height: 150px;width:50%;border-radius:15px;box-shadow: 2px 2px 2px 2px #808080;">
+                            
                         </div>
                         <br>
                         <div class="col-md-12">
@@ -78,7 +77,7 @@
                             <% if (child.key !== "image") { %>
                             <% child.forEach(resource => { %>
                             <div
-                                style="border: 2px solid #8C54A1; background-color: white;border-radius: 10px;margin-bottom: 10px; padding:10px;display: flex">
+                                style="box-shadow: 2px 4px 6px #77448b; background-color: white;border-radius: 10px;margin-bottom: 15px; padding:10px;display: flex">
                                 <div style="width: 50px">
                                     <img style="margin: 5px; border-radius: 50px;"
                                         src="<%= resource.child("icon").val() %>" alt="Icon" height="30px" width="30px">
@@ -109,10 +108,9 @@
                                     </div>
                                     <% } %>
                                 </div>
-                                <div
-                                    style="background-color: #8C54A1; margin-top: auto; margin-bottom: auto; padding: 5px;border-radius: 5px;padding:10px">
-                                    <h5 style="color: white;"><%= child.key.slice(0, -1) %></h5>
-                                </div>
+                                <button style="margin-bottom: auto; padding: 5px;border-radius: 5px;">
+                                    <h4 style="color: white;background-color: #8C54A1;padding:3px"><span class="badge"><%= child.key.slice(0, -1) %></span></h4>
+                                </button>
                             </div>
                             <% }) %>
                             <% } %>
@@ -153,7 +151,8 @@
             console.log("<%= activeName %>");
         });
     </script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>

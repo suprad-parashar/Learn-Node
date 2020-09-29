@@ -67,10 +67,11 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1"><%= branchName %></h2>
+                                    <h3 class="title-1" style="font-weight:bold"><%= branchName %></h3>
                                 </div>
                             </div>
                         </div>
+                        <br>
                         <% let x = true; %>
                         <% let courses = []; %>
                         <% filter.forEach(child => { %>
@@ -84,7 +85,7 @@
                         <% let i = 0 %>
                         <% courses.forEach(course => { %>
                         <a href="/course/<%= course %>" style="width: 100%;">
-                            <div style="border: 2px solid #8C54A1; border-radius: 10px; padding: 5px; margin: 5px;">
+                            <div style="border-bottom: 1px solid #b582c9; padding: 5px; width:75%; margin-left: 20px;margin-bottom:5px">
                                 <h5 style="margin-left: 10px;"><%= course %></h5>
                             </div>
                         </a>

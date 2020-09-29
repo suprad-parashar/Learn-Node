@@ -234,20 +234,20 @@ section {
 /*Page Objects*/
 .page-wrapper {
     overflow: hidden;
-    background: #e5e5e5;
+    background: #f7f7f7;
     padding-bottom: 8vh;
 }
 
 @media (max-width: 991px) {
     .page-wrapper {
         overflow: auto;
-        background: #e5e5e5;
+        background: #f7f7f7;
         padding-bottom: 12vh;
     }
 }
 
 .page-container {
-    background: #e5e5e5;
+    background: #f7f7f7;
     padding-left: 300px;
 }
 

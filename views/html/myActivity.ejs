@@ -57,14 +57,14 @@
                         <% x = 0 %>
                         <% } %>
                         <% for (let i = n - 1; i >= x; i--) { %>
-                            <div class='card' style="padding: 10px; border: #8C54A1 solid; border-radius: 10px">
+                            <div class='card' style="padding: 10px; border: 2px solid #8C54A1; border-radius: 10px">
                                 <% let activity = filter.child(i.toString()); %>
                                 <% if (activity.child("type").val() === "VIDEO") { %>
                                 <% if (activity.child("done").val()) { %>
                                 <h4>Completed watching <%= activity.child("name").val() %> by
                                     <%= activity.child("from").val() %></h4>
                                 <p><%= activity.child("date").val() %></p>
-                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="border: #8C54A1 solid 3px; float: right;">Watch
+                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="border: #8C54A1 solid 2px; float: right;">Watch
                                         Again</button></a>
                                 <% } else { %>
                                 <h4>Started watching <%= activity.child("name").val() %> by
