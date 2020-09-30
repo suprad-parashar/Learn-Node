@@ -59,7 +59,7 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="<%= profilePic %>" alt="<%= name %>" id="pimg1" onerror="dummy()"/>
+                                <img src="<%= profilePic %>" alt="<%= name %>" id="pimg1" onerror="dummy()" style="border-radius:50%;"/>
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><%= name %></a>
@@ -67,9 +67,9 @@
                             <div class="account-dropdown js-dropdown">
                                 <div class="info clearfix">
                                     <div class="image">
-                                        <a href="#">
-                                            <img src="<%= profilePic %>" alt="<%= name %>" id="pimg2"/>
-                                        </a>
+                                        
+                                        <img src="<%= profilePic %>" alt="<%= name %>" id="pimg2" onerror="dummy()" style="border-radius:50%"/>
+                                        
                                     </div>
                                     <div class="content">
                                         <h5 class="name">
@@ -102,7 +102,7 @@
 </header>
 <script>
     function dummy() {
-        document.getElementById("pimg1").src = "../views/home/img/dummy_profile_picture.jpeg";
-        document.getElementById("pimg2").src = "../views/home/img/dummy_profile_picture.jpeg";
+        document.getElementById("pimg1").src = "../../views/home/img/dummy_profile_picture.jpeg";
+        document.getElementById("pimg2").src = "../../views/home/img/dummy_profile_picture.jpeg";
     }
 </script>

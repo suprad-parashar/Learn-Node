@@ -60,34 +60,43 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="overview-wrap">
-                                <h2 class="title-1"><%= course %></h2>
+                            <div style="display:flex;">
+                                <h3 style="margin-bottom:5px">Topic: <span style="color:#8C54A1;"><%= course %></span></h3>
+                                <button type="button" class="collapsible" style=" margin-left:5px;color:black;"><i class="fas fa-info-circle"></i></button>
+                                <div class="content" style="display: none;padding-left: 5px;overflow: hidden;color:black;">
+                                    <h6>Topic: <%= filter.child("name").val() %></h6>
+                                    <h6>From: <%= filter.child("from").val() %></h6>
+                                    <h6>Rating: <%= rating %> out of 5</h6>
+                                </div>
+                            </div>
                             </div>
                         </div>
                     </div>
-                    <% if (filter.child("playlist").val()) { %>
-                        <iframe width="560" height="315"
-                                id="player"
-                                src="<%= filter.child("list").child("0").child("link").val().replace("watch?v=", "embed/") %>"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    <% } else { %>
-                        <iframe width="560" height="315"
-                                id="player"
-                                src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                    <% } %>
-                    <h2><%= filter.child("name").val() %></h2>
-                    <h3><%= filter.child("from").val() %></h3>
-                    <h4><%= rating %></h4>
-                    <% if (filter.child("playlist").val()) { %>
-                        <div class="list-group">
-                            <% filter.child("list").forEach(link => { %>
-                                <a href="#" onclick="change('<%= link.child('link').val() %>')" class="list-group-item"><%= link.child("name").val() %></a>
-                            <% }) %>
+                    <br>
+                    <div style="display: flex; height: 405px;">
+                        <div class="col-md-8">
+                            <% if (filter.child("playlist").val()) { %>
+                                <iframe id="player" style="width: 100%; height: 100%"
+                                        src="<%= filter.child("list").child("0").child("link").val().replace("watch?v=", "embed/") %>"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            <% } else { %>
+                                <iframe id="player" style="width: 100%; height: 100%"
+                                        src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            <% } %>
                         </div>
-                    <% } %>
+                        <% if (filter.child("playlist").val()) { %>
+                            <div class="list-group col-md-4" style="width: 100%; height: 100%; overflow: auto">
+                                <% filter.child("list").forEach(link => { %>
+                                    <a href="#" onclick="change('<%= link.child('link').val() %>')" class="list-group-item"><%= link.child("name").val() %></a>
+                                <% }) %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <br>
+          
                 </div>
             </div>
         </div>
@@ -99,6 +108,22 @@
     function change(link) {
         document.getElementById("player").src = link.replace("watch?v=", "embed/");
         return false;
+    }
+</script>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+        content.style.display = "none";
+        } else {
+        content.style.display = "block";
+        }
+    });
     }
 </script>
 <script src="../../views/dashboard/vendor/jquery-3.2.1.min.js"></script>

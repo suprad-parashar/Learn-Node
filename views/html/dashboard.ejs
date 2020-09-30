@@ -17,7 +17,7 @@
 
     <link href="views/dashboard/css/font-face.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/css/theme.min.css" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="/views/home/css/style.min.css">
     <link href="views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -50,34 +50,33 @@
                         <br>
                         <div class="row">
                             <div class="col-md-12">
-                                <div class="overview-wrap">
-                                    <h2 class="title-1">Recent Activities</h2>
+                                <div>
+                                    <h4 style="color:#8C54A1" style="margin-left:20%">Recent Activities</h4>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="container">
                             <% if (filter) { %>
                             <div class="row">
                                 <div style="display: flex; justify-content: space-between">
                                     <% filter.forEach(activity => { %>
-                                        <div class='card col-4' style="padding: 10px; border: #8C54A1 solid;margin: 5px; border-radius: 10px;">
+                                        <div class='card col-4' style="padding: 7px;box-shadow: 2px 4px 2px #8C54A1; margin-right: 2%; border-radius: 10px;">
                                             <div style="margin: 5px;">
                                                 <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
                                                     <% if (activity["done"]) { %>
-                                                        <h4>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                                        <br>
-                                                        <p><%= activity["date"] %></p>
+                                                        <h5>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h5>
+                                                        <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
                                                         <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                            class="btn" style="border: 2px solid #8C54A1;">Watch
+                                                            class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;position: absolute;">Watch
                                                                 Again</button></a>
                                                     <% } else { %>
-                                                            <h4>Started watching <%= activity["name"] %> by <%= activity["from"] %></h4>
-                                                            <br>
-                                                            <div style="">
-                                                                <p><%= activity["date"] %></p>
-                                                                <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                                        class="btn btn-primary" style="background-color: #8C54A1; border: none;">Resume</button></a>
-                                                            </div>
+                                                        <h5>Started watching <%= activity["name"] %> by <%= activity["from"] %></h5>
+                                                        <div style="bottom:0px;position: absolute;">
+                                                            <p style="margin-bottom: 30px;"><%= activity["date"] %></p>
+                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button
+                                                                    class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;bottom: 15px;position: absolute;">Resume</button></a>
+                                                        </div>
                                                     <% } %>
                                                 <% } %>
                                             </div>
