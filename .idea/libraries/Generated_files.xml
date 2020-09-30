@@ -36,6 +36,7 @@
         <item url="file://$PROJECT_DIR$/views/learn/js/jquery.form.min.js" />
         <item url="file://$PROJECT_DIR$/views/learn/js/jquery.sticky.min.js" />
         <item url="file://$PROJECT_DIR$/views/learn/js/mail-script.min.js" />
+        <item url="file://$PROJECT_DIR$/views/test/js/sidenav.min.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -73,6 +74,7 @@
       <root url="file://$PROJECT_DIR$/views/learn/js/jquery.form.min.js" />
       <root url="file://$PROJECT_DIR$/views/learn/js/jquery.sticky.min.js" />
       <root url="file://$PROJECT_DIR$/views/learn/js/mail-script.min.js" />
+      <root url="file://$PROJECT_DIR$/views/test/js/sidenav.min.js" />
     </CLASSES>
     <SOURCES />
   </library>

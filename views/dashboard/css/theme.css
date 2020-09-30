@@ -2117,6 +2117,9 @@ section {
     .menu-sidebar2.show-sidebar {
         right: 0;
     }
+    .account-wrap {
+        display: none;
+    }
 }
 
 .account2 {

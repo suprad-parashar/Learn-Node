@@ -95,6 +95,10 @@ app.get("/faq", (request, response) => {
     });
 });
 
+app.get("/test", (request, response) => {
+    response.render(path.resolve('./views/html/test'));
+})
+
 //Logout
 app.get("/logout", (request, response) => {
     firebase.auth().signOut();

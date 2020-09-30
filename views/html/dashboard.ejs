@@ -18,6 +18,7 @@
     <link href="views/dashboard/css/font-face.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/css/theme.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="/views/home/css/style.min.css">
+<!--    <link rel="stylesheet" href="views/test/css/respond.css">-->
     <link href="views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -39,8 +40,6 @@
         <div class="page-container">
             <!-- Include Dashboard Header -->
             <%- include("../partials/dashboard_header.ejs") %>
-
-            <!-- TODO: Card Layout -->
 
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -95,6 +94,14 @@
             </div>
         </div>
     </div>
+    <div class="mobile">
+        <%- include("../partials/dashboard_side_nav_mobile.ejs") %>
+    </div>
+    <div class="tab">
+        <h1>Tab</h1>
+        <%- include("../partials/dashboard_side_nav.ejs") %>
+    </div>
+
 
     <!-- JS -->
     <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
