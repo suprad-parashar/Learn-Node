@@ -2117,6 +2117,10 @@ section {
     .menu-sidebar2.show-sidebar {
         right: 0;
     }
+
+    .header-desktop {
+        display: none;
+    }
 }
 
 .account2 {

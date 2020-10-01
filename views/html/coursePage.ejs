@@ -67,57 +67,57 @@
                                 <h2 class="title-1"><%= course %></h2>
                             </div>
                             </div> -->
-                            
-                            <img src="<%= filter.child("image").val() %>" style="height: 150px;width:50%;border-radius:15px;box-shadow: 2px 2px 2px 2px #808080;">
+                            <div class="col-md-6 col-lg-4 col-sm-12" style="justify-content: center">
+                                <img src="<%= filter.child("image").val() %>" style="height: 150px;border-radius:15px;box-shadow: 2px 2px 2px 2px #808080;">
+                            </div>
                             
                         </div>
                         <br>
                         <div class="col-md-12">
                             <% filter.forEach(child => { %>
-                            <% if (child.key !== "image") { %>
-                            <% child.forEach(resource => { %>
-                            <div
-                                style="box-shadow: 2px 4px 6px #77448b; background-color: white;border-radius: 10px;margin-bottom: 15px; padding:10px;display: flex">
-                                <div style="width: 50px">
-                                    <img style="margin: 5px; border-radius: 50px;"
-                                        src="<%= resource.child("icon").val() %>" alt="Icon" height="30px" width="30px">
-                                </div>
-                                <div style="float: left;width: 100%;margin-left: 10px;">
-                                    <% if (child.key !== "Videos") { %>
-                                    <a href="<%= resource.child("link").val() %>" target="_blank">
-                                        <h3><%= resource.child("name").val() %></h3>
-                                    </a>
-                                    <% } else { %>
-                                    <a href="<%= course %>/video/<%= resource.key %>">
-                                        <h3><%= resource.child("name").val() %></h3>
-                                    </a>
-                                    <% } %>
-                                    <h5><%= resource.child("from").val() %></h5>
-                                    <br>
-                                    <% if (resource.child("prerequisites").val()[0] === "None") { %>
-                                    <h6 style="color: #8C54A1">No Prerequisites Required</h6>
-                                    <% } else { %>
-                                    <div style="display: flex">
-                                        <h6>Prerequisites:&nbsp;</h6>
-                                        <% resource.child("prerequisites").val().forEach(requisite => { %>
-                                        <a href="/course/<%= requisite %>"><u>
-                                                <h6 style="color: #8C54A1"><%= requisite %></h6>
-                                            </u></a>
-                                        <h6>,&nbsp;</h6>
-                                        <% }); %>
-                                    </div>
-                                    <% } %>
-                                </div>
-                                <div style="display:flex;flex-direction:column;width:15%">
-                                <button style="margin-bottom: auto; padding: 5px;border-radius: 5px;cursor:pointer;">
-                                    <h4 style="color: white;background-color: #8C54A1;padding:3px;"><span class="badge"><%= child.key.slice(0, -1) %></span></h4>
-                                </button>
-                                
-                                <h5>Rating: <%= resource.child("rating").val() %>/5</h5>
-                                </div>
-                            </div>
-                            <% }) %>
-                            <% } %>
+                                <% if (child.key !== "image") { %>
+                                    <% child.forEach(resource => { %>
+                                        <div style="box-shadow: 2px 4px 6px #77448b; background-color: white;border-radius: 10px;margin-bottom: 15px; padding:10px;display: flex">
+                                            <div style="width: 50px">
+                                                <img style="margin: 5px; border-radius: 50px;" src="<%= resource.child("icon").val() %>" alt="Icon" height="30px" width="30px">
+                                            </div>
+                                            <div style="float: left;width: 100%;margin-left: 10px;">
+                                                <% if (child.key !== "Videos") { %>
+                                                    <a href="<%= resource.child("link").val() %>" target="_blank">
+                                                        <h3><%= resource.child("name").val() %></h3>
+                                                    </a>
+                                                <% } else { %>
+                                                    <a href="<%= course %>/video/<%= resource.key %>">
+                                                        <h3><%= resource.child("name").val() %></h3>
+                                                    </a>
+                                                <% } %>
+                                                <h5><%= resource.child("from").val() %></h5>
+                                                <br>
+                                                <% if (resource.child("prerequisites").val()[0] === "None") { %>
+                                                    <h6 style="color: #8C54A1">No Prerequisites Required</h6>
+                                                <% } else { %>
+                                                    <div style="display: flex">
+                                                        <h6>Prerequisites:&nbsp;</h6>
+                                                        <% resource.child("prerequisites").val().forEach(requisite => { %>
+                                                            <a href="/course/<%= requisite %>">
+                                                                <u>
+                                                                    <h6 style="color: #8C54A1"><%= requisite %></h6>
+                                                                </u>
+                                                            </a>
+                                                            <h6>,&nbsp;</h6>
+                                                        <% }); %>
+                                                    </div>
+                                                <% } %>
+                                            </div>
+                                            <div style="display:flex;flex-direction:column;width:15%;">
+                                                <button style="margin-bottom: auto; padding: 5px;border-radius: 5px;">
+                                                    <h4 style="color: white;background-color: #8C54A1;padding:3px;"><span class="badge"><%= child.key.slice(0, -1) %></span></h4>
+                                                </button>
+                                                <h5>Rating: <%= resource.child("rating").val() %>/5</h5>
+                                            </div>
+                                        </div>
+                                    <% }) %>
+                                <% } %>
                             <% }) %>
                         </div>
                     </div>
@@ -127,7 +127,6 @@
     </div>
 
     <!-- Scripts -->
-
     <script>
         function openPage(pageName, element, color) {
             let i, tabContent, tabLinks;

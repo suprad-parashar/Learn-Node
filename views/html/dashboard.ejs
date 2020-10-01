@@ -41,12 +41,10 @@
             <!-- Include Dashboard Header -->
             <%- include("../partials/dashboard_header.ejs") %>
 
-            <!-- TODO: Card Layout -->
-
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <h3>Welcome back, <span style="color: #8C54A1"><%= name.split(" ")[0] %></span> !</h3>
+                        <h3>Welcome back, <span style="color: #8C54A1"><%= name.split(" ")[0] %></span>!</h3>
                         <br>
                         <div class="row">
                             <div class="col-md-12">
@@ -58,32 +56,27 @@
                         
                         <div class="container">
                             <% if (filter) { %>
-                            <div class="row">
-                                <div style="display: flex; justify-content: space-between">
+                                <div class="row m-t-25">
                                     <% filter.forEach(activity => { %>
-                                        <div class='card col-4' style="padding: 7px;box-shadow: 2px 4px 2px #8C54A1; margin-right: 2%; border-radius: 10px;">
-                                            <div style="margin: 5px;">
-                                                <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
-                                                    <% if (activity["done"]) { %>
-                                                        <h5>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h5>
-                                                        <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
-                                                        <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                            class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;position: absolute;">Watch
-                                                                Again</button></a>
-                                                    <% } else { %>
-                                                        <h5>Started watching <%= activity["name"] %> by <%= activity["from"] %></h5>
-                                                        <div style="bottom:0px;position: absolute;">
+                                        <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
+                                            <div class="col-sm-4 col-lg-4">
+                                                <div style="padding: 7px;box-shadow: 2px 4px 2px #8C54A1; margin-right: 2%; border-radius: 10px;">
+                                                    <div style="margin: 5px;">
+                                                        <% if (activity["done"]) { %>
+                                                            <h5>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h5>
+                                                            <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
+                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;position: absolute;">Watch Again</button></a>
+                                                        <% } else { %>
+                                                            <h5>Started watching <%= activity["name"] %> by <%= activity["from"] %></h5>
                                                             <p style="margin-bottom: 30px;"><%= activity["date"] %></p>
-                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button
-                                                                    class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;bottom: 15px;position: absolute;">Resume</button></a>
-                                                        </div>
-                                                    <% } %>
-                                                <% } %>
+                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;bottom: 15px;position: absolute;">Resume</button></a>
+                                                        <% } %>
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </div>
+                                        <% } %>
                                     <% }) %>
                                 </div>
-                            </div>
                             <% } %>
                         </div>
                     </div>

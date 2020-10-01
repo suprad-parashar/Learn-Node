@@ -75,20 +75,20 @@
                         <% let x = true; %>
                         <% let courses = []; %>
                         <% filter.forEach(child => { %>
-                        <% if (child.key !== "image") { %>
-                        <% child.forEach(course => { %>
-                        <% courses.push(course.val()) %>
-                        <% }) %>
-                        <% } %>
+                            <% if (child.key !== "image") { %>
+                                <% child.forEach(course => { %>
+                                    <% courses.push(course.val()) %>
+                                <% }) %>
+                            <% } %>
                         <% }) %>
                         <% courses.sort(); %>
                         <% let i = 0 %>
                         <% courses.forEach(course => { %>
-                        <a href="/course/<%= course %>" style="width: 100%;">
-                            <div style="border-bottom: 1px solid #b582c9; padding: 5px; width:75%; margin-left: 20px;margin-bottom:5px">
-                                <h5 style="margin-left: 10px;"><%= course %></h5>
-                            </div>
-                        </a>
+                            <a href="/course/<%= course %>" style="width: 100%;">
+                                <div style="border-bottom: 1px solid #b582c9; padding: 5px; width:90%; margin-left: 20px; margin-right:60px; margin-bottom:5px">
+                                    <h5 style="margin-left: 10px;"><%= course %></h5>
+                                </div>
+                            </a>
                         <% }) %>
                     </div>
                 </div>
