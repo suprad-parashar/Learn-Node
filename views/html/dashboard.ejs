@@ -64,7 +64,7 @@
                                                     <div style="margin: 5px;">
                                                         <% if (activity["done"]) { %>
                                                             <h5>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h5>
-                                                            <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
+                                                           <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
                                                             <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;position: absolute;">Watch Again</button></a>
                                                         <% } else { %>
                                                             <h5>Started watching <%= activity["name"] %> by <%= activity["from"] %></h5>
