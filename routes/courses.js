@@ -3,6 +3,7 @@ const firebase = require("../firebase");
 const express = require("express");
 const path = require("path");
 const helper = require("../helper");
+const { toASCII } = require("punycode");
 
 //Create Objects.
 const router = express.Router();
@@ -80,6 +81,20 @@ router.get("/:course", (request, response) => {
     let userName = user.displayName;
     let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
     database.ref().child("links").child(fcourse).once('value').then(function (snapshot) { 
+        let ratings = [];
+        snapshot.forEach(child => {
+            let total = 0;
+            let count = 0;
+            child.child("rating").forEach(rate =>{
+                total+=rate.val()
+                count+=1;
+            })
+            ratings.push(total/count);
+        })
+            // count = x[i]["rating"].length;
+            // avg = Math.round(( x[i]["rating"].reduce((a,b) => a+b,0)/count + Number.EPSILON) * 100) / 100
+            // ratings.push(avg);
+        // }
         response.render(path.resolve('./views/html/coursePage'), {
             name: userName,
             email: user.email,
@@ -87,6 +102,7 @@ router.get("/:course", (request, response) => {
             course: course,
             profilePic: picURL,
             filter: snapshot,
+            rating : ratings,
         });
     }).catch(function (error) {
         console.log(error.message);

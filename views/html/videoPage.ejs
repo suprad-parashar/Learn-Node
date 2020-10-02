@@ -12,8 +12,10 @@
     <style>
         .video_wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+            padding-bottom: 56.25%;
+            /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
         }
+
         iframe {
             position: absolute;
             top: 0;
@@ -32,18 +34,19 @@
     <link href="../../views/dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="../../views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="../../views/dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet"
+        media="all">
     <link href="../../views/dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="../../views/dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet"
-          media="all">
+        media="all">
     <link href="../../views/dashboard/vendor/wow/animate.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/slick/slick.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="../../views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.min.css" rel="stylesheet" media="all">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
     <link href="../../views/learn/css/filter.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../views/learn/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../views/learn/css/owl.carousel.min.css">
@@ -60,29 +63,35 @@
     <link href="../../views/dashboard/css/theme.min.css" rel="stylesheet" media="all">
 </head>
 
-<body class="animsition">
-<div class="page-wrapper">
-    <!-- Include Dashboard Side Navigation Bar -->
-    <%- include("../partials/dashboard_side_nav.ejs") %>
+<body class="animsition" style="overflow: hidden;">
+    <div class="page-wrapper">
+        <!-- Include Dashboard Side Navigation Bar -->
+        <%- include("../partials/dashboard_side_nav.ejs") %>
 
-    <div class="page-container">
-        <!-- Include Dashboard Header -->
-        <%- include("../partials/dashboard_header.ejs") %>
+        <div class="page-container">
+            <!-- Include Dashboard Header -->
+            <%- include("../partials/dashboard_header.ejs") %>
 
-        <div class="main-content">
-            <div class="section__content section__content--p30">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div style="display:flex;">
-                                <a href="/course/<%= course %>"><h3 style="margin-bottom:5px">Topic: <span style="color:#8C54A1;"><%= course %></span></h3></a>
-                                <button type="button" class="collapsible" style=" margin-left:5px;margin-bottom:1px;color:black;"><i class="fas fa-info-circle"></i></button>
-                                <div class="content" style="display: none;padding-left: 5px;overflow: hidden;color:black;">
-                                    <h6>Topic: <%= filter.child("name").val() %></h6>
-                                    <h6>From: <%= filter.child("from").val() %></h6>
-                                    <h6>Rating: <%= rating %> out of 5</h6>
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div style="display:flex;">
+                                    <a href="/course/<%= course %>">
+                                        <h3 style="margin-bottom:5px">Topic: <span
+                                                style="color:#8C54A1;"><%= course %></span></h3>
+                                    </a>
+                                    <button type="button" class="collapsible"
+                                        style=" margin-left:5px;margin-bottom:1px;color:black;"><i
+                                            class="fas fa-info-circle"></i></button>
+                                    <div class="content"
+                                        style="display: none;padding-left: 5px;overflow: hidden;color:black;">
+                                        <h6>Topic: <%= filter.child("name").val() %></h6>
+                                        <h6>From: <%= filter.child("from").val() %></h6>
+                                        <h6>Rating: <%= rating %> out of 5</h6>
+                                    </div>
                                 </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -92,99 +101,104 @@
                         <div class="col-md-8 col-sm-12">
                             <div class="video_wrapper">
                                 <% if (isPlaylist) { %>
-                                    <iframe id="player" style="width: 100%;"
-                                            src="<%= filter.child("list").child("0").child("link").val().replace("watch?v=", "embed/") %>"
-                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
+                                <iframe id="player" style="width: 100%;"
+                                    src="<%= filter.child("list").child("0").child("link").val().replace("watch?v=", "embed/") %>"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                                 <% } else { %>
-                                    <iframe id="player" style="width: 100%;"
-                                            src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
-                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
+                                <iframe id="player" style="width: 100%;"
+                                    src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
                                 <% } %>
                             </div>
                             <h3 style="margin: 10px;"><%= filter.child("name").val() %></h3>
                         </div>
                         <% if (isPlaylist) { %>
-                            <div class="list-group col-md-4 col-sm-12" style="width: 100%; height: 100%; overflow: auto">
-                                <% filter.child("list").forEach(link => { %>
-                                    <a href="#" onclick="change('<%= link.child('link').val() %>')" class="list-group-item"><%= link.child("name").val() %></a>
-                                <% }) %>
-                            </div>
+                        <div class="list-group col-md-4 col-sm-12" style="width: 100%; height: 100%; overflow: auto">
+                            <% filter.child("list").forEach(link => { %>
+                            <a href="#" onclick="change('<%= link.child('link').val() %>')"
+                                class="list-group-item"><%= link.child("name").val() %></a>
+                            <% }) %>
+                        </div>
                         <% } %>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f75dbc8b5757ed9"></script>
 
-<!-- JS -->
-<script>
-    function change(link) {
-        document.getElementById("player").src = link.replace("watch?v=", "embed/");
-        return false;
-    }
-</script>
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-        content.style.display = "none";
-        } else {
-        content.style.display = "block";
+    <!-- JS -->
+    <script>
+        function change(link) {
+            document.getElementById("player").src = link.replace("watch?v=", "embed/");
+            return false;
         }
-    });
-    }
-</script>
-<script src="../../views/dashboard/vendor/jquery-3.2.1.min.js"></script>
-<script src="../../views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
-<script src="../../views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-<script src="../../views/dashboard/vendor/slick/slick.min.js"></script>
-<script src="../../views/dashboard/vendor/wow/wow.min.js"></script>
-<script src="../../views/dashboard/vendor/animsition/animsition.min.js"></script>
-<script src="../../views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-<script src="../../views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
-<script src="../../views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
-<script src="../../views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
-<script src="../../views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-<script src="../../views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
-<script src="../../views/dashboard/vendor/select2/select2.min.js"></script>
+    </script>
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
 
-<script src="../../views/dashboard/js/main.js"></script>
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script>
+    <script src="../../views/dashboard/vendor/jquery-3.2.1.min.js"></script>
+    <script src="../../views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="../../views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="../../views/dashboard/vendor/slick/slick.min.js"></script>
+    <script src="../../views/dashboard/vendor/wow/wow.min.js"></script>
+    <script src="../../views/dashboard/vendor/animsition/animsition.min.js"></script>
+    <script src="../../views/dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="../../views/dashboard/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="../../views/dashboard/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="../../views/dashboard/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="../../views/dashboard/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="../../views/dashboard/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="../../views/dashboard/vendor/select2/select2.min.js"></script>
 
-<script src="../../views/learn/js/vendor/modernizr-3.5.0.min.js"></script>
-<script src="../../views/learn/js/vendor/jquery-1.12.4.min.js"></script>
-<script src="../../views/learn/js/popper.min.js"></script>
-<script src="../../views/learn/js/bootstrap.min.js"></script>
-<script src="../../views/learn/js/jquery.slicknav.min.js"></script>
-<script src="../../views/learn/js/owl.carousel.min.js"></script>
-<script src="../../views/learn/js/slick.min.js"></script>
-<script src="../../views/learn/js/wow.min.js"></script>
-<script src="../../views/learn/js/animated.headline.min.js"></script>
-<script src="../../views/learn/js/jquery.magnific-popup.js"></script>
-<script src="../../views/learn/js/gijgo.min.js"></script>
-<script src="../../views/learn/js/jquery.nice-select.min.js"></script>
-<script src="../../views/learn/js/jquery.sticky.min.js"></script>
-<script src="../../views/learn/js/jquery.counterup.min.js"></script>
-<script src="../../views/learn/js/waypoints.min.js"></script>
-<script src="../../views/learn/js/contact.min.js"></script>
-<script src="../../views/learn/js/jquery.form.min.js"></script>
-<script src="../../views/learn/js/jquery.validate.min.js"></script>
-<script src="../../views/learn/js/mail-script.min.js"></script>
+    <script src="../../views/dashboard/js/main.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script src="../../views/learn/js/jquery.ajaxchimp.min.js"></script>
-<script>
-    function changeToEmbed(link) {
-        return link.replace("watch?v=", "embed/");
-    }
-</script>
+    <script src="../../views/learn/js/vendor/modernizr-3.5.0.min.js"></script>
+    <script src="../../views/learn/js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../../views/learn/js/popper.min.js"></script>
+    <script src="../../views/learn/js/bootstrap.min.js"></script>
+    <script src="../../views/learn/js/jquery.slicknav.min.js"></script>
+    <script src="../../views/learn/js/owl.carousel.min.js"></script>
+    <script src="../../views/learn/js/slick.min.js"></script>
+    <script src="../../views/learn/js/wow.min.js"></script>
+    <script src="../../views/learn/js/animated.headline.min.js"></script>
+    <script src="../../views/learn/js/jquery.magnific-popup.js"></script>
+    <script src="../../views/learn/js/gijgo.min.js"></script>
+    <script src="../../views/learn/js/jquery.nice-select.min.js"></script>
+    <script src="../../views/learn/js/jquery.sticky.min.js"></script>
+    <script src="../../views/learn/js/jquery.counterup.min.js"></script>
+    <script src="../../views/learn/js/waypoints.min.js"></script>
+    <script src="../../views/learn/js/contact.min.js"></script>
+    <script src="../../views/learn/js/jquery.form.min.js"></script>
+    <script src="../../views/learn/js/jquery.validate.min.js"></script>
+    <script src="../../views/learn/js/mail-script.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../../views/learn/js/jquery.ajaxchimp.min.js"></script>
+    <script>
+        function changeToEmbed(link) {
+            return link.replace("watch?v=", "embed/");
+        }
+    </script>
 </body>
+
 </html>
