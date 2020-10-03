@@ -115,12 +115,14 @@
                             <h3 style="margin: 10px;"><%= filter.child("name").val() %></h3>
                         </div>
                         <% if (isPlaylist) { %>
-                        <div class="list-group col-md-4 col-sm-12" style="width: 100%; height: 100%; overflow: auto">
-                            <% filter.child("list").forEach(link => { %>
-                            <a href="#" onclick="change('<%= link.child('link').val() %>')"
-                                class="list-group-item"><%= link.child("name").val() %></a>
-                            <% }) %>
-                        </div>
+                            <div class="list-group col-md-4 col-sm-12" style="width: 100%; height: 100%; overflow: auto">
+                                <% let index = 1; %>
+                                <% filter.child("list").forEach(link => { %>
+                                <a href="#" onclick="change('<%= link.child('link').val() %>')"
+                                    class="list-group-item"><%= index + ". " + link.child("name").val() %></a>
+                                    <% index++ %>
+                                <% }) %>
+                            </div>
                         <% } %>
                     </div>
                 </div>
