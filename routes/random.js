@@ -35,6 +35,12 @@ router.get("/",(request,response) => {
         });
     }).catch(function (error) {
         console.log(error.message);
+        response.status(404).render(path.resolve('./views/html/404'), {
+            name: user.displayName,
+            email: user.email,
+            profilePic: picURL,
+            activeName: "NONE",
+        });
     });
 });
 
