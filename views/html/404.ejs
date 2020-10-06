@@ -50,9 +50,9 @@
 
 <body class="animsition">
     <div class="page-wrapper">
+        <!-- Include Dashboard Side Navigation Bar -->
+        <%- include("../partials/dashboard_side_nav.ejs") %>
         <div class="page-container">
-            <!-- Include Dashboard Side Navigation Bar -->
-            <%- include("../partials/dashboard_side_nav.ejs") %>
             <!-- Include Dashboard Header -->
             <%- include("../partials/dashboard_header.ejs") %>
             <div class="main-content">
@@ -64,7 +64,7 @@
             </div>
         </div>
     </div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
@@ -104,4 +104,5 @@
     <script src="views/learn/js/mail-script.min.js"></script>
     <script src="views/learn/js/jquery.ajaxchimp.min.js"></script>
 </body>
+
 </html>
