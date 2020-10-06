@@ -14,10 +14,11 @@ const learnRoutes = require("./routes/learn");
 const forgotPasswordRoutes = require("./routes/forgotPassword");
 const coursesRoutes = require("./routes/courses");
 const randomRoutes = require("./routes/random");
+const { response } = require("express");
 
 //App Related Stuff
 app.listen(3000);
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 
 //Static data and Assets
@@ -27,14 +28,14 @@ app.use("/views", express.static("views"));
 //Landing Page
 app.get("/", (request, response) => {
     if (firebase.auth().currentUser == null)
-        response.sendFile("./views/html/home.html", {root: __dirname});
+        response.sendFile("./views/html/home.html", { root: __dirname });
     else
         response.redirect("/dashboard");
 });
 
 //About Page
 app.get("/about", (request, response) => {
-    response.sendFile("./views/html/about.html", {root: __dirname});
+    response.sendFile("./views/html/about.html", { root: __dirname });
 });
 
 //Login Page
@@ -51,10 +52,23 @@ app.use("/profile", profileRoutes);
 //Learn
 app.use('/learn', learnRoutes);
 app.use("/course", coursesRoutes);
-app.use("/random/video",randomRoutes);
+app.use("/random/video", randomRoutes);
 
 //Forgot Password
 app.use("/forgot", forgotPasswordRoutes);
+
+//404 Page Not Found
+app.use(function (request, response, next) {
+    helper.checkAuth(response);
+    let user = firebase.auth().currentUser;
+    let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
+    response.status(404).render(path.resolve('./views/html/404'), {
+        name: user.displayName,
+        email: user.email,
+        profilePic: picURL,
+        activeName: "NONE",
+    });
+})
 
 //My Activity
 app.get("/activity", (request, response) => {
