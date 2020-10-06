@@ -83,50 +83,6 @@ router.get("/:course/video/:resource", (request, response) => {
             });    
         }
     });
-    // database.ref().child("links").child(fcourse).child("Videos").child(resource).once('value').then(function (snapshot) {
-    //     let reference = database.ref().child("users").child(user.uid).child("activity");
-    //     reference.once("value").then(activity => {
-    //         let last = activity.numChildren();
-    //         let exists = false;
-    //         for (let i = 1; i < 3; i++) {
-    //             if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
-    //                 exists = true;
-    //                 break;
-    //             }
-    //         }
-    //         if (!exists) {
-    //             let date = new Date().toDateString().split(" ");
-    //             let dateString = date[2] + " " + date[1] + ", " + date[3];
-    //             reference.child(activity.numChildren().toString()).update({
-    //                 date: dateString,
-    //                 done: false,
-    //                 from: snapshot.child("from").val(),
-    //                 index: 0,
-    //                 link: snapshot.child("link").val(),
-    //                 name: snapshot.child("name").val(),
-    //                 playlist: snapshot.child("playlist").val(),
-    //                 reference: snapshot.ref.toString(),
-    //                 time: 0,
-    //                 type: "VIDEO"
-    //             }).catch(error => {
-    //                 console.log(error.message);
-    //             });
-    //         }
-    //     }).catch(error => {
-    //         console.log(error.message)
-    //     });
-    //     response.render(path.resolve('./views/html/videoPage'), {
-    //         name: userName,
-    //         email: user.email,
-    //         activeName: "Learn",
-    //         course: course,
-    //         profilePic: picURL,
-    //         filter: snapshot,
-    //         rating: helper.getRating(snapshot.child("rating").val()),
-    //     });
-    // }).catch(function (error) {
-    //     console.log(error.message);
-    // });
 });
 
 //Get Course.
@@ -168,7 +124,7 @@ router.get("/:course", (request, response) => {
                 email: user.email,
                 profilePic: picURL,
                 activeName: "NONE",
-            });    
+            });
         }
     })
 });
