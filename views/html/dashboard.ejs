@@ -56,20 +56,20 @@
                         
                         <div class="container">
                             <% if (filter) { %>
-                                <div class="row m-t-25">
+                                <div class="row m-t-20" style="display: flex; justify-content: center;">
                                     <% filter.forEach(activity => { %>
                                         <% if (activity && activity.hasOwnProperty("type") && activity["type"] === "VIDEO") { %>
-                                            <div class="col-sm-4 col-lg-4">
-                                                <div style="padding: 7px;box-shadow: 2px 4px 2px #8C54A1; margin-right: 2%; border-radius: 10px;">
+                                            <div class="" >
+                                                <div class="card" style="width: 18em; height: 210px;padding: 7px;box-shadow: 2px 4px 2px #8C54A1; margin-right:20px; border-radius: 10px;">
                                                     <div style="margin: 5px;">
                                                         <% if (activity["done"]) { %>
                                                             <h5>Completed watching <%= activity["name"] %> by <%= activity["from"] %></h5>
                                                            <p style="padding-bottom: 5px;"><%= activity["date"] %></p>
-                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;position: absolute;">Watch Again</button></a>
+                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 20px;color:white;position: absolute;">Watch Again</button></a>
                                                         <% } else { %>
                                                             <h5>Started watching <%= activity["name"] %> by <%= activity["from"] %></h5>
-                                                            <p style="margin-bottom: 30px;"><%= activity["date"] %></p>
-                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 15px;color:white;bottom: 15px;position: absolute;">Resume</button></a>
+                                                            <p style="margin-top: 10px;"><%= activity["date"] %></p>
+                                                            <a href="javascript:getLink('<%= activity["reference"] %>')"><button class="btn" style="background-color: #8C54A1; bottom: 20px;color:white;position: absolute;">Resume</button></a>
                                                         <% } %>
                                                     </div>
                                                 </div>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="fab fab-right-bottom" style="width: 50px;height: 50px;border-radius: 25px;background-color: #8C54A1;margin-right: 20px;position: fixed;bottom: 20px;right: 20px;">
+                <div class="fab fab-right-bottom" style="width: 50px;height: 50px;float:right;border-radius: 25px;background-color: #8C54A1;margin-right: 20px;margin-top:11vh;right: 20px;">
                     <a href="/random/video">
                         <image src="views\dashboard\images\icon\shuffle-outline.svg" style="padding:10px;"></image>
                     </a>
