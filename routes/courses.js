@@ -168,7 +168,7 @@ router.get("/:course", (request, response) => {
                 email: user.email,
                 profilePic: picURL,
                 activeName: "NONE",
-            });    
+            });
         }
     })
 });
