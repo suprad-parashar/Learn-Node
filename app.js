@@ -17,7 +17,8 @@ const randomRoutes = require("./routes/random");
 const { response } = require("express");
 
 //App Related Stuff
-app.listen(3000);
+let port = process.env.PORT || 3000
+app.listen(port);
 app.use(express.urlencoded({ extended: true }))
 app.set('view engine', 'ejs');
 
