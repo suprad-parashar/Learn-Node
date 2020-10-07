@@ -101,7 +101,7 @@
                                     <div class="col s1 m1 offset-m2 center-align"
                                         style="border: black 1px solid;border-radius: 5px;align-content: center;;margin-right: 15px;">
                                         <a class="oauth-container btn darken-4 white black-text"
-                                            href="/login/google/" style="text-transform:none">
+                                            href="javascript:signInWithGoogle()" style="text-transform:none">
                                             <div class="left">
                                                 <img width="20px" alt="Google sign-in"
                                                     style="float: left;margin-right:10px;margin-top: 2px;"
@@ -120,8 +120,43 @@
     </div>
 
     <!-- JS -->
-    <script src="views/auth/vendor/jquery/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script>
+    <script>
+        function signInWithGoogle() {
+            const firebaseConfig = {
+                apiKey: "AIzaSyBasifU1_o2rfiptyJEA7GRoXszwySbHek",
+                authDomain: "learn-634be.firebaseapp.com",
+                databaseURL: "https://learn-634be.firebaseio.com",
+                projectId: "learn-634be",
+                storageBucket: "learn-634be.appspot.com",
+                messagingSenderId: "172846432484",
+                appId: "1:172846432484:web:d0ae995eeef4323f0fecf1",
+                measurementId: "G-0W9LD4N2GM"
+            };
+            firebase.initializeApp(firebaseConfig);
+            let provider = new firebase.auth.GoogleAuthProvider();
+            console.log("LOCATION: " + location.protocol);
+            firebase.auth().signInWithPopup(provider).then(function (result) {
+                const token = result.credential.accessToken;
+                const user = result.user;
+                console.log(user.uid);
+                window.location.pathname = "/dashboard";
+                console.log("YESSSSSSSSSSSSSSSSSSSS");
+            }).catch(function (error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                const email = error.email;
+                const credential = error.credential;
+                console.log("Alpha");
+                console.log(errorCode + ": " + email + " " + errorMessage);
+            });
+        }
+    </script>
 
+    <script src="views/auth/vendor/jquery/jquery.min.js"></script>
     <script src="views/auth/js/main.js"></script>
 
     <script src="/views/home/js/vendor/modernizr-3.5.0.min.js"></script>

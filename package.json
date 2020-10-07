@@ -22,6 +22,7 @@
     "firebase": "^7.15.5",
     "formidable": "^1.2.2",
     "formidable-serverless": "^1.0.3",
+    "googleapis": "^61.0.0",
     "pug": "^3.0.0",
     "url-exists": "^1.0.3",
     "xhr2": "^0.2.0",
