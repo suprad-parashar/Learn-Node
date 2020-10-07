@@ -31,18 +31,31 @@ router.post("/", (request, response) => {
 });
 
 //Google Sign In Auth Function Route.
-router.get("/google", (request, response) => {
-    let provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(function (result) {
-        let user = result.user;
-        if (user == null)
-            response.send("<h1>NULL</h1>");
-        else
-            response.redirect("/dashboard");
-    }).catch(function (error) {
-        response.send("<h1>" + error.message + "</h1>");
-    });
-});
+// router.get("/google", (request, response) => {
+//     let provider = new firebase.auth.GoogleAuthProvider();
+//     console.log("LOCATION: " + location.protocol);
+//     firebase.auth().signInWithPopup(provider).then(function(result) {
+//         const token = result.credential.accessToken;
+//         const user = result.user;
+//         console.log(user.uid);
+//     }).catch(function(error) {
+//         const errorCode = error.code;
+//         const errorMessage = error.message;
+//         const email = error.email;
+//         const credential = error.credential;
+//         console.log("Alpha");
+//         console.log(errorCode + ": " + email + " " + errorMessage);
+//     });
+//     // firebase.auth().signInWithPopup(provider).then(function (result) {
+//     //     let user = result.user;
+//     //     if (user == null)
+//     //         response.send("<h1>NULL</h1>");
+//     //     else
+//     //         response.redirect("/dashboard");
+//     // }).catch(function (error) {
+//     //     response.send("<h1>" + error.message + "</h1>");
+//     // });
+// });
 
 //Export Router.
 module.exports = router;
