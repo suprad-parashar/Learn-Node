@@ -1,0 +1,38 @@
+[debug] [2020-10-07T08:57:18.666Z] ----------------------------------------------------------------------
+[debug] [2020-10-07T08:57:18.668Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions,hosting
+[debug] [2020-10-07T08:57:18.668Z] CLI Version:   8.11.2
+[debug] [2020-10-07T08:57:18.668Z] Platform:      win32
+[debug] [2020-10-07T08:57:18.668Z] Node Version:  v11.0.0
+[debug] [2020-10-07T08:57:18.670Z] Time:          Wed Oct 07 2020 14:27:18 GMT+0530 (India Standard Time)
+[debug] [2020-10-07T08:57:18.670Z] ----------------------------------------------------------------------
+[debug] [2020-10-07T08:57:18.670Z] 
+[debug] [2020-10-07T08:57:18.681Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-10-07T08:57:18.681Z] > authorizing via signed-in user
+[debug] [2020-10-07T08:57:18.682Z] [iam] checking project learn-634be for permissions ["firebase.projects.get"]
+[debug] [2020-10-07T08:57:18.685Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/learn-634be:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-10-07T08:57:20.376Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 07 Oct 2020 08:57:20 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=1127","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-07T08:57:20.377Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/learn-634be  
+ 
+[debug] [2020-10-07T08:57:21.191Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 07 Oct 2020 08:57:21 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-Q050=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-10-07T08:57:21.197Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/learn-634be/webApps/-/config  
+ 
+[debug] [2020-10-07T08:57:21.499Z] TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received type undefined
+    at assertPath (path.js:39:11)
+    at Object.join (path.js:432:7)
+    at Object.<anonymous> (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\functions.js:22:39)
+    at Generator.next (<anonymous>)
+    at C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\functions.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\functions.js:4:12)
+    at Object.start (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\functions.js:20:16)
+    at Promise.all._.map (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\index.js:24:40)
+    at arrayMap (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\node_modules\lodash\lodash.js:639:23)
+    at Function.map (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\node_modules\lodash\lodash.js:9580:14)
+    at C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\index.js:23:29
+    at Generator.next (<anonymous>)
+    at C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\index.js:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Sandeep\AppData\Roaming\nvm\v11.0.0\node_modules\firebase-tools\lib\serve\index.js:4:12)
+[error] 
+[error] Error: An unexpected error has occurred.

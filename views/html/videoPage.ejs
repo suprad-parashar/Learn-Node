@@ -63,7 +63,7 @@
     <link href="../../views/dashboard/css/theme.min.css" rel="stylesheet" media="all">
 </head>
 
-<body class="animsition" style="overflow: hidden;">
+<body class="animsition">
     <div class="page-wrapper">
         <!-- Include Dashboard Side Navigation Bar -->
         <%- include("../partials/dashboard_side_nav.ejs") %>
@@ -97,7 +97,7 @@
                     </div>
                     <br>
                     <% let isPlaylist = filter.child("playlist").val()%>
-                    <div style="display: flex; height: 405px;">
+                    <div style="display: block; height: 100%;align-content: center;">
                         <div class="col-md-8 col-sm-12">
                             <div class="video_wrapper">
                                 <% if (isPlaylist) { %>
@@ -110,25 +110,25 @@
                                     src="<%= filter.child("link").val().replace("watch?v=", "embed/") %>"
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     allowfullscreen></iframe>
-                                 <% } %>
+                                <% } %>
                             </div>
                             <h3 style="margin: 10px;"><%= filter.child("name").val() %></h3>
                         </div>
-                        <% if (isPlaylist) { %>
-                            <div class="list-group col-md-4 col-sm-12" style="width: 100%; height: 100%; overflow: auto">
-                                <% let index = 1; %>
-                                <% filter.child("list").forEach(link => { %>
-                                <a href="#" onclick="change('<%= link.child('link').val() %>')"
-                                    class="list-group-item"><%= index + ". " + link.child("name").val() %></a>
-                                    <% index++ %>
-                                <% }) %>
-                            </div>
-                        <% } %>
                     </div>
+                    <% if (isPlaylist) { %>
+                    <div class="list-group col-md-8 col-sm-12"
+                        style="width: 100%; height: 100%; overflow: auto;clear: left;">
+                        <% let index = 1; %>
+                        <% filter.child("list").forEach(link => { %>
+                        <a href="#" onclick="change('<%= link.child('link').val() %>')"
+                            class="list-group-item"><%= index + ".  " + link.child("name").val() %></a>
+                        <% index++ %>
+                        <% }) %>
+                    </div>
+                    <% } %>
                 </div>
             </div>
         </div>
-    </div>
     </div>
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5f75dbc8b5757ed9"></script>
