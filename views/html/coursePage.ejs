@@ -5,9 +5,9 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="description" content="learn-forever">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
     <link rel="stylesheet" href="/views/learn/css/tabView.css">
 
     <!-- Title -->
@@ -82,7 +82,7 @@
                                             <div style="width: 50px">
                                                 <img style="margin: 5px; border-radius: 50px;" src="<%= resource.child("icon").val() %>" alt="Icon" height="30px" width="30px">
                                             </div>
-                                            <div style="float: left;width: 100%;margin-left: 10px;">
+                                            <div style="float: left;width: 70%;margin-left: 10px;">
                                                 <% if (child.key !== "Videos") { %>
                                                     <a href="<%= resource.child("link").val() %>" target="_blank">
                                                         <h3><%= resource.child("name").val() %></h3>
@@ -110,18 +110,23 @@
                                                     </div>
                                                 <% } %>
                                             </div>
-                                            <div style="display:flex;flex-direction:column;width:15%;" id="sidePanel">
-                                                <button style="margin-bottom: auto; padding: 5px;border-radius: 5px;">
-                                                    <h4 style="color: white;background-color: #8C54A1;padding:3px;"><span class="badge"><%= child.key.slice(0, -1) %></span></h4>
+                                            <div class="col-sm-3 col-md-4" >
+                                            <div style="display:flex;flex-direction:column;float: right;">
+                                                <a href="<%= course %>/video/<%= resource.key %>">
+                                                
+                                                <div style="border-radius: 5px;text-align: center;
+                                                    color: white;background-color: #8C54A1;padding: 2px;"><%= child.key.slice(0, -1) %></div>
                                                     <% let total = 0; %>
                                                     <% let count = 0; %>
                                                     <% resource.child("rating").forEach(rate => { %>
                                                         <% total += rate.val() %>
                                                         <% count += 1; %>
-                                                    <% }); %>
-                                                    <br>
-                                                    <h5>Rating : <%= (total / count).toFixed(1) %> / 5</h5>
-                                                </button>
+                                                        <% }); %>
+                                                        <br>
+                                                        <h5>Rating : <%= (total / count).toFixed(1) %> / 5</h5>
+                                                   
+                                                </a>
+                                            </div>
                                             </div>
                                         </div>
                                     <% }) %>

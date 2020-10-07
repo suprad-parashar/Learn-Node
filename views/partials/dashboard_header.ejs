@@ -1,3 +1,5 @@
+<body>
+    
 <header class="header-desktop">
     <div class="section__content section__content--p30">
         <div class="container-fluid">
@@ -17,8 +19,8 @@
                     <div class="account-wrap">
                         <div class="account-item clearfix js-item-menu">
                             <div class="image">
-                                <img src="<%= profilePic %>" alt="<%= name %>" id="pimg1" onerror="dummy()"
-                                    style="border-radius:50%;" />
+                                <img src="<%= profilePic %>" alt="<%= name %>" style="border-radius:50%;" id="pimg1" onerror="dummy()">
+                                
                             </div>
                             <div class="content">
                                 <a class="js-acc-btn" href="#"><%= name %></a>
@@ -28,7 +30,7 @@
                                     <div class="image">
 
                                         <img src="<%= profilePic %>" alt="<%= name %>" id="pimg2" onerror="dummy()"
-                                            style="border-radius:50%" />
+                                            style="border-radius:50%">
 
                                     </div>
                                     <div class="content">
@@ -66,3 +68,4 @@
         document.getElementById("pimg2").src = "../../views/home/img/dummy_profile_picture.jpeg";
     }
 </script>
+</body>
