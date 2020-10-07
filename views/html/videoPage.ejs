@@ -89,7 +89,7 @@
                                         style="display: none;padding-left: 5px;overflow: hidden;color:black;">
                                         <h6>Topic: <%= filter.child("name").val() %></h6>
                                         <h6>From: <%= filter.child("from").val() %></h6>
-                                        <h6>Rating: <%= rating %> out of 5</h6>
+                                        <h6>Rating: <%= rating.toFixed(1) %> out of 5</h6>
                                     </div>
                                 </div>
                             </div>
