@@ -57,7 +57,7 @@
                         <% x = 0 %>
                         <% } %>
                         <% for (let i = n - 1; i >= x; i--) { %>
-                            <div class='card' style="padding: 10px; border: 1px solid #8C54A1; border-radius: 10px">
+                            <div class='card' style="padding: 10px; border: 1px solid #8C54A1;">
                                 <% let activity = filter.child(i.toString()); %>
                                 <% if (activity.child("type").val() === "VIDEO") { %>
                                 <% if (activity.child("done").val()) { %>
