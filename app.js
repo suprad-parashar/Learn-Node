@@ -14,7 +14,8 @@ const learnRoutes = require("./routes/learn");
 const forgotPasswordRoutes = require("./routes/forgotPassword");
 const coursesRoutes = require("./routes/courses");
 const randomRoutes = require("./routes/random");
-const { response } = require("express");
+const aboutRoutes = require('./routes/about');
+const { response, request } = require("express");
 
 //App Related Stuff
 let port = process.env.PORT || 3000
@@ -34,13 +35,11 @@ app.get("/", (request, response) => {
         response.redirect("/dashboard");
 });
 
-//About Page
-app.get("/about", (request, response) => {
-    response.sendFile("./views/html/about.html", { root: __dirname });
-});
-
 //Login Page
 app.use("/login", loginRoutes);
+
+//About Page
+app.use("/about", aboutRoutes);
 
 //Signup Page
 app.use("/signup", signUpRoutes);
@@ -50,6 +49,7 @@ app.use('/dashboard', dashboardRoutes);
 
 //Profile.
 app.use("/profile", profileRoutes);
+
 //Learn
 app.use('/learn', learnRoutes);
 app.use("/course", coursesRoutes);
