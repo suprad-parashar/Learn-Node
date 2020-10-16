@@ -11,3 +11,9 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
+
+function logoutUser() {
+    auth.signOut().then(() => {
+        window.location.replace("/login");
+    });
+}
