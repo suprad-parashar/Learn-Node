@@ -40,7 +40,7 @@
 
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                    <div class="container-fluid">
+                    <div class="container-fluid" id="activities_list">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
@@ -49,33 +49,6 @@
                             </div>
                         </div>
                         <br>
-                        <% const n = filter.numChildren() %>
-                        <% let x %>
-                        <% if (n > 10) { %>
-                        <% x = n - 10 %>
-                        <% } else { %>
-                        <% x = 0 %>
-                        <% } %>
-                        <% for (let i = n - 1; i >= x; i--) { %>
-                            <div class='card' style="padding: 10px; border: 1px solid #8C54A1;">
-                                <% let activity = filter.child(i.toString()); %>
-                                <% if (activity.child("type").val() === "VIDEO") { %>
-                                <% if (activity.child("done").val()) { %>
-                                <h4>Completed watching <%= activity.child("name").val() %> by
-                                    <%= activity.child("from").val() %></h4>
-                                <p><%= activity.child("date").val() %></p>
-                                <a href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="border: #8C54A1 solid 1px; float: right;color:#8C54A1;font-weight: bold;">Watch
-                                        Again</button></a>
-                                <% } else { %>
-                                <h4>Started watching <%= activity.child("name").val() %> by
-                                    <%= activity.child("from").val() %></h4>
-                                <p><%= activity.child("date").val() %></p>
-                                <a
-                                    href="javascript:getLink('<%= activity.child("reference").val() %>')"><button class="btn" style="background-color: #8C54A1; float: right; color:white;">Resume</button></a>
-                                <% } %>
-                                <% } %>
-                            </div>
-                        <% } %>
                     </div>
                 </div>
             </div>
@@ -83,6 +56,13 @@
     </div>
 
     <!-- JS -->
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+    <script type="text/javascript" src="/views/client/firebase.js"></script>
+    <script type="text/javascript" src="/views/client/myActivitiesPage.js"></script>
+
     <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -98,14 +78,6 @@
     <script src="views/dashboard/vendor/select2/select2.min.js"></script>
 
     <script src="views/dashboard/js/main.js"></script>
-    <script>
-        function getLink(ref) {
-            let parts = ref.split("/");
-            let n = parts.length;
-            console.log(parts);
-            window.location.href = "/course/" + parts[n - 3] + "/video/" + parts[n - 1];
-        }
-    </script>
 </body>
 
 </html>

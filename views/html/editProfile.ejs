@@ -45,12 +45,11 @@
           <div class="col-lg-12">
             <div class="au-card">
               <div class="card-body card-block">
-                <form method="post" action="/profile/edit">
+                <form method="post" action="javascript:saveProfile()">
                   <div class="account2">
                     <div class="image img-cir img-200" id="profile-image-div">
-                      <input type="file" id="imageInput" name="imageInput"
-                             value="<%=profilePic %>" style="display: none;">
-                      <img src="<%= profilePic %>" alt="<%= name %>" id="profileImage"
+                      <input type="file" id="imageInput" name="imageInput" style="display: none;">
+                      <img class="profilePicImages" id="profileImage"
                            name="profileImageName" />
                       <input id="profile_image_upload" type="file" name="profile_image_upload"
                              placeholder="Photo" style="display: none;" capture>
@@ -58,14 +57,11 @@
                   </div>
                   <div class="form-group">
                     <label for="name" class=" form-control-label">Name</label>
-                    <input type="text" id="name" placeholder="Full Name" value="<%= name %>"
-                           class="form-control" name="name" required type="file">
+                    <input type="text" id="name" placeholder="Full Name" class="form-control" name="name" required>
                   </div>
                   <div class="form-group">
                     <label for="institution" class=" form-control-label">Institution</label>
-                    <input type="text" name="institution" id="institution"
-                           placeholder="School/College/University" value="<%= institution %>"
-                           class="form-control">
+                    <input type="text" name="institution" id="institution" placeholder="School/College/University" class="form-control">
                   </div>
                   <input class="au-btn au-btn-icon au-btn--blue" type="submit" value="Save" style="border: 2px solid #8C54A1; margin: 5px;">
                   <a href="/profile"><input class="au-btn au-btn-icon au-btn--blue" type="button" value="Cancel" style="margin: 5px; background-color: white; border: 2px solid #8C54A1;color: #8C54A1" href="/profile"></a>
@@ -80,42 +76,13 @@
 </div>
 
 <!-- JS -->
-<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-storage.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyBasifU1_o2rfiptyJEA7GRoXszwySbHek",
-    authDomain: "learn-634be.firebaseapp.com",
-    databaseURL: "https://learn-634be.firebaseio.com",
-    projectId: "learn-634be",
-    storageBucket: "learn-634be.appspot.com",
-    messagingSenderId: "172846432484",
-    appId: "1:172846432484:web:d0ae995eeef4323f0fecf1",
-    measurementId: "G-0W9LD4N2GM"
-  };
-  firebase.initializeApp(firebaseConfig);
-  console.log(firebase);
-</script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+<script type="text/javascript" src="/views/client/firebase.js"></script>
+<script type="text/javascript" src="/views/client/editProfilePage.js"></script>
 
-<script>
-  var profile_image = document.getElementById('profileImage');
-  var profile_image_upload = document.getElementById('profile_image_upload');
-  var getImage = document.getElementById('imageInput');
-  profile_image.addEventListener('click', function (Evnent) {
-    console.log("asdads");
-    // $("#profile_image_upload").click();
-  });
-  profile_image_upload.addEventListener('change', function () {
-    fasterPreview(this);
-  });
-  function fasterPreview(uploader) {
-    if (uploader.files && uploader.files[0]) {
-      console.log(document.querySelector('#profile_image_upload').files[0]);
-      profile_image.src = window.URL.createObjectURL(uploader.files[0]);
-    }
-  }
-</script>
 <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>
