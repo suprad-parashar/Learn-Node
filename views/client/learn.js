@@ -13,7 +13,7 @@ function getUserName() {
 
 function getCardHTML(domain, image) {
     return '<div class="col-md-4" onclick="location.href=' + "'/learn/" + domain + '">' +
-        '<div class="card contain img-fluid au-card"  onMouseOver="this.style.opacity=0.8" onMouseOut="this.style.opacity=1"  style="width:100%;padding:0; opacity: 1; height: 250px;cursor: pointer;border-radius: 15px;position:relative">' +
+        '<div class="card contain img-fluid au-card"  onMouseOver="this.style.opacity=0.8" onMouseOut="this.style.opacity=1"  style="padding:0; opacity: 1; height: 250px;cursor: pointer;border-radius: 15px;position:relative">' +
         '<img src="' + image + '" alt="Card image" class="image" style=" opacity: 1;display: block;width: 100%;height: 250px;transition: .5s ease;backface-visibility: hidden;">' +
         '<div class="middle" onMouseOver="this.style.opacity=1" onMouseOut="this.style.opacity=0"style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">' +
         '<div class="text" style=" background-color: #fff;color:#8C54A1;font-size: 16px;padding: 28px 40px;">' +
@@ -40,25 +40,25 @@ auth.onAuthStateChanged(user => {
         }
         document.getElementById("emailSpan").innerHTML = user.email;
 
-        let frame = document.getElementById("learn_frame");
-        database.ref().child("domain").once("value").then(snapshot => {
-            let i = 0;
-            let isClosed = true;
-            snapshot.forEach(child => {
-                if (i % 3 == 0) {
-                    frame.innerHTML += "<div class='row' style='display: flex; justify-content: left'>";
-                    isClosed = false
-                }
-                frame.innerHTML += getCardHTML(child.key, child.child("image").val());
-                if (i % 2 == 0) {
-                    frame.innerHTML += "</div>";
-                    isClosed = true;
-                }
-                i++;
-            })
-            if (!isClosed)
-                frame.innerHTML += "</div>";
-        })
+        // let frame = document.getElementById("learn_frame");
+        // database.ref().child("domain").once("value").then(snapshot => {
+        //     let i = 0;
+        //     let isClosed = true;
+        //     snapshot.forEach(child => {
+        //         if (i % 3 === 0) {
+        //             frame.innerHTML += "<div class='row' style='display: flex; justify-content: left'>";
+        //             isClosed = false
+        //         }
+        //         frame.innerHTML += getCardHTML(child.key, child.child("image").val());
+        //         if (i % 2 === 0) {
+        //             frame.innerHTML += "</div>";
+        //             isClosed = true;
+        //         }
+        //         i++;
+        //     })
+        //     if (!isClosed)
+        //         frame.innerHTML += "</div>";
+        // })
     } else {
         window.location.replace("/login");
     }

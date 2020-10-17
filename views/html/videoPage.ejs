@@ -139,28 +139,13 @@
 
 
     <!-- JS -->
-    <script>
-        function change(link) {
-            document.getElementById("player").src = link.replace("watch?v=", "embed/");
-            return false;
-        }
-    </script>
-    <script>
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+    <script type="text/javascript" src="/views/client/firebase.js"></script>
+    <script type="text/javascript" src="/views/client/videoPage.js"></script>
 
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            });
-        }
-    </script>
     <script src="../../views/dashboard/vendor/jquery-3.2.1.min.js"></script>
     <script src="../../views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="../../views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>

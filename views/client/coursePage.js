@@ -11,19 +11,19 @@ function getUserName() {
     return auth.currentUser.displayName;
 }
 
-function getCardHTML(branch, image, domain) {
-    return '<div class="col-md-4" onclick="window.location.href=' + "'/learn/" + domain + "/" + branch + '">' +
-        '<div class="card contain img-fluid au-card"  onMouseOver="this.style.opacity=0.8" onMouseOut="this.style.opacity=1"  style="width:100%;padding:0; opacity: 1; height: 250px;cursor: pointer;border-radius: 15px;position:relative">' +
-        '<img src="' + image + '" alt="Card image" class="image" style=" opacity: 1;display: block;width: 100%;height: 250px;transition: .5s ease;backface-visibility: hidden;">' +
-        '<div class="middle" onMouseOver="this.style.opacity=1" onMouseOut="this.style.opacity=0"style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">' +
-        '<div class="text" style=" background-color: #fff;color:#8C54A1;font-size: 16px;padding: 28px 40px;">' +
-        '<h2 style="font-weight:bold">' + branch + '</h2>' +
-        '</div>' +
-        '</div>' +
-        '</div>' +
-        '<h5 style="text-align:center">' + branch + '</h5>' +
-        '</div>';
-}
+// function openPage(pageName, element, color) {
+//     let i, tabContent, tabLinks;
+//     tabContent = document.getElementsByClassName("tabcontent");
+//     for (i = 0; i < tabContent.length; i++) {
+//         tabContent[i].style.display = "none";
+//     }
+//     tabLinks = document.getElementsByClassName("tablink");
+//     for (i = 0; i < tabLinks.length; i++) {
+//         tabLinks[i].style.backgroundColor = "";
+//     }
+//     document.getElementById(pageName).style.display = "block";
+//     element.style.backgroundColor = color;
+// }
 
 auth.onAuthStateChanged(user => {
     if (user) {
@@ -40,8 +40,7 @@ auth.onAuthStateChanged(user => {
         }
         document.getElementById("emailSpan").innerHTML = user.email;
 
-        let frame = document.getElementById("branch_frame");
-        let domain = window.location.href.split("/").slice(-1)[0];
+        // document.getElementById("defaultOpen").click();
         // database.ref().child("domain").child(domain).once("value").then(snapshot => {
         //     let i = 0;
         //     let isClosed = true;

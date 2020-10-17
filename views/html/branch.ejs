@@ -57,7 +57,7 @@
 
         <div class="main-content">
             <div class="section__content section__content--p30">
-                <div class="container-fluid">
+                <div class="container-fluid" id="branch_frame">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="overview-wrap">
@@ -67,30 +67,29 @@
                     </div>
                     <br>
                     <% let i = 0 %>
-                    <% console.log(domainName) %>
                     <% filter.forEach(child => { %>
                         <% if (child.key !== "image") { %>
                             <% if (i % 3 === 0) { %>
                             <div class="row">
                                 <% } %>
-                                
+
                                 <div class="col-md-4" onclick="location.href='/learn/<%= domainName %>/<%= child.key %>'" >
                                     <div class="card contain img-fluid au-card"  onMouseOver="this.style.opacity=0.7"
-                                        onMouseOut="this.style.opacity=1"  style="width:100%;padding:0; opacity: 1;height: 250px;cursor: pointer;border-radius: 15px;position:relative">                                       
+                                         onMouseOut="this.style.opacity=1"  style="width:100%;padding:0; opacity: 1;height: 250px;cursor: pointer;border-radius: 15px;position:relative">
                                         <div style="display: flex; justify-content: center;">
                                             <img src="<%= child.child("image").val() %>" alt="Card image" class="image"style=" opacity: 1;display: block;width: 100%;height: 250px;transition: .5s ease;backface-visibility: hidden;">
-                                                <div class="middle" onMouseOver="this.style.opacity=1"
-                                                    onMouseOut="this.style.opacity=0"style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">
-                                                    <div class="text" style=" background-color: #fff;color:#8C54A1;font-size: 16px;padding: 16px 32px;">
-                                                        <h3 style="font-weight:bold"><%= child.key %></h3>
-                                                    </div>
+                                            <div class="middle" onMouseOver="this.style.opacity=1"
+                                                 onMouseOut="this.style.opacity=0"style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">
+                                                <div class="text" style=" background-color: #fff;color:#8C54A1;font-size: 16px;padding: 16px 32px;">
+                                                    <h3 style="font-weight:bold"><%= child.key %></h3>
                                                 </div>
+                                            </div>
                                         </div>
                                     </div>
-                                        <p style="text-align: center;"><%= child.key %></p>
+                                    <p style="text-align: center;"><%= child.key %></p>
                                 </div>
-                                
-                                
+
+
                                 <% if (i % 3 === 2) { %>
                             </div>
                             <% } %>
@@ -104,15 +103,13 @@
 </div>
 
 <!-- JS -->
-<script>
-    let domains = document.getElementById("Domain");
-    let branches = document.getElementById("Branch");
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+<script type="text/javascript" src="/views/client/firebase.js"></script>
+<script type="text/javascript" src="/views/client/branch.js"></script>
 
-    domains.addEventListener("change", function () {
-        console.log(domains.value);
-        console.log("<%= activeName %>");
-    });
-</script>
 <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>

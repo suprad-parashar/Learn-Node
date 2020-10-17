@@ -37,14 +37,14 @@ auth.onAuthStateChanged(user => {
         }
         document.getElementById("emailSpan").innerHTML = user.email;
 
-        let frame = document.getElementById("faq_frame");
-        database.ref().child("faq").once("value").then(snapshot => {
-            snapshot.forEach(child => {
-                let question = child.child("question").val();
-                let answer = child.child("answer").val();
-                frame.innerHTML += getFAQ(question, answer);
-            });
-        });
+        // let frame = document.getElementById("faq_frame");
+        // database.ref().child("faq").once("value").then(snapshot => {
+        //     snapshot.forEach(child => {
+        //         let question = child.child("question").val();
+        //         let answer = child.child("answer").val();
+        //         frame.innerHTML += getFAQ(question, answer);
+        //     });
+        // });
 
         let acc = document.getElementsByClassName("accordion");
         let prev = -1;

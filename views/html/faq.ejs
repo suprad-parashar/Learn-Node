@@ -50,6 +50,16 @@
                             </div>
                         </div>
                         <br>
+                        <% filter.forEach(child => { %>
+                            <div class="accordion" style="background-color: #FFFFFF;border-radius: 0px;">
+                                <button style="text-align: left;"><%= child.child("question").val() %></button>
+                                <img class="dropdown" src="views/dashboard/images/icon/chevron-down-outline.svg"
+                                       style="width: 25px;height: 25px;float: right;" alt="Dropdown">
+                            </div>
+                            <div class="panel" style="padding: 20px;background-color: #AF87D4;">
+                                <p style="color: white"><%= child.child("answer").val() %></p>
+                            </div>
+                        <% }) %>
                     </div>
                 </div>
             </div>
