@@ -59,6 +59,43 @@ auth.onAuthStateChanged(user => {
             });
         }
 
+        let parts = window.location.href.split("/");
+        let index = parts[parts.length - 1];
+        let course = parts[parts.length - 3];
+        database.ref().child("links").child(course).child("Videos").child(index).once("value").then(snapshot => {
+            let reference = database.ref().child("users").child(user.uid).child("activity");
+            reference.once("value").then(activity => {
+                let last = activity.numChildren();
+                let exists = false;
+                for (let i = 1; i < 3; i++) {
+                    if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists) {
+                    let date = new Date().toDateString().split(" ");
+                    let dateString = date[2] + " " + date[1] + ", " + date[3];
+                    reference.child(activity.numChildren().toString()).update({
+                        date: dateString,
+                        done: false,
+                        from: snapshot.child("from").val(),
+                        index: 0,
+                        link: snapshot.child("link").val(),
+                        name: snapshot.child("name").val(),
+                        playlist: snapshot.child("playlist").val(),
+                        reference: snapshot.ref.toString(),
+                        time: 0,
+                        type: "VIDEO"
+                    }).catch(error => {
+                        console.log(error.message);
+                    });
+                }
+            }).catch(error => {
+                console.log(error.message)
+            });
+        });
+
         // let reference = database.ref().child("users").child(user.uid).child("activity");
         // reference.once("value").then(activity => {
         //     let last = activity.numChildren();
