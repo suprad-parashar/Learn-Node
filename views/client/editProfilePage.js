@@ -16,10 +16,11 @@ const profile_image_upload = document.getElementById('profile_image_upload');
 const getImage = document.getElementById('imageInput');
 profile_image.addEventListener('click', function (Evnent) {
     console.log("asdads");
-    // $("#profile_image_upload").click();
+    $("#profile_image_upload").click();
 });
 profile_image_upload.addEventListener('change', function () {
     fasterPreview(this);
+    console.log("Changed");
 });
 
 function fasterPreview(uploader) {
@@ -76,9 +77,17 @@ function saveProfile() {
             console.log(a);
     });
 
+    let image = document.getElementById("profile_image_upload").files[0];
+
+    storage.ref().child("Profile Pictures").child(auth.currentUser.uid + ".jpg").put(image).then(snapshot => {
+        console.log('Uploaded a blob or file!');
+        window.location.replace("/profile");
+    }).catch(error => {
+        console.log(error.message);
+    });
+
     // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
     //     console.log(url);
     //     console.log('success');
     // })
-    window.location.replace("/profile");
 }
