@@ -40,6 +40,7 @@ function validatePassword() {
         alert("Password Mismatch");
     }
 }
+
 auth.onAuthStateChanged(user => {
     if (user) {
         window.location.replace("/dashboard");

@@ -16,6 +16,7 @@ function changePasswordPage() {
         response.send(error);
     });
 }
+
 function validatePassword() {
     let form = document.getElementById("change-password-form");
     let newPassword = document.getElementById("new").value;
@@ -52,6 +53,7 @@ function validatePassword() {
         }
     }
 }
+
 auth.onAuthStateChanged(user => {
     if (!user) {
         window.location.replace("/login");

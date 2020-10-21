@@ -28,11 +28,11 @@ function getCardHTML(hasCompleted, name, from, date, reference) {
         buttonText = "Resume";
     }
     return '<div class="card" style="padding: 10px; border: 1px solid #8C54A1;">' +
-            '<h4>' + title + ' watching ' + name + ' by ' + from + '</h4>' +
-            '<p>' + date + '</p>' +
-            '<a href="' + getLink(reference) + '">' +
-            '<button class="btn" style="border: #8C54A1 solid 1px; float: right;color:#8C54A1;font-weight: bold;">' +
-            buttonText + '</button></a>' + '</div>';
+        '<h4>' + title + ' watching ' + name + ' by ' + from + '</h4>' +
+        '<p>' + date + '</p>' +
+        '<a href="' + getLink(reference) + '">' +
+        '<button class="btn" style="border: #8C54A1 solid 1px; float: right;color:#8C54A1;font-weight: bold;">' +
+        buttonText + '</button></a>' + '</div>';
 }
 
 auth.onAuthStateChanged(user => {

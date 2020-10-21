@@ -1,7 +1,7 @@
 function signInUserWithEmail() {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    auth.signInWithEmailAndPassword(email, password).then(arg => {
+    auth.signInWithEmailAndPassword(email, password).then(ignored => {
         let user = firebase.auth().currentUser;
         if (user.emailVerified)
             window.location.replace("/dashboard");
@@ -14,15 +14,17 @@ function signInUserWithEmail() {
 
 function signInUserWithGoogle() {
     let provider = new firebase.auth.GoogleAuthProvider();
-    auth.signInWithPopup(provider).then(result => {
+    auth.signInWithPopup(provider).then(ignored => {
         window.location.replace("/dashboard");
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log(error.message);
     });
 }
 
 function createNewUser() {
-    auth.createUserWithEmailAndPassword(email, password).then(arg => {
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("pass").value;
+    auth.createUserWithEmailAndPassword(email, password).then(ignored => {
         let user = auth.currentUser;
         database.ref().child("users").child(user.uid).child("data").set({
             points: 100,
@@ -52,7 +54,7 @@ function forgotPassword() {
     firebase.auth().sendPasswordResetEmail(emailAddress).then(() => {
         window.location.replace("/login");
 
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.log(error.message);
     });
 }

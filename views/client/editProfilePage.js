@@ -14,8 +14,7 @@ function getUserName() {
 const profile_image = document.getElementById('profileImage');
 const profile_image_upload = document.getElementById('profile_image_upload');
 const getImage = document.getElementById('imageInput');
-profile_image.addEventListener('click', function (Evnent) {
-    console.log("asdads");
+profile_image.addEventListener('click', function (ignored) {
     $("#profile_image_upload").click();
 });
 profile_image_upload.addEventListener('change', function () {
@@ -67,7 +66,8 @@ function saveProfile() {
     user.updateProfile({
         displayName: updatedName
     }).catch(error => {
-        response.send("<h1>Firebase User Profile Cannot be updated</h1>");
+        console.log(error.message);
+        // response.send("<h1>Firebase User Profile Cannot be updated</h1>");
     });
 
     database.ref().child("users").child(user.uid).child("data").update({
@@ -79,7 +79,7 @@ function saveProfile() {
 
     let image = document.getElementById("profile_image_upload").files[0];
 
-    storage.ref().child("Profile Pictures").child(auth.currentUser.uid + ".jpg").put(image).then(snapshot => {
+    storage.ref().child("Profile Pictures").child(auth.currentUser.uid + ".jpg").put(image).then(ignored => {
         console.log('Uploaded a blob or file!');
         window.location.replace("/profile");
     }).catch(error => {

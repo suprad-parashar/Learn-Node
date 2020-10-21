@@ -12,9 +12,9 @@ function getUserName() {
 }
 
 function getFAQ(question, answer) {
-    return '<div class="accordion" style="background-color: #FFFFFF;border-radius: 0px;">' +
+    return '<div class="accordion" style="background-color: #FFFFFF;border-radius: 0;">' +
         '<button style="text-align: left;">' + question + '</button>' +
-        '<img class="dropdown" src="views/dashboard/images/icon/chevron-down-outline.svg" style="width: 25px;height: 25px;float: right;">' +
+        '<img class="dropdown" src="views/dashboard/images/icon/chevron-down-outline.svg" style="width: 25px;height: 25px;float: right;" alt="dropDown">' +
         '</div>' +
         '<div class="panel" style="padding: 20px;background-color: #AF87D4;">' +
         '<p style="color: white">' + answer + '</p>' +
@@ -47,7 +47,7 @@ auth.onAuthStateChanged(user => {
         // });
 
         let acc = document.getElementsByClassName("accordion");
-        let prev = -1;
+        // let prev = -1;
         for (let i = 0; i < acc.length; i++) {
             acc[i].addEventListener("click", function () {
                 this.classList.toggle("active");

@@ -15,7 +15,7 @@ function getCardHTML(domain, image) {
     return '<div class="col-md-4" onclick="location.href=' + "'/learn/" + domain + '">' +
         '<div class="card contain img-fluid au-card"  onMouseOver="this.style.opacity=0.8" onMouseOut="this.style.opacity=1"  style="padding:0; opacity: 1; height: 250px;cursor: pointer;border-radius: 15px;position:relative">' +
         '<img src="' + image + '" alt="Card image" class="image" style=" opacity: 1;display: block;width: 100%;height: 250px;transition: .5s ease;backface-visibility: hidden;">' +
-        '<div class="middle" onMouseOver="this.style.opacity=1" onMouseOut="this.style.opacity=0"style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">' +
+        '<div class="middle" onMouseOver="this.style.opacity=1" onMouseOut="this.style.opacity=0" style="  transition: .5s ease;opacity: 0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);text-align: center;">' +
         '<div class="text" style=" background-color: #fff;color:#8C54A1;font-size: 16px;padding: 28px 40px;">' +
         '<h2 style="font-weight:bold">' + domain + '</h2>' +
         '</div>' +
