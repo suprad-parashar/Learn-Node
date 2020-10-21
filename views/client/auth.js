@@ -5,10 +5,20 @@ function signInUserWithEmail() {
         let user = firebase.auth().currentUser;
         if (user.emailVerified)
             window.location.replace("/dashboard");
-        else
-            window.location.replace("/login");
-    }).catch(error => {
-        console.log(error.message);
+        else {
+            auth.signOut();
+            let alertBox = document.getElementById("alerts");
+            alertBox.innerHTML = "<div class=\"alert\">" +
+                "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>" +
+                "Please click on the verification link sent to your email" +
+                "</div>";
+        }
+    }).catch(ignored => {
+        let alertBox = document.getElementById("alerts");
+        alertBox.innerHTML = "<div class=\"alert\">" +
+            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>" +
+            "Invalid Credentials" +
+            "</div>";
     });
 }
 
@@ -40,20 +50,24 @@ function createNewUser() {
         });
         user.sendEmailVerification().then(() => {
             console.log("Verification Email Sent!");
-            window.location.replace("/login");
+            window.location.replace("/login?reg=true");
         }).catch(error => {
             console.log(error.message);
         });
     }).catch(error => {
         console.log(error.message);
+        let alertBox = document.getElementById("alerts");
+        alertBox.innerHTML = "<div class=\"alert\">" +
+            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>" +
+            "Email already registered. Please Login." +
+            "</div>";
     });
 }
 
 function forgotPassword() {
     let emailAddress = document.getElementById("email").value;
     firebase.auth().sendPasswordResetEmail(emailAddress).then(() => {
-        window.location.replace("/login");
-
+        window.location.replace("/login?reset=true");
     }).catch(function (error) {
         console.log(error.message);
     });

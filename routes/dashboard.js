@@ -26,7 +26,12 @@ router.get("/", (request, response) => {
     //     for (let i = n - 1; i >= n - 3; i--)
     //         data.push(snapshot.child(i.toString()).val());
     response.render(path.resolve('./views/html/dashboard'), {
-        activeName: "Dashboard"
+        activeName: "Dashboard",
+        // showMessage: true,
+        // messages: [{
+        //     type: "success",
+        //     message: "Testing the Message Feature"
+        // }]
     });
 });
 
