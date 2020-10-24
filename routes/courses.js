@@ -104,7 +104,15 @@ router.get("/:course", (request, response) => {
                         count += 1;
                     })
                     ratings.push(total / count);
-                })
+                });
+                let mailto = "mailto:learnhelp@googlegroups.com?" +
+                    "subject=" + "Add Resource to Learn" + "&" +
+                    "body=" + "Hey there,\n" +
+                    "I found this great resource which I want to share with the community.\n\n" +
+                    "URL: \n" +
+                    "Domain: \n" +
+                    "Branch: \n" +
+                    "Notes: ";
                 response.render(path.resolve('./views/html/coursePage'), {
                     // name: userName,
                     // email: user.email,
@@ -112,6 +120,7 @@ router.get("/:course", (request, response) => {
                     course: course,
                     // profilePic: picURL,
                     filter: snapshot,
+                    mailto: mailto,
                     rating: ratings,
                 });
             }).catch(function (error) {
