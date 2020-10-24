@@ -56,16 +56,22 @@
         <div class="page-container">
             <!-- Include Dashboard Header -->
             <%- include("../partials/dashboard_header.ejs") %>
-            <div class="main-content">q
+            <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
-                        <div style="display: flex;justify-content: center;  border-radius: 25px;">
+                        <div style="display: flex;justify-content:space-evenly; border-radius: 25px;">
                             <div class="col-md-6 col-lg-4 col-sm-12" style="justify-content: center">
                                 <img src="<%= filter.child("image").val() %>"
                                     style="height: 150px;border-radius:15px;box-shadow: 2px 2px 2px 2px #808080;">
                             </div>
-
                         </div>
+                        <br>
+                        <h5>Do you have some resource to add?</h5>
+                        <div class="col-md-2 col-lg-2 col-sm-8" style="height:max-content; width:100px ; border-radius: 5px;padding: 3px;">
+                            <a href=''><button class="btn" style="text-align: center;color: white;background-color: #8C54A1;">Add here</button></a>
+                        </div>
+
+                        <!-- </div> -->
                         <br>
                         <div class="col-md-12">
                             <% filter.forEach(child => { %>
