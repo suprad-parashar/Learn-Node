@@ -62,18 +62,25 @@ auth.onAuthStateChanged(user => {
         let parts = window.location.href.split("/");
         let index = parts[parts.length - 1];
         let course = parts[parts.length - 3];
-        database.ref().child("links").child(course).child("Videos").child(index).once("value").then(snapshot => {
+        let fcourse = course.replace(".", "Dot").replace("#", "Sharp").replace("%20", " ");
+        console.log(parts);
+        console.log(fcourse);
+        database.ref().child("links").child(fcourse).child("Videos").child(index).once("value").then(snapshot => {
+            console.log(snapshot.child("name").val());
             let reference = database.ref().child("users").child(user.uid).child("activity");
             reference.once("value").then(activity => {
                 let last = activity.numChildren();
                 let exists = false;
                 for (let i = 1; i < 3; i++) {
+                    console.log("Looop");
                     if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
                         exists = true;
                         break;
                     }
                 }
+                console.log(exists);
                 if (!exists) {
+                    console.log("Hello");
                     let date = new Date().toDateString().split(" ");
                     let dateString = date[2] + " " + date[1] + ", " + date[3];
                     reference.child(activity.numChildren().toString()).update({
@@ -88,7 +95,8 @@ auth.onAuthStateChanged(user => {
                         time: 0,
                         type: "VIDEO"
                     }).catch(error => {
-                        console.log(error.message);
+                        // console.log(error.message);
+                        console.log("Alpha");
                     });
                 }
             }).catch(error => {
