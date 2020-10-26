@@ -1,3 +1,15 @@
+function checkAgree() {
+    let checkBox = document.getElementById("check");
+    if (checkBox.checked) {
+        validatePassword()
+    } else {
+        let alertBox = document.getElementById("alerts");
+        alertBox.innerHTML = "<div class=\"alert\">" +
+            "<span class=\"closebtn\" onclick=\"this.parentElement.style.display='none';\">&times;</span>" +
+            "Please Agree to the Terms and Conditions and Privacy Policy." +
+            "</div>";
+    }
+}
 function validatePassword() {
     let form = document.getElementById("register-form");
     let password = document.getElementById("pass").value;

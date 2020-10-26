@@ -31,7 +31,7 @@
                     <div style="display: flex;">
                     <h3 style="font-weight: 900;margin-bottom: 7%;font-size: 20px;">Sign up to LEARN </h3><img src="/views/home/img/playstore.png" alt="Learn" style="height: 38px;width: 38px;margin-top:6%">
                     </div>
-                    <form class="register-form" id="register-form" action="javascript:validatePassword()">
+                    <form class="register-form" id="register-form" action="javascript:checkAgree()">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="name" id="name" placeholder="Enter Name" required/>
@@ -49,11 +49,9 @@
                             <input type="password" name="re_pass" id="re_pass" placeholder="Confirm password"
                                    required/>
                         </div>
-                        <div>
-                            <input type="checkbox" value="Hello" style="color: black">
-                            <label>
-<!--                                <input type="checkbox" value="Hello">-->
-                            </label>
+                        <div class="form-group">
+                            <input type="checkbox" name="agree-term" id="check" class="agree-term"/>
+                            <label for="check" class="label-agree-term"><span><span></span></span>I have read and agree to the <a href="https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Privacy%20Policies%20and%20T%26Cs%2FTC.html?alt=media&token=0ca0b178-1dca-4c2d-9440-07c5da1b96ae" target="_blank" class="term-service">Terms and Conditions</a> and <a href="https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Privacy%20Policies%20and%20T%26Cs%2FPP.html?alt=media&token=a9841668-2719-4cd6-a740-be0e6755b0a9" target="_blank" class="term-service">Privacy Policy</a></label>
                         </div>
                         <div class="form-group form-button">
                             <input type="submit" name="signup" id="signup" class="form-submit" value="Register" style="background-color:#8C54A1;"/>
