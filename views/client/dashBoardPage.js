@@ -56,6 +56,9 @@ auth.onAuthStateChanged(user => {
         activitiesDiv.innerHTML = "";
         database.ref().child("users").child(user.uid).child("activity").once("value").then(snapshot => {
             let n = snapshot.numChildren();
+            if (n == 0) {
+                activitiesDiv.innerHTML += "<h4>No Recent Activity</h4>";
+            }
             for (let i = n - 1; i >= n - 3; i--) {
                 let done = snapshot.child(i.toString()).child("done").val();
                 let name = snapshot.child(i.toString()).child("name").val();
