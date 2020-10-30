@@ -19,19 +19,18 @@ router.get("/", (request, response) => {
     // let user = firebase.auth().currentUser;
     // let userName = user.displayName;
     // let picURL = "https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Profile%20Pictures%2F" + user.uid + '.jpg?alt=media';
-    let random= "";
-    // database.ref().child("users").child(user.uid).child("activity").once('value').then(function (snapshot) {
-    //     let n = snapshot.numChildren();
-    //     const data = [];
-    //     for (let i = n - 1; i >= n - 3; i--)
-    //         data.push(snapshot.child(i.toString()).val());
-    response.render(path.resolve('./views/html/dashboard'), {
-        activeName: "Dashboard",
-        // showMessage: true,
-        // messages: [{
-        //     type: "success",
-        //     message: "Testing the Message Feature"
-        // }]
+    database.ref().child("links").child("Random").once('value').then(function (snapshot) {
+        let n = snapshot.numChildren();
+        let random = Math.floor(Math.random() * n).toString();
+        response.render(path.resolve('./views/html/dashboard'), {
+            activeName: "Dashboard",
+            random: random
+            // showMessage: true,
+            // messages: [{
+            //     type: "success",
+            //     message: "Testing the Message Feature"
+            // }]
+        });
     });
 });
 

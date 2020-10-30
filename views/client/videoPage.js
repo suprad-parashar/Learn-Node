@@ -60,49 +60,93 @@ auth.onAuthStateChanged(user => {
         }
 
         let parts = window.location.href.split("/");
+        console.log(parts)
         let index = parts[parts.length - 1];
         let course = parts[parts.length - 3];
         let fcourse = course.replace(".", "Dot").replace("#", "Sharp").replace("%20", " ");
-        console.log(parts);
-        console.log(fcourse);
-        database.ref().child("links").child(fcourse).child("Videos").child(index).once("value").then(snapshot => {
-            console.log(snapshot.child("name").val());
-            let reference = database.ref().child("users").child(user.uid).child("activity");
-            reference.once("value").then(activity => {
-                let last = activity.numChildren();
-                let exists = false;
-                for (let i = 1; i < 3; i++) {
-                    console.log("Looop");
-                    if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
-                        exists = true;
-                        break;
+        if (fcourse === "Random") {
+            database.ref().child("links").child("Random").child(index).once("value").then(snapshot => {
+                console.log(snapshot.child("name").val());
+                let reference = database.ref().child("users").child(user.uid).child("activity");
+                reference.once("value").then(activity => {
+                    let last = activity.numChildren();
+                    let exists = false;
+                    for (let i = 1; i < 3; i++) {
+                        console.log("Looop");
+                        if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
+                            exists = true;
+                            break;
+                        }
                     }
-                }
-                console.log(exists);
-                if (!exists) {
-                    console.log("Hello");
-                    let date = new Date().toDateString().split(" ");
-                    let dateString = date[2] + " " + date[1] + ", " + date[3];
-                    reference.child(activity.numChildren().toString()).update({
-                        date: dateString,
-                        done: false,
-                        from: snapshot.child("from").val(),
-                        index: 0,
-                        link: snapshot.child("link").val(),
-                        name: snapshot.child("name").val(),
-                        playlist: snapshot.child("playlist").val(),
-                        reference: snapshot.ref.toString(),
-                        time: 0,
-                        type: "VIDEO"
-                    }).catch(error => {
-                        // console.log(error.message);
-                        console.log("Alpha");
-                    });
-                }
+                    console.log(exists);
+                    if (!exists) {
+                        console.log("Hello");
+                        let date = new Date().toDateString().split(" ");
+                        let dateString = date[2] + " " + date[1] + ", " + date[3];
+                        reference.child(activity.numChildren().toString()).update({
+                            date: dateString,
+                            done: false,
+                            from: snapshot.child("from").val(),
+                            index: 0,
+                            link: snapshot.child("link").val(),
+                            name: snapshot.child("name").val(),
+                            playlist: snapshot.child("playlist").val(),
+                            reference: snapshot.ref.toString(),
+                            time: 0,
+                            type: "VIDEO"
+                        }).catch(error => {
+                            // console.log(error.message);
+                            console.log("Alpha");
+                        });
+                    }
+                }).catch(error => {
+                    console.log(error.message)
+                });
             }).catch(error => {
-                console.log(error.message)
+                console.log(error.message);
             });
-        });
+        } else {
+            database.ref().child("links").child(fcourse).child("Videos").child(index).once("value").then(snapshot => {
+                console.log(snapshot.child("name").val());
+                let reference = database.ref().child("users").child(user.uid).child("activity");
+                reference.once("value").then(activity => {
+                    let last = activity.numChildren();
+                    let exists = false;
+                    for (let i = 1; i < 3; i++) {
+                        console.log("Looop");
+                        if (activity.child((last - i).toString()).child("name").val() === snapshot.child("name").val()) {
+                            exists = true;
+                            break;
+                        }
+                    }
+                    console.log(exists);
+                    if (!exists) {
+                        console.log("Hello");
+                        let date = new Date().toDateString().split(" ");
+                        let dateString = date[2] + " " + date[1] + ", " + date[3];
+                        reference.child(activity.numChildren().toString()).update({
+                            date: dateString,
+                            done: false,
+                            from: snapshot.child("from").val(),
+                            index: 0,
+                            link: snapshot.child("link").val(),
+                            name: snapshot.child("name").val(),
+                            playlist: snapshot.child("playlist").val(),
+                            reference: snapshot.ref.toString(),
+                            time: 0,
+                            type: "VIDEO"
+                        }).catch(error => {
+                            // console.log(error.message);
+                            console.log("Alpha");
+                        });
+                    }
+                }).catch(error => {
+                    console.log(error.message)
+                });
+            }).catch(error => {
+                console.log(error.message);
+            });
+        }
 
         // let reference = database.ref().child("users").child(user.uid).child("activity");
         // reference.once("value").then(activity => {
