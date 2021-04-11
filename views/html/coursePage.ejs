@@ -111,8 +111,6 @@
                                             </div>
                                             <div class="col-sm-3 col-md-4" >
                                             <div style="display:flex;flex-direction:column;float: right;">
-                                                <a href="<%= course %>/video/<%= resource.key %>">
-
                                                 <div style="border-radius: 5px;text-align: center;
                                                     color: white;background-color: #8C54A1;padding: 2px;"><%= child.key.slice(0, -1) %></div>
                                                     <% let total = 0; %>
@@ -123,8 +121,6 @@
                                                         <% }); %>
                                                         <br>
                                                         <h5>Rating : <%= (total / count).toFixed(1) %> / 5</h5>
-
-                                                </a>
                                             </div>
                                             </div>
                                         </div>
