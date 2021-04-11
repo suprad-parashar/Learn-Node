@@ -11,6 +11,7 @@ function getUserName() {
     return auth.currentUser.displayName;
 }
 
+let hasImageChanged = false;
 const profile_image = document.getElementById('profileImage');
 const profile_image_upload = document.getElementById('profile_image_upload');
 const getImage = document.getElementById('imageInput');
@@ -26,6 +27,8 @@ function fasterPreview(uploader) {
     if (uploader.files && uploader.files[0]) {
         console.log(document.querySelector('#profile_image_upload').files[0]);
         profile_image.src = window.URL.createObjectURL(uploader.files[0]);
+        console.log(profile_image.src);
+        hasImageChanged = true;
     }
 }
 
@@ -56,6 +59,7 @@ auth.onAuthStateChanged(user => {
 });
 
 function saveProfile() {
+    // alert("Hello");
     let user = firebase.auth().currentUser;
     let updatedName = document.getElementById("name").value;
     let updatedInstitution = document.getElementById("institution").value;
@@ -77,14 +81,18 @@ function saveProfile() {
             console.log(a);
     });
 
-    let image = document.getElementById("profile_image_upload").files[0];
+    if (hasImageChanged) {
+        let image = document.getElementById("profile_image_upload").files[0];
 
-    storage.ref().child("Profile Pictures").child(auth.currentUser.uid + ".jpg").put(image).then(ignored => {
-        console.log('Uploaded a blob or file!');
+        storage.ref().child("Profile Pictures").child(auth.currentUser.uid + ".jpg").put(image).then(ignored => {
+            console.log('Uploaded a blob or file!');
+            window.location.replace("/profile");
+        }).catch(error => {
+            console.log(error.message);
+        });
+    } else {
         window.location.replace("/profile");
-    }).catch(error => {
-        console.log(error.message);
-    });
+    }
 
     // storage.ref().child('Profile Pictures').child(user.uid + '.jpg').put(path.resolve("../home/img/dummy_profile_picture.jpeg")).then(snapshot => snapshot.ref.getDownloadURL()).then(url =>{
     //     console.log(url);
