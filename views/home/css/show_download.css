@@ -1,0 +1,8 @@
+#show_download {
+    display: none;
+}
+@media (max-width: 767px) {
+    #show_download {
+        display: block;
+    }
+}

@@ -46,19 +46,19 @@
                         <div class="au-card m-b-10" style="padding: 15px; background-color: #8C54A1">
                             <div class="profileImage">
                                 <div class="image img-cir img-120" style="padding: 0px;">
-                                    <img src="<%= profilePic %>" alt="<%= name %>" onerror="this.src = '../views/home/img/dummy_profile_picture.jpeg'"/>
+                                    <img class="profilePicImages" style="border-radius:50%;height: 120px;width: 120px" onerror="this.src = '../views/home/img/dummy_profile_picture.jpeg'"/>
                                 </div>
                             </div>
                             <div class="au-card-inner" style="margin-left: 15px;">
-                                <h3 class="title-1 m-b-5" style="color: white"><%= name %></h3>
-                                <h6 class="email" style="color: white"><%= email %></h6>
+                                <h3 class="title-1 m-b-5" style="color: white" id="userNameHeading"></h3>
+                                <h6 class="email" style="color: white" id="emailHeading"></h6>
                             </div>
                         </div>
                         <br>
                         <div class="au-card m-b-30">
                             <div class="au-card-inner">
                                 <h4 class="title-0">Institution</h4>
-                                <h6 class="title-5"><%= institution %></h6>
+                                <h6 class="title-5" id="institutionHeading"></h6>
                                 <hr>
                                 <a href="/profile/edit">
                                     <button class="au-btn au-btn-icon au-btn--blue" style="background-color: #8C54A1; margin: 5px;">
@@ -80,6 +80,13 @@
 </div>
 
 <!-- JS -->
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+<script type="text/javascript" src="/views/client/firebase.js"></script>
+<script type="text/javascript" src="/views/client/profilePage.js"></script>
+
 <script src="views/dashboard/vendor/jquery-3.2.1.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/popper.min.js"></script>
 <script src="views/dashboard/vendor/bootstrap-4.1/bootstrap.min.js"></script>

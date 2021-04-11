@@ -15,5 +15,12 @@
     <orderEntry type="library" name="firebase-firestore" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
     <orderEntry type="library" name="firebase-analytics" level="application" />
+    <orderEntry type="library" name="firebase-app" level="application" />
+    <orderEntry type="library" name="firebase-auth" level="application" />
+    <orderEntry type="library" name="firebase-database" level="application" />
+    <orderEntry type="library" name="firebase-storage" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="all" level="application" />
   </component>
 </module>

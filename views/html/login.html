@@ -15,7 +15,7 @@
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
     <link rel="stylesheet" href="views/auth/css/style.min.css">
-
+    <link href="views/client/infoAlert.css" rel="stylesheet" media="all">
     <link rel="stylesheet" href="/views/home/css/bootstrap.min.css">
     <link rel="stylesheet" href="/views/home/css/owl.carousel.min.css">
     <link rel="stylesheet" href="/views/home/css/magnific-popup.min.css">
@@ -28,33 +28,14 @@
     <link rel="stylesheet" href="/views/home/css/slick.min.css">
     <link rel="stylesheet" href="/views/home/css/slicknav.min.css">
     <link rel="stylesheet" href="/views/home/css/style.min.css">
+    <link rel="stylesheet" href="/views/home/css/show_download.css">
 </head>
 
 <body>
-    <!-- <header>
-    <div class="header-area ">
-        <div id="sticky-header" class="main-header-area">
-            <div class="container-fluid p-0">
-                <div class="row align-items-center no-gutters">
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo-img">
-                            <a href="/" style="color: black;font-size: 30px"> -->
-    <!-- must add learn logo with name -->
-    <!-- <img src="/views/home/img/playstore.png" alt="Learn" style="height: 52px;width: 52px;">Learn -->
-    <!-- <h3 style="color: white">Learn</h3> -->
-    <!-- </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header> -->
-    <!-- TODO: Do CSS. Make it Beautiful. -->
     <div class="main slider_area">
         <section class="sign-in">
             <div class="container">
-
+                <div id="alerts"></div>
                 <div class="signin-content">
                     <a href="/">
                         <div style="display: flex;justify-content: center;margin-top: -40px;margin-left: 25px;">
@@ -73,7 +54,7 @@
 
                     <div class="signin-form">
                         <h2 class="form-title">Login to LEARN</h2>
-                        <form method="POST" class="register-form" id="login-form" action="/login">
+                        <form method="POST" class="register-form" id="login-form" action="javascript:signInUserWithEmail()">
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
                                 <input type="email" name="email" id="email" placeholder="Email" required>
@@ -86,22 +67,16 @@
                             <div class="form-group form-button">
                                 <input type="submit" id="signin" class="form-submit" value="Log in"
                                     style="background-color:#8C54A1;" />
-
                             </div>
                         </form>
                         <p></p>
-<!--                         <div class="social-login"> -->
-                            <!-- <h4><span class="social-label">Or login with</span></h4>-->
-<!--                             <ul class="socials"> -->
-                                <!-- <li><a href="/login/google"><i class="display-flex-center zmdi zmdi-google"></i></a>
-                                </li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-apple"></i></a></li> -->
-                                <!-- <li> -->
-<!--                                 <li>
+                        <div class="social-login">
+                            <ul class="socials">
+                                <li>
                                     <div class="col s1 m1 offset-m2 center-align"
                                         style="border: black 1px solid;border-radius: 5px;align-content: center;;margin-right: 15px;">
                                         <a class="oauth-container btn darken-4 white black-text"
-                                            href="javascript:signInWithGoogle()" style="text-transform:none">
+                                            href="javascript:signInUserWithGoogle()" style="text-transform:none">
                                             <div class="left">
                                                 <img width="20px" alt="Google sign-in"
                                                     style="float: left;margin-right:10px;margin-top: 2px;"
@@ -110,9 +85,12 @@
                                             Login with Google
                                         </a>
                                     </div>
-                                </li> -->
-<!--                             </ul> -->
-<!--                         </div> -->
+                                </li>
+                            </ul>
+                        </div>
+                        <a id="show_download" style="text-decoration: underline; text-align: center" href="https://firebasestorage.googleapis.com/v0/b/learn-634be.appspot.com/o/Learn%201.0.0.apk?alt=media&token=5cf6681e-40c0-4cce-9575-6338cf89380c" target="_blank">
+                            Download the Android App for a better experience!
+                        </a>
                     </div>
                 </div>
             </div>
@@ -120,41 +98,14 @@
     </div>
 
     <!-- JS -->
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-firestore.js"></script>
-    <script>
-        function signInWithGoogle() {
-            const firebaseConfig = {
-                apiKey: "AIzaSyBasifU1_o2rfiptyJEA7GRoXszwySbHek",
-                authDomain: "learn-634be.firebaseapp.com",
-                databaseURL: "https://learn-634be.firebaseio.com",
-                projectId: "learn-634be",
-                storageBucket: "learn-634be.appspot.com",
-                messagingSenderId: "172846432484",
-                appId: "1:172846432484:web:d0ae995eeef4323f0fecf1",
-                measurementId: "G-0W9LD4N2GM"
-            };
-            firebase.initializeApp(firebaseConfig);
-            let provider = new firebase.auth.GoogleAuthProvider();
-            console.log("LOCATION: " + location.protocol);
-            firebase.auth().signInWithPopup(provider).then(function (result) {
-                const token = result.credential.accessToken;
-                const user = result.user;
-                console.log(user.uid);
-                window.location.href = "/dashboard";
-                console.log("YESSSSSSSSSSSSSSSSSSSS");
-            }).catch(function (error) {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                const email = error.email;
-                const credential = error.credential;
-                console.log("Alpha");
-                console.log(errorCode + ": " + email + " " + errorMessage);
-            });
-        }
-    </script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.23.0/firebase-storage.js"></script>
+    <script type="text/javascript" src="/views/client/firebase.js"></script>
+    <script type="text/javascript" src="/views/client/loginPage.js"></script>
+    <script type="text/javascript" src="/views/client/auth.js"></script>
+    <script type="text/javascript" src="/views/client/infoAlert.js"></script>
 
     <script src="views/auth/vendor/jquery/jquery.min.js"></script>
     <script src="views/auth/js/main.js"></script>
