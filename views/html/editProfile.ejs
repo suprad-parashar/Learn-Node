@@ -47,14 +47,14 @@
               <div class="card-body card-block">
                 <form method="post" action="javascript:saveProfile()">
                   <div class="account2">
-                    <div class="image img-cir img-200" id="profile-image-div">
+                    <div class="image img-cir img-200" id="profile-image-div" >
                       <input type="file" id="imageInput" name="imageInput" style="display: none;">
                       <img class="profilePicImages" id="profileImage"
-                           name="profileImageName" />
+                           name="profileImageName" style="border-radius:50%;height: 200px"/>
                       <input id="profile_image_upload" type="file" name="profile_image_upload"
                              placeholder="Photo" style="display: none;" capture>
                     </div>
-                    <p onclick='$("#profile_image_upload").click();'>Change Photo</p>
+                    <p onclick='$("#profile_image_upload").click();'>Change Profile Picture</p>
                   </div>
                   <div class="form-group">
                     <label for="name" class=" form-control-label">Name</label>
